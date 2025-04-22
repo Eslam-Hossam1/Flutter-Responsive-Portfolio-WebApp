@@ -14,7 +14,8 @@ class HoverableImageContainer extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<HoverableImageContainer> createState() => _HoverableImageContainerState();
+  State<HoverableImageContainer> createState() =>
+      _HoverableImageContainerState();
 }
 
 class _HoverableImageContainerState extends State<HoverableImageContainer> {
@@ -33,34 +34,43 @@ class _HoverableImageContainerState extends State<HoverableImageContainer> {
             Container(
               height: widget.height,
               width: widget.width,
+              padding: const EdgeInsets.all(3),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.black,
+                borderRadius: BorderRadius.circular(12),
+                gradient: const LinearGradient(
+                  colors: [Colors.pinkAccent, Colors.blue],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                //    color: Colors.black,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.pink.withOpacity(0.08),
+                    color: Colors.pink.withOpacity(0.5),
                     offset: const Offset(-2, 0),
                     blurRadius: 10,
                   ),
                   BoxShadow(
-                    color: Colors.blue.withOpacity(0.08),
+                    color: Colors.blue.withOpacity(0.5),
                     offset: const Offset(2, 0),
                     blurRadius: 10,
                   ),
                 ],
               ),
-              clipBehavior: Clip.hardEdge,
-              child: Image.network(
-                widget.imageUrl,
-                fit: BoxFit.cover,
-                height: widget.height,
-                width: widget.width,
-                loadingBuilder: (context, child, progress) {
-                  if (progress == null) return child;
-                  return const Center(child: CircularProgressIndicator());
-                },
-                errorBuilder: (context, error, stackTrace) =>
-                    const Center(child: Icon(Icons.broken_image, color: Colors.white38)),
+              // clipBehavior: Clip.hardEdge,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.network(
+                  widget.imageUrl,
+                  fit: BoxFit.cover,
+                  height: widget.height,
+                  width: widget.width,
+                  loadingBuilder: (context, child, progress) {
+                    if (progress == null) return child;
+                    return const Center(child: CircularProgressIndicator());
+                  },
+                  errorBuilder: (context, error, stackTrace) => const Center(
+                      child: Icon(Icons.broken_image, color: Colors.white38)),
+                ),
               ),
             ),
             if (_isHovered)

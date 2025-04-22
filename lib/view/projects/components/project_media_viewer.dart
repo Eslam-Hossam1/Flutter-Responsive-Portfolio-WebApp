@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
@@ -60,17 +62,26 @@ class ProjectMediaViewer extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constraints) {
             final width = constraints.maxWidth;
-            final isDesktop = width >= 900;
-            final isTablet = width >= 600 && width < 900;
-            final isMobile = width < 600;
-            final gridCrossAxisCount = isDesktop ? 3 : (isTablet ? 3 : 3);
+            log(width.toString());
+            final isDesktop = width >= 1000;
+            final isTablet = width >= 700 && width < 1000;
+            final isBigMobile = width >= 600 && width < 700;
+            final isMobile = width < 700;
+            final gridCrossAxisCount = isDesktop
+                ? 3
+                : (isTablet
+                    ? 2
+                    : isBigMobile
+                        ? 7
+                        : 5);
             return CustomScrollView(
               slivers: [
                 SliverFillRemaining(
                   hasScrollBody: false,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 16),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: isBigMobile ? 48 : 24,
+                        vertical: isBigMobile ? 36 : 16),
                     child: (isDesktop || isTablet)
                         ? SizedBox(
                             height: 400,
