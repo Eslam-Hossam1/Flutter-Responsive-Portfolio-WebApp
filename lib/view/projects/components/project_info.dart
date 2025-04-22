@@ -25,10 +25,14 @@ class _ProjectStackState extends State<ProjectStack> {
         controller.onHover(widget.index, value);
       },
       onTap: () {
-        ProjectMediaViewer(
+        Navigator.push(
           context,
-          projectList[widget.index].images,
-          projectList[widget.index].videos,
+          MaterialPageRoute(
+            builder: (context) => ProjectMediaViewer(
+              images: projectList[widget.index].images,
+              videos: projectList[widget.index].videos,
+            ),
+          ),
         );
       },
       borderRadius: BorderRadius.circular(30),
