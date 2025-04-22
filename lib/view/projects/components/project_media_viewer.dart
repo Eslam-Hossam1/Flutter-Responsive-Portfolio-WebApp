@@ -79,26 +79,8 @@ class ProjectMediaViewer extends StatelessWidget {
                               children: [
                                 Expanded(
                                   flex: 3,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(24),
-                                      gradient: const LinearGradient(
-                                        colors: [Colors.pinkAccent, Colors.blue],
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                      ),
-                                    ),
-                                    padding: const EdgeInsets.all(4),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Colors.black,
-                                      ),
-                                      child: VideoGallery(
-                                        videos: ProjectMediaViewer.testVideos,
-                                      ),
-                                    ),
-                                  ),
+                                  child: VideoGalleryWithGradientContainer(
+                                      testVideos: testVideos),
                                 ),
                                 const SizedBox(width: 32),
                                 Expanded(
@@ -122,8 +104,8 @@ class ProjectMediaViewer extends StatelessWidget {
                               const SizedBox(height: 32),
                               SizedBox(
                                 height: 220,
-                                child: VideoGallery(
-                                    videos: ProjectMediaViewer.testVideos),
+                                child: VideoGalleryWithGradientContainer(
+                                    testVideos: testVideos),
                               ),
                               const SizedBox(height: 24),
                               SizedBox(
@@ -140,6 +122,43 @@ class ProjectMediaViewer extends StatelessWidget {
               ],
             );
           },
+        ),
+      ),
+    );
+  }
+}
+
+class VideoGalleryWithGradientContainer extends StatelessWidget {
+  const VideoGalleryWithGradientContainer({
+    super.key,
+    required this.testVideos,
+  });
+
+  final List<String> testVideos;
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 2 / 1,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(24),
+          gradient: const LinearGradient(
+            colors: [Colors.pinkAccent, Colors.blue],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        padding: const EdgeInsets.all(4),
+        child: Container(
+          clipBehavior: Clip.hardEdge,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.black,
+          ),
+          child: VideoGallery(
+            videos: ProjectMediaViewer.testVideos,
+          ),
         ),
       ),
     );
