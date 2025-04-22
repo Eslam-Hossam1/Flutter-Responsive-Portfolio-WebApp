@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'package:photo_view/photo_view.dart';
+import 'animated_gradient_image_container.dart';
+import 'hoverable_image_container.dart';
 
 class ProjectMediaViewer extends StatelessWidget {
   final String name;
@@ -55,76 +57,89 @@ class ProjectMediaViewer extends StatelessWidget {
         centerTitle: true,
       ),
       body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            // Project Description
-            SliverToBoxAdapter(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                child: Column(
-                  children: [
-                    Text(
-                      description,
-                      style:
-                          const TextStyle(fontSize: 18, color: Colors.white70),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 32,
-                    ),
-                    SizedBox(
-                      height: 300,
-                      width: 300,
-                      child:
-                          ImageGallery(images: ProjectMediaViewer.testImages),
-                    ),
-                    SizedBox(
-                      height: 300,
-                      width: 300,
-                      child:
-                          VideoGallery(videos: ProjectMediaViewer.testVideos),
-                    ),
-                  ],
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _HoverableImage extends StatefulWidget {
-  final String imageUrl;
-  final VoidCallback onTap;
-  const _HoverableImage({required this.imageUrl, required this.onTap});
-  @override
-  State<_HoverableImage> createState() => _HoverableImageState();
-}
-
-class _HoverableImageState extends State<_HoverableImage> {
-  bool _isHovered = false;
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => setState(() => _isHovered = true),
-      onExit: (_) => setState(() => _isHovered = false),
-      child: GestureDetector(
-        onTap: widget.onTap,
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            Image.network(
-              widget.imageUrl,
-              fit: BoxFit.cover,
-            ),
-            if (_isHovered)
-              Container(
-                color: Colors.black.withOpacity(0.4),
-              ),
-          ],
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final width = constraints.maxWidth;
+            final isDesktop = width >= 900;
+            final isTablet = width >= 600 && width < 900;
+            final isMobile = width < 600;
+            final gridCrossAxisCount = isDesktop ? 3 : (isTablet ? 3 : 3);
+            return CustomScrollView(
+              slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 16),
+                    child: (isDesktop || isTablet)
+                        ? SizedBox(
+                            height: 400,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(24),
+                                      gradient: const LinearGradient(
+                                        colors: [Colors.pinkAccent, Colors.blue],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
+                                    ),
+                                    padding: const EdgeInsets.all(4),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: Colors.black,
+                                      ),
+                                      child: VideoGallery(
+                                        videos: ProjectMediaViewer.testVideos,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: 32),
+                                Expanded(
+                                  flex: 1,
+                                  child: ImageGallery(
+                                    images: ProjectMediaViewer.testImages,
+                                    crossAxisCount: isTablet ? 2 : 3,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        : Column(
+                            children: [
+                              Text(
+                                description,
+                                style: const TextStyle(
+                                    fontSize: 18, color: Colors.white70),
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 32),
+                              SizedBox(
+                                height: 220,
+                                child: VideoGallery(
+                                    videos: ProjectMediaViewer.testVideos),
+                              ),
+                              const SizedBox(height: 24),
+                              SizedBox(
+                                height: isMobile ? 350 : 220,
+                                child: ImageGallery(
+                                  images: ProjectMediaViewer.testImages,
+                                  crossAxisCount: gridCrossAxisCount,
+                                ),
+                              ),
+                            ],
+                          ),
+                  ),
+                )
+              ],
+            );
+          },
         ),
       ),
     );
@@ -133,20 +148,21 @@ class _HoverableImageState extends State<_HoverableImage> {
 
 class ImageGallery extends StatelessWidget {
   final List<String> images;
-  const ImageGallery({required this.images});
+  final int crossAxisCount;
+  const ImageGallery({required this.images, this.crossAxisCount = 3});
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 16,
         childAspectRatio: 1,
       ),
       itemCount: images.length,
       itemBuilder: (context, index) {
-        return _HoverableImage(
+        return HoverableImageContainer(
           imageUrl: images[index],
           onTap: () {
             showDialog(
@@ -157,10 +173,12 @@ class ImageGallery extends StatelessWidget {
               ),
             );
           },
+          height: 120,
+          width: 120,
         );
       },
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
     );
   }
 }
