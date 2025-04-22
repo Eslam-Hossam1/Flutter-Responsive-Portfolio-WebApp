@@ -29,6 +29,8 @@ class _ProjectStackState extends State<ProjectStack> {
           context,
           MaterialPageRoute(
             builder: (context) => ProjectMediaViewer(
+              name: projectList[widget.index].name,
+              description: projectList[widget.index].description,
               images: projectList[widget.index].images,
               videos: projectList[widget.index].videos,
             ),
