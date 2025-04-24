@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+
 import 'media_viewer_desktop.dart';
 import 'media_viewer_mobile.dart';
 
@@ -62,8 +61,6 @@ class ProjectMediaViewer extends StatelessWidget {
             final isDesktop = width >= 1000 && width < 1300;
             final isTablet = width >= 700 && width < 1000;
             final isBigMobile = width >= 600 && width < 700;
-            log('width $width');
-
             final gridCrossAxisCount = isDesktop
                 ? 3
                 : (isTablet
@@ -85,6 +82,7 @@ class ProjectMediaViewer extends StatelessWidget {
                           verticalPadding: isBigDesktop ? 36 : 16,
                         )
                       : ProjectMediaMobileLayout(
+                          name: name,
                           description: description,
                           images: testImages,
                           videos: testVideos,
