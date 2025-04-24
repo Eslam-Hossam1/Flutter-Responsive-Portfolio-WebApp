@@ -6,12 +6,13 @@ import 'package:chewie/chewie.dart';
 
 class VideoGalleryWithGradientContainer extends StatelessWidget {
   final List<String> videos;
-  const VideoGalleryWithGradientContainer({required this.videos, Key? key}) : super(key: key);
+  const VideoGalleryWithGradientContainer({required this.videos, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 2 / 1,
+      aspectRatio: 16 / 9,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
@@ -38,7 +39,8 @@ class VideoGalleryWithGradientContainer extends StatelessWidget {
 class ImageGallery extends StatelessWidget {
   final List<String> images;
   final int crossAxisCount;
-  const ImageGallery({required this.images, this.crossAxisCount = 3, Key? key}) : super(key: key);
+  const ImageGallery({required this.images, this.crossAxisCount = 3, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +77,9 @@ class ImageGallery extends StatelessWidget {
 class ImageGalleryDialog extends StatefulWidget {
   final List<String> images;
   final int initialIndex;
-  const ImageGalleryDialog({required this.images, required this.initialIndex, Key? key}) : super(key: key);
+  const ImageGalleryDialog(
+      {required this.images, required this.initialIndex, Key? key})
+      : super(key: key);
   @override
   State<ImageGalleryDialog> createState() => _ImageGalleryDialogState();
 }
@@ -164,7 +168,8 @@ class VideoGallery extends StatelessWidget {
 
 class _VideoPlayerWidget extends StatefulWidget {
   final String videoPath;
-  const _VideoPlayerWidget({required this.videoPath, Key? key}) : super(key: key);
+  const _VideoPlayerWidget({required this.videoPath, Key? key})
+      : super(key: key);
   @override
   State<_VideoPlayerWidget> createState() => _VideoPlayerWidgetState();
 }

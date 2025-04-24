@@ -33,7 +33,7 @@ class ProjectMediaMobileLayout extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 32),
+          const SizedBox(height: 16),
           SizedBox(
             height: 220,
             child: VideoGalleryWithGradientContainer(videos: videos),

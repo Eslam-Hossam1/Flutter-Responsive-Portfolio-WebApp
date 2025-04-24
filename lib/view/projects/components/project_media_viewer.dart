@@ -44,7 +44,13 @@ class ProjectMediaViewer extends StatelessWidget {
       appBar: AppBar(
         surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
+        leading: MediaQuery.sizeOf(context).width < 1000
+            ? IconButton(
+                icon: const Icon(Icons.arrow_back, color: Colors.white),
+                onPressed: () => Navigator.pop(context),
+              )
+            : null,
+        automaticallyImplyLeading: MediaQuery.sizeOf(context).width < 1000,
         elevation: 0,
         title: Text(
           name,
@@ -59,15 +65,15 @@ class ProjectMediaViewer extends StatelessWidget {
             final width = constraints.maxWidth;
             final isBigDesktop = width >= 1300;
             final isDesktop = width >= 1000 && width < 1300;
-            final isTablet = width >= 700 && width < 1000;
-            final isBigMobile = width >= 600 && width < 700;
+            final isTablet = width >= 600 && width < 1000;
+            final isBigMobile = width >= 500 && width < 600;
             final gridCrossAxisCount = isDesktop
                 ? 3
                 : (isTablet
                     ? 2
                     : isBigMobile
-                        ? 7
-                        : 5);
+                        ? 6
+                        : 4);
             return CustomScrollView(
               slivers: [
                 SliverToBoxAdapter(
@@ -88,7 +94,7 @@ class ProjectMediaViewer extends StatelessWidget {
                           videos: testVideos,
                           gridCrossAxisCount: gridCrossAxisCount,
                           isMobile: width < 700,
-                          horizontalPadding: isBigMobile ? 48 : 24,
+                          horizontalPadding: isBigMobile ? width * .05 : 24,
                           verticalPadding: isBigMobile ? 36 : 16,
                         ),
                 )
