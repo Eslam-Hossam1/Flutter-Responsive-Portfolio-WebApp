@@ -49,7 +49,7 @@ List<CertificateModel> certificateList = [
   ),
   CertificateModel(
     name: 'Flutter Payment Integration: Stripe, PayPal & More!',
-    organization: 'LinkedIn',
+    organization: 'Udemy',
     date: 'April 2025',
     skills: 'Payment Integration',
     credential:

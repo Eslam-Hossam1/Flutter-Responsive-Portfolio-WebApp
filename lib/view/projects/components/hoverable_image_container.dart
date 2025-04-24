@@ -78,7 +78,7 @@ class _HoverableImageContainerState extends State<HoverableImageContainer> {
                 height: widget.height,
                 width: widget.width,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(12),
                   color: Colors.black.withOpacity(0.45),
                 ),
               ),

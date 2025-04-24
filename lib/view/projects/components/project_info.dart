@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../../model/project_model.dart';
 import '../../../res/constants.dart';
 import '../../../view model/getx_controllers/projects_controller.dart';
-import 'image_viewer.dart';
+import 'project_media_widgets.dart';
 
 class ProjectStack extends StatefulWidget {
   final int index;
@@ -39,7 +39,8 @@ class _ProjectStackState extends State<ProjectStack> {
       },
       borderRadius: BorderRadius.circular(30),
       child: AnimatedContainer(
-        padding: const EdgeInsets.only(left: defaultPadding, right: defaultPadding, top: defaultPadding),
+        padding: const EdgeInsets.only(
+            left: defaultPadding, right: defaultPadding, top: defaultPadding),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: bgColor,
@@ -66,7 +67,8 @@ class _ProjectStackState extends State<ProjectStack> {
 class ProjectMediaGallery extends StatelessWidget {
   final List<String> images;
   final List<String> videos;
-  const ProjectMediaGallery({super.key, required this.images, required this.videos});
+  const ProjectMediaGallery(
+      {super.key, required this.images, required this.videos});
 
   @override
   Widget build(BuildContext context) {
@@ -95,18 +97,18 @@ class ProjectMediaGallery extends StatelessWidget {
                 labelColor: theme.colorScheme.secondary,
                 unselectedLabelColor: theme.textTheme.bodyMedium!.color,
                 tabs: [
-                  if (images.isNotEmpty) const Tab(icon: Icon(Icons.image), text: 'Images'),
-                  if (videos.isNotEmpty) const Tab(icon: Icon(Icons.videocam), text: 'Videos'),
+                  if (images.isNotEmpty)
+                    const Tab(icon: Icon(Icons.image), text: 'Images'),
+                  if (videos.isNotEmpty)
+                    const Tab(icon: Icon(Icons.videocam), text: 'Videos'),
                 ],
               ),
             Flexible(
               fit: FlexFit.loose,
               child: TabBarView(
                 children: [
-                  if (images.isNotEmpty)
-                    ImageGallery(images: images),
-                  if (videos.isNotEmpty)
-                    VideoGallery(videos: videos),
+                  if (images.isNotEmpty) ImageGallery(images: images),
+                  if (videos.isNotEmpty) VideoGallery(videos: videos),
                 ],
               ),
             ),
