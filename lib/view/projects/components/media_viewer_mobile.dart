@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/model/feature_model.dart';
+import 'package:flutter_portfolio/view/projects/components/feature_item.dart';
 import 'project_media_widgets.dart';
 
 class ProjectMediaMobileLayout extends StatelessWidget {
@@ -10,7 +12,7 @@ class ProjectMediaMobileLayout extends StatelessWidget {
   final bool isMobile;
   final double horizontalPadding;
   final double verticalPadding;
-
+  final List<FeatureModel> featureModels;
   const ProjectMediaMobileLayout({
     required this.description,
     required this.name,
@@ -21,6 +23,7 @@ class ProjectMediaMobileLayout extends StatelessWidget {
     required this.horizontalPadding,
     required this.verticalPadding,
     Key? key,
+    required this.featureModels,
   }) : super(key: key);
 
   @override
@@ -46,7 +49,7 @@ class ProjectMediaMobileLayout extends StatelessWidget {
           const SizedBox(height: 32),
           Text(
             name,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
@@ -54,6 +57,14 @@ class ProjectMediaMobileLayout extends StatelessWidget {
             description,
             style: const TextStyle(fontSize: 18, color: Colors.white70),
           ),
+          const SizedBox(height: 24),
+          const Text(
+            'Features',
+            style: const TextStyle(
+                fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16),
+          FeatureItem(featureModel: featureModels[0], index: 0),
           const SizedBox(height: 16),
         ],
       ),
