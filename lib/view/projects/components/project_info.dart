@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/model/projects_models_list.dart';
 import 'package:flutter_portfolio/view/projects/components/project_deatail.dart';
 import 'package:flutter_portfolio/view/projects/components/project_media_viewer.dart';
 import 'package:get/get.dart';
-import '../../../model/project_model.dart';
 import '../../../res/constants.dart';
 import '../../../view model/getx_controllers/projects_controller.dart';
 import 'project_media_widgets.dart';
@@ -31,6 +31,7 @@ class _ProjectStackState extends State<ProjectStack> {
             builder: (context) => ProjectMediaViewer(
               name: projectList[widget.index].name,
               description: projectList[widget.index].description,
+              featureModels: projectList[widget.index].featureModelsList,
               images: projectList[widget.index].images,
               videos: projectList[widget.index].videos,
             ),
