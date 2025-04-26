@@ -15,9 +15,14 @@ class ProjectLinks extends StatelessWidget {
           FittedBox(
             child: Row(
               children: [
-                const Text('Check on Github',
-                    style: TextStyle(color: Colors.white),
-                    overflow: TextOverflow.ellipsis),
+                GestureDetector(
+                  onTap: () {
+                    launchUrl(Uri.parse(projectList[index].link));
+                  },
+                  child: const Text('Check on Github',
+                      style: TextStyle(color: Colors.white),
+                      overflow: TextOverflow.ellipsis),
+                ),
                 IconButton(
                     onPressed: () {
                       launchUrl(Uri.parse(projectList[index].link));

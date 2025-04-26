@@ -17,7 +17,9 @@ class CertificateStack extends StatelessWidget {
       onHover: (value) {
         controller.onHover(index, value);
       },
-      onTap: () {},
+      onTap: () {
+        launchUrl(Uri.parse(certificateList[index].credential));
+      },
       borderRadius: BorderRadius.circular(30),
       child: AnimatedContainer(
           padding: const EdgeInsets.all(defaultPadding),

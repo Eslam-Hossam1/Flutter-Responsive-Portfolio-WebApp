@@ -35,16 +35,17 @@ class ProjectDetail extends StatelessWidget {
               ),
         Text(
           projectList[index].description,
+          textAlign: TextAlign.center,
           style: const TextStyle(color: Colors.grey, height: 1.5),
           maxLines: size.width > 700 && size.width < 750
-              ? 2
+              ? 3
               : size.width < 470
-                  ? 1
+                  ? 2
                   : size.width > 600 && size.width < 700
-                      ? 5
+                      ? 6
                       : size.width > 900 && size.width < 1060
-                          ? 5
-                          : 3,
+                          ? 6
+                          : 4,
           overflow: TextOverflow.ellipsis,
         ),
         const Spacer(),
