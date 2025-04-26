@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/model/feature_model.dart';
 import 'package:flutter_portfolio/view/projects/components/feature_item.dart';
+import 'package:flutter_portfolio/view/projects/components/features_list_view.dart';
 import 'project_media_widgets.dart';
 
 class ProjectMediaMobileLayout extends StatelessWidget {
@@ -64,7 +65,7 @@ class ProjectMediaMobileLayout extends StatelessWidget {
                 fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
-          FeatureItem(featureModel: featureModels[0], index: 0),
+          FeaturesListView(featureModels: featureModels),
           const SizedBox(height: 16),
         ],
       ),

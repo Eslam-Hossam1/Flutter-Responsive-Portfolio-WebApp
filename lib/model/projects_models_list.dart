@@ -54,7 +54,7 @@ List<Project> projectList = const [
         feature: 'State Persistence',
         featurePoints: [
           'Saved and restored last played track after app restarts',
-          'Used local storage or shared preferences for data persistence',
+          'Used local storage for data persistence',
         ],
       ),
     ],

@@ -22,9 +22,10 @@ class FeatureItem extends StatelessWidget {
         const SizedBox(height: 12),
         ListView.separated(
           shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return Text(
-              "- ${featureModel.featurePoints[0]}",
+              "- ${featureModel.featurePoints[index]}",
               style: const TextStyle(fontSize: 16, color: Colors.white70),
             );
           },
