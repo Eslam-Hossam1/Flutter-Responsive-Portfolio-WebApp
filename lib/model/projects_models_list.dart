@@ -202,7 +202,7 @@ List<Project> projectList = const [
   Project(
     name: 'Calculator App',
     description:
-        'A simple yet powerful calculator application built with Flutter. It supports basic arithmetic operations including addition, subtraction, multiplication, and division. The app offers both light and dark themes for better user comfort and leverages Cubit state management for responsive UI and clean logic separation.',
+        'A simple yet powerful calculator application built with Flutter. It supports basic arithmetic operations including addition, subtraction, multiplication, and division. The app offers both light and dark themes for better user comfort and leverages Cubit state management for clean logic separation.',
     images: [
       'https://res.cloudinary.com/deshi2o56/image/upload/v1745593597/1745593363010_z6ad3y.jpg',
       'https://res.cloudinary.com/deshi2o56/image/upload/v1745593597/1745593362994_p88pyx.jpg',

@@ -19,7 +19,7 @@ class FeaturesListView extends StatelessWidget {
         return FeatureItem(featureModel: featureModels[index], index: index);
       },
       separatorBuilder: (context, index) {
-        return const SizedBox(height: 16);
+        return const SizedBox(height: 24);
       },
       itemCount: featureModels.length,
     );
