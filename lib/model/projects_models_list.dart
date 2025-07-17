@@ -3,7 +3,7 @@ import 'package:flutter_portfolio/model/project_model.dart';
 
 List<Project> projectList = const [
   Project(
-    name: 'Music Player App',
+    name: 'Vibes – Music Player App',
     description:
         'A music player app developed using Flutter, allowing users to play audio files stored on their device. The app includes features like creating playlists, marking favorite songs, and playing music in the background. The app provides a smooth user experience with an intuitive and interactive design.',
     images: [
@@ -126,7 +126,7 @@ List<Project> projectList = const [
     link: 'https://github.com/Eslam-Hossam1/notes_app',
   ),
   Project(
-    name: 'Bookly App',
+    name: 'Bookly – Book Browsing App',
     description:
         'A book browsing application developed with Flutter that integrates with the Google Books API. The app allows users to search for books, view detailed previews. It provides a smooth and intuitive user experience with seamless integration of external data, offering real-time book information directly from Google Books.',
     images: [

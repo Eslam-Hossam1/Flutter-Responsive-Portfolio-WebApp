@@ -6,7 +6,11 @@ import 'package:chewie/chewie.dart';
 
 class VideoGalleryWithGradientContainer extends StatelessWidget {
   final List<String> videos;
-  const VideoGalleryWithGradientContainer({required this.videos, Key? key})
+
+  final ChewieController? chewieController;
+
+  const VideoGalleryWithGradientContainer(
+      {required this.videos, Key? key, required this.chewieController})
       : super(key: key);
 
   @override
@@ -29,7 +33,10 @@ class VideoGalleryWithGradientContainer extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             color: Colors.black,
           ),
-          child: VideoGallery(videos: videos),
+          child: VideoGallery(
+            videos: videos,
+            chewieController: chewieController,
+          ),
         ),
       ),
     );
@@ -77,9 +84,13 @@ class ImageGallery extends StatelessWidget {
 class ImageGalleryDialog extends StatefulWidget {
   final List<String> images;
   final int initialIndex;
-  const ImageGalleryDialog(
-      {required this.images, required this.initialIndex, Key? key})
-      : super(key: key);
+
+  const ImageGalleryDialog({
+    required this.images,
+    required this.initialIndex,
+    Key? key,
+  }) : super(key: key);
+
   @override
   State<ImageGalleryDialog> createState() => _ImageGalleryDialogState();
 }
@@ -106,47 +117,50 @@ class _ImageGalleryDialogState extends State<ImageGalleryDialog> {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.black,
-      insetPadding: const EdgeInsets.all(16),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          PageView.builder(
-            controller: _controller,
-            itemCount: widget.images.length,
-            onPageChanged: (i) => setState(() => _currentIndex = i),
-            itemBuilder: (context, index) {
-              return PhotoView(
-                imageProvider: NetworkImage(widget.images[index]),
-                backgroundDecoration: const BoxDecoration(color: Colors.black),
-              );
-            },
-          ),
-          Positioned(
-            left: 16,
-            child: IconButton(
-              icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-              onPressed:
-                  _currentIndex > 0 ? () => _goTo(_currentIndex - 1) : null,
+      insetPadding: EdgeInsets.zero,
+      child: SizedBox.expand(
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            PageView.builder(
+              controller: _controller,
+              itemCount: widget.images.length,
+              onPageChanged: (i) => setState(() => _currentIndex = i),
+              itemBuilder: (context, index) {
+                return PhotoView(
+                  imageProvider: NetworkImage(widget.images[index]),
+                  backgroundDecoration:
+                      const BoxDecoration(color: Colors.black),
+                );
+              },
             ),
-          ),
-          Positioned(
-            right: 16,
-            child: IconButton(
-              icon: const Icon(Icons.arrow_forward_ios, color: Colors.white),
-              onPressed: _currentIndex < widget.images.length - 1
-                  ? () => _goTo(_currentIndex + 1)
-                  : null,
+            if (_currentIndex > 0)
+              Positioned(
+                left: 16,
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+                  onPressed: () => _goTo(_currentIndex - 1),
+                ),
+              ),
+            if (_currentIndex < widget.images.length - 1)
+              Positioned(
+                right: 16,
+                child: IconButton(
+                  icon:
+                      const Icon(Icons.arrow_forward_ios, color: Colors.white),
+                  onPressed: () => _goTo(_currentIndex + 1),
+                ),
+              ),
+            Positioned(
+              top: 32,
+              right: 16,
+              child: IconButton(
+                icon: const Icon(Icons.close, color: Colors.white),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
             ),
-          ),
-          Positioned(
-            top: 16,
-            right: 16,
-            child: IconButton(
-              icon: const Icon(Icons.close, color: Colors.white),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -154,60 +168,38 @@ class _ImageGalleryDialogState extends State<ImageGalleryDialog> {
 
 class VideoGallery extends StatelessWidget {
   final List<String> videos;
-  const VideoGallery({required this.videos, Key? key}) : super(key: key);
+  final ChewieController? chewieController;
+
+  const VideoGallery(
+      {required this.videos, Key? key, required this.chewieController})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
       itemCount: videos.length,
       itemBuilder: (context, index) {
-        return _VideoPlayerWidget(videoPath: videos[index]);
+        return _VideoPlayerWidget(
+          videoPath: videos[index],
+          chewieController: chewieController,
+        );
       },
     );
   }
 }
 
-class _VideoPlayerWidget extends StatefulWidget {
+class _VideoPlayerWidget extends StatelessWidget {
   final String videoPath;
-  const _VideoPlayerWidget({required this.videoPath, Key? key})
+  final ChewieController? chewieController;
+
+  const _VideoPlayerWidget(
+      {required this.videoPath, Key? key, required this.chewieController})
       : super(key: key);
-  @override
-  State<_VideoPlayerWidget> createState() => _VideoPlayerWidgetState();
-}
-
-class _VideoPlayerWidgetState extends State<_VideoPlayerWidget> {
-  late VideoPlayerController _controller;
-  ChewieController? _chewieController;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.network(widget.videoPath)
-      ..initialize().then((_) {
-        setState(() {
-          _chewieController = ChewieController(
-            videoPlayerController: _controller,
-            autoPlay: false,
-            looping: false,
-            showControls: true,
-            allowFullScreen: true,
-            allowMuting: true,
-          );
-        });
-      });
-  }
-
-  @override
-  void dispose() {
-    _chewieController?.dispose();
-    _controller.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: _chewieController != null && _controller.value.isInitialized
-          ? Chewie(controller: _chewieController!)
+      //&& _controller.value.isInitialized
+      child: chewieController != null
+          ? Chewie(controller: chewieController!)
           : const CircularProgressIndicator(),
     );
   }

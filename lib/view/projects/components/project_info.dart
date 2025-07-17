@@ -65,57 +65,57 @@ class _ProjectStackState extends State<ProjectStack> {
   }
 }
 
-class ProjectMediaGallery extends StatelessWidget {
-  final List<String> images;
-  final List<String> videos;
-  const ProjectMediaGallery(
-      {super.key, required this.images, required this.videos});
+// class ProjectMediaGallery extends StatelessWidget {
+//   final List<String> images;
+//   final List<String> videos;
+//   const ProjectMediaGallery(
+//       {super.key, required this.images, required this.videos});
 
-  @override
-  Widget build(BuildContext context) {
-    final showTabs = images.isNotEmpty && videos.isNotEmpty;
-    final theme = Theme.of(context);
-    return Container(
-      decoration: BoxDecoration(
-        color: theme.cardColor.withOpacity(0.97),
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: theme.colorScheme.primary.withOpacity(0.1),
-            blurRadius: 16,
-            offset: const Offset(0, 8),
-          ),
-        ],
-      ),
-      constraints: const BoxConstraints(maxHeight: 380, minHeight: 200),
-      child: DefaultTabController(
-        length: (images.isNotEmpty ? 1 : 0) + (videos.isNotEmpty ? 1 : 0),
-        child: Column(
-          children: [
-            if (showTabs)
-              TabBar(
-                indicatorColor: theme.colorScheme.secondary,
-                labelColor: theme.colorScheme.secondary,
-                unselectedLabelColor: theme.textTheme.bodyMedium!.color,
-                tabs: [
-                  if (images.isNotEmpty)
-                    const Tab(icon: Icon(Icons.image), text: 'Images'),
-                  if (videos.isNotEmpty)
-                    const Tab(icon: Icon(Icons.videocam), text: 'Videos'),
-                ],
-              ),
-            Flexible(
-              fit: FlexFit.loose,
-              child: TabBarView(
-                children: [
-                  if (images.isNotEmpty) ImageGallery(images: images),
-                  if (videos.isNotEmpty) VideoGallery(videos: videos),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     final showTabs = images.isNotEmpty && videos.isNotEmpty;
+//     final theme = Theme.of(context);
+//     return Container(
+//       decoration: BoxDecoration(
+//         color: theme.cardColor.withOpacity(0.97),
+//         borderRadius: BorderRadius.circular(20),
+//         boxShadow: [
+//           BoxShadow(
+//             color: theme.colorScheme.primary.withOpacity(0.1),
+//             blurRadius: 16,
+//             offset: const Offset(0, 8),
+//           ),
+//         ],
+//       ),
+//       constraints: const BoxConstraints(maxHeight: 380, minHeight: 200),
+//       child: DefaultTabController(
+//         length: (images.isNotEmpty ? 1 : 0) + (videos.isNotEmpty ? 1 : 0),
+//         child: Column(
+//           children: [
+//             if (showTabs)
+//               TabBar(
+//                 indicatorColor: theme.colorScheme.secondary,
+//                 labelColor: theme.colorScheme.secondary,
+//                 unselectedLabelColor: theme.textTheme.bodyMedium!.color,
+//                 tabs: [
+//                   if (images.isNotEmpty)
+//                     const Tab(icon: Icon(Icons.image), text: 'Images'),
+//                   if (videos.isNotEmpty)
+//                     const Tab(icon: Icon(Icons.videocam), text: 'Videos'),
+//                 ],
+//               ),
+//             Flexible(
+//               fit: FlexFit.loose,
+//               child: TabBarView(
+//                 children: [
+//                   if (images.isNotEmpty) ImageGallery(images: images),
+//                   if (videos.isNotEmpty) VideoGallery(videos: videos),
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

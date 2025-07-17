@@ -1,4 +1,7 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/model/feature_model.dart';
+import 'package:flutter_portfolio/view/projects/components/project_info_section.dart';
 import 'project_media_widgets.dart';
 
 class ProjectMediaDesktopLayout extends StatelessWidget {
@@ -9,15 +12,19 @@ class ProjectMediaDesktopLayout extends StatelessWidget {
   final bool isTablet;
   final double horizontalPadding;
   final double verticalPadding;
+  final List<FeatureModel> featureModels;
+  final   ChewieController? chewieController;
 
   const ProjectMediaDesktopLayout({
     required this.name,
     required this.description,
+    required this.featureModels,
     required this.images,
     required this.videos,
     required this.isTablet,
     required this.horizontalPadding,
     required this.verticalPadding,
+    required this.chewieController,
     Key? key,
   }) : super(key: key);
 
@@ -36,21 +43,13 @@ class ProjectMediaDesktopLayout extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                VideoGalleryWithGradientContainer(videos: videos),
+                VideoGalleryWithGradientContainer(videos: videos, chewieController: chewieController),
                 const SizedBox(height: 32),
-                Text(
-                  name,
-                  style: TextStyle(
-                      fontSize: 24,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
+                ProjectInfoSection(
+                  name: name,
+                  description: description,
+                  featureModels: featureModels,
                 ),
-                const SizedBox(height: 16),
-                Text(
-                  description,
-                  style: const TextStyle(fontSize: 18, color: Colors.white70),
-                ),
-                const SizedBox(height: 16),
               ],
             ),
           ),

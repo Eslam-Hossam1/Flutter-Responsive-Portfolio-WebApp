@@ -15,8 +15,8 @@ class ProjectLinks extends StatelessWidget {
           FittedBox(
             child: Row(
               children: [
-                GestureDetector(
-                  onTap: () {
+                TextButton(
+                  onPressed: () {
                     launchUrl(Uri.parse(projectList[index].link));
                   },
                   child: const Text('Check on Github',

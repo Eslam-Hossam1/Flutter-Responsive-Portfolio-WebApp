@@ -1,7 +1,9 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/model/feature_model.dart';
 import 'package:flutter_portfolio/view/projects/components/feature_item.dart';
 import 'package:flutter_portfolio/view/projects/components/features_list_view.dart';
+import 'package:flutter_portfolio/view/projects/components/project_info_section.dart';
 import 'project_media_widgets.dart';
 
 class ProjectMediaMobileLayout extends StatelessWidget {
@@ -14,6 +16,8 @@ class ProjectMediaMobileLayout extends StatelessWidget {
   final double horizontalPadding;
   final double verticalPadding;
   final List<FeatureModel> featureModels;
+    final   ChewieController? chewieController;
+
   const ProjectMediaMobileLayout({
     required this.description,
     required this.name,
@@ -24,7 +28,7 @@ class ProjectMediaMobileLayout extends StatelessWidget {
     required this.horizontalPadding,
     required this.verticalPadding,
     Key? key,
-    required this.featureModels,
+    required this.featureModels, required this.chewieController,
   }) : super(key: key);
 
   @override
@@ -40,7 +44,9 @@ class ProjectMediaMobileLayout extends StatelessWidget {
           const SizedBox(height: 16),
           SizedBox(
             height: 220,
-            child: VideoGalleryWithGradientContainer(videos: videos),
+            child: Align(
+                alignment: Alignment.center,
+                child: VideoGalleryWithGradientContainer(videos: videos,chewieController: chewieController,)),
           ),
           const SizedBox(height: 24),
           ImageGallery(
@@ -48,25 +54,11 @@ class ProjectMediaMobileLayout extends StatelessWidget {
             crossAxisCount: gridCrossAxisCount,
           ),
           const SizedBox(height: 32),
-          Text(
-            name,
-            style: const TextStyle(
-                fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
+          ProjectInfoSection(
+            name: name,
+            description: description,
+            featureModels: featureModels,
           ),
-          const SizedBox(height: 16),
-          Text(
-            description,
-            style: const TextStyle(fontSize: 18, color: Colors.white70),
-          ),
-          const SizedBox(height: 24),
-          const Text(
-            'Features',
-            style: const TextStyle(
-                fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 16),
-          FeaturesListView(featureModels: featureModels),
-          const SizedBox(height: 16),
         ],
       ),
     );
