@@ -41,4 +41,20 @@ List<CertificateModel> certificateList = const [
     credential:
         'https://www.udemy.com/certificate/UC-1319dfa9-6134-44f5-a26a-0412a4ffce53/',
   ),
+  CertificateModel(
+    name: 'SOLID Design Principles',
+    organization: 'Udemy',
+    date: 'June 2025',
+    skills: 'SOLID Principles',
+    credential:
+        'https://www.udemy.com/certificate/UC-c6de6eaf-c0eb-4aed-9978-005df5aaf4fb/',
+  ),
+  CertificateModel(
+    name: 'Deep Dive into Clean Architecture in Flutter',
+    organization: 'Udemy',
+    date: 'Aug 2025',
+    skills: 'Clean Architecture',
+    credential:
+        'https://www.udemy.com/certificate/UC-236b18d3-0c1d-4112-9156-b3e437c7b694/',
+  ),
 ];
