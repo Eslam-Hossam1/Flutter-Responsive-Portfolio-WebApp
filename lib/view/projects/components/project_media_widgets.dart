@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'hoverable_image_container.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 
 class VideoGalleryWithGradientContainer extends StatelessWidget {
@@ -43,40 +42,82 @@ class VideoGalleryWithGradientContainer extends StatelessWidget {
   }
 }
 
-class ImageGallery extends StatelessWidget {
+class ImageGallery extends StatefulWidget {
   final List<String> images;
   final int crossAxisCount;
   const ImageGallery({required this.images, this.crossAxisCount = 3, Key? key})
       : super(key: key);
 
   @override
+  State<ImageGallery> createState() => _ImageGalleryState();
+}
+
+class _ImageGalleryState extends State<ImageGallery> {
+  bool _showAllImages = false;
+  static const int _initialImageCount = 12;
+
+  @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        mainAxisSpacing: 16,
-        crossAxisSpacing: 16,
-        childAspectRatio: 1,
-      ),
-      itemCount: images.length,
-      itemBuilder: (context, index) {
-        return HoverableImageContainer(
-          imageUrl: images[index],
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (_) => ImageGalleryDialog(
-                images: images,
-                initialIndex: index,
-              ),
+    final displayImages = _showAllImages
+        ? widget.images
+        : widget.images.take(_initialImageCount).toList();
+    final hasMoreImages = widget.images.length > _initialImageCount;
+
+    return Column(
+      children: [
+        GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: widget.crossAxisCount,
+            mainAxisSpacing: 16,
+            crossAxisSpacing: 16,
+            childAspectRatio: 1,
+          ),
+          itemCount: displayImages.length,
+          itemBuilder: (context, index) {
+            return HoverableImageContainer(
+              imageUrl: displayImages[index],
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (_) => ImageGalleryDialog(
+                    images: widget.images,
+                    initialIndex: widget.images.indexOf(displayImages[index]),
+                  ),
+                );
+              },
+              height: 120,
+              width: 120,
             );
           },
-          height: 120,
-          width: 120,
-        );
-      },
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+        ),
+        if (hasMoreImages && !_showAllImages) ...[
+          const SizedBox(height: 16),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                _showAllImages = true;
+              });
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              foregroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            child: const Text(
+              'Show More',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
+      ],
     );
   }
 }
