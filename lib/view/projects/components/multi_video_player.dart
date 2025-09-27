@@ -179,6 +179,7 @@ class _MultiVideoPlayerState extends State<MultiVideoPlayer> {
         borderRadius: BorderRadius.circular(20),
         color: Colors.black,
       ),
+      clipBehavior: Clip.hardEdge,
       child: Stack(
         children: [
           // Video Player
@@ -217,7 +218,10 @@ class _MultiVideoPlayerState extends State<MultiVideoPlayer> {
                 );
               }
 
-              return Chewie(controller: chewieController);
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Chewie(controller: chewieController),
+              );
             },
           ),
 

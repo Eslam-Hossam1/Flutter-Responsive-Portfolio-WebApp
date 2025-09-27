@@ -25,10 +25,14 @@ class VideoGalleryWithGradientContainer extends StatelessWidget {
           ),
         ),
         padding: const EdgeInsets.all(4),
-        child: MultiVideoPlayer(
-          videos: videos,
-          autoPlay: false,
-          showControls: true,
+        child: ClipRRect(
+          borderRadius:
+              BorderRadius.circular(20), // Inner radius (24 - 4 padding)
+          child: MultiVideoPlayer(
+            videos: videos,
+            autoPlay: false,
+            showControls: true,
+          ),
         ),
       ),
     );
