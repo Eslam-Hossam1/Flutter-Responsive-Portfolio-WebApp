@@ -21,8 +21,9 @@ class _NavigationTextButtonState extends State<NavigationTextButton> {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = MediaQuery.sizeOf(context).width > 1200;
-    final isTiny = MediaQuery.sizeOf(context).width <= 360;
+    double width = MediaQuery.sizeOf(context).width;
+    final isDesktop = width > 800;
+    final isTiny = width <= 355;
     final baseStyle = isTiny
         ? Theme.of(context)
             .textTheme
@@ -73,7 +74,6 @@ class _NavigationTextButtonState extends State<NavigationTextButton> {
           duration: const Duration(milliseconds: 180),
           curve: Curves.easeOut,
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-          margin: const EdgeInsets.symmetric(horizontal: 6),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             // color: active

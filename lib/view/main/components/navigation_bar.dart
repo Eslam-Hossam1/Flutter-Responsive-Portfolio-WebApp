@@ -29,10 +29,8 @@ class TopNavigationBar extends StatelessWidget {
 
         // if(Responsive.isLargeMobile(context)) MenuButton(),
 
-        Spacer(
-          flex: !(MediaQuery.sizeOf(context).width < 330) ? 2 : 1,
-        ),
-        const NavigationButtonList(),
+
+        
         if (!(MediaQuery.sizeOf(context).width < 330))
           const Spacer(
             flex: 2,

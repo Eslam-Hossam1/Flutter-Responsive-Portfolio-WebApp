@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/res/constants.dart';
 import 'package:flutter_portfolio/view%20model/controller.dart';
 import 'package:flutter_portfolio/view/main/components/navigation_bar.dart';
+import 'package:flutter_portfolio/view/main/components/navigation_button_list.dart';
 
 import 'components/drawer/drawer.dart';
 
@@ -18,7 +19,7 @@ class MainView extends StatelessWidget {
             const SizedBox(
               height: defaultPadding / 2,
             ),
-            const TopNavigationBar(),
+            const NavigationButtonList(),
             const SizedBox(
               height: defaultPadding / 2,
             ),
