@@ -1,7 +1,5 @@
-import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/model/feature_model.dart';
-import 'package:video_player/video_player.dart';
 
 import 'media_viewer_desktop.dart';
 import 'media_viewer_mobile.dart';
@@ -27,32 +25,13 @@ class ProjectMediaViewer extends StatefulWidget {
 }
 
 class _ProjectMediaViewerState extends State<ProjectMediaViewer> {
-  late VideoPlayerController _controller;
-  ChewieController? _chewieController;
-
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(
-      widget.videos.first,
-    )..initialize().then((_) {
-        setState(() {
-          _chewieController = ChewieController(
-            videoPlayerController: _controller,
-            autoPlay: false,
-            looping: false,
-            showControls: true,
-            allowFullScreen: true,
-            allowMuting: true,
-          );
-        });
-      });
   }
 
   @override
   void dispose() {
-    _chewieController?.dispose();
-    _controller.dispose();
     super.dispose();
   }
 
@@ -90,44 +69,38 @@ class _ProjectMediaViewerState extends State<ProjectMediaViewer> {
         centerTitle: true,
       ),
       body: SafeArea(
-        child: _chewieController == null
-            ? const Center(child: CircularProgressIndicator())
-            : LayoutBuilder(
-                builder: (context, constraints) {
-                  return CustomScrollView(
-                    slivers: [
-                      SliverToBoxAdapter(
-                        child: (isBigDesktop || isDesktop || isTablet)
-                            ? ProjectMediaDesktopLayout(
-                                name: widget.name,
-                                description: widget.description,
-                                featureModels: widget.featureModels,
-                                images: widget.images,
-                                videos: widget.videos,
-                                isTablet: isTablet,
-                                horizontalPadding:
-                                    isBigDesktop ? width * .07 : 24,
-                                verticalPadding: isBigDesktop ? 36 : 16,
-                                chewieController: _chewieController,
-                              )
-                            : ProjectMediaMobileLayout(
-                                name: widget.name,
-                                description: widget.description,
-                                featureModels: widget.featureModels,
-                                images: widget.images,
-                                videos: widget.videos,
-                                gridCrossAxisCount: gridCrossAxisCount,
-                                isMobile: isMobile,
-                                horizontalPadding:
-                                    isBigMobile ? width * .05 : 24,
-                                verticalPadding: isBigMobile ? 36 : 16,
-                                chewieController: _chewieController,
-                              ),
-                      ),
-                    ],
-                  );
-                },
-              ),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                  child: (isBigDesktop || isDesktop || isTablet)
+                      ? ProjectMediaDesktopLayout(
+                          name: widget.name,
+                          description: widget.description,
+                          featureModels: widget.featureModels,
+                          images: widget.images,
+                          videos: widget.videos,
+                          isTablet: isTablet,
+                          horizontalPadding: isBigDesktop ? width * .07 : 24,
+                          verticalPadding: isBigDesktop ? 36 : 16,
+                        )
+                      : ProjectMediaMobileLayout(
+                          name: widget.name,
+                          description: widget.description,
+                          featureModels: widget.featureModels,
+                          images: widget.images,
+                          videos: widget.videos,
+                          gridCrossAxisCount: gridCrossAxisCount,
+                          isMobile: isMobile,
+                          horizontalPadding: isBigMobile ? width * .05 : 24,
+                          verticalPadding: isBigMobile ? 36 : 16,
+                        ),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'hoverable_image_container.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:chewie/chewie.dart';
+import 'multi_video_player.dart';
 
 class VideoGalleryWithGradientContainer extends StatelessWidget {
   final List<String> videos;
 
-  final ChewieController? chewieController;
-
-  const VideoGalleryWithGradientContainer(
-      {required this.videos, Key? key, required this.chewieController})
-      : super(key: key);
+  const VideoGalleryWithGradientContainer({
+    required this.videos,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +25,10 @@ class VideoGalleryWithGradientContainer extends StatelessWidget {
           ),
         ),
         padding: const EdgeInsets.all(4),
-        child: Container(
-          clipBehavior: Clip.hardEdge,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.black,
-          ),
-          child: VideoGallery(
-            videos: videos,
-            chewieController: chewieController,
-          ),
+        child: MultiVideoPlayer(
+          videos: videos,
+          autoPlay: false,
+          showControls: true,
         ),
       ),
     );
@@ -203,45 +196,6 @@ class _ImageGalleryDialogState extends State<ImageGalleryDialog> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class VideoGallery extends StatelessWidget {
-  final List<String> videos;
-  final ChewieController? chewieController;
-
-  const VideoGallery(
-      {required this.videos, Key? key, required this.chewieController})
-      : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return PageView.builder(
-      itemCount: videos.length,
-      itemBuilder: (context, index) {
-        return _VideoPlayerWidget(
-          videoPath: videos[index],
-          chewieController: chewieController,
-        );
-      },
-    );
-  }
-}
-
-class _VideoPlayerWidget extends StatelessWidget {
-  final String videoPath;
-  final ChewieController? chewieController;
-
-  const _VideoPlayerWidget(
-      {required this.videoPath, Key? key, required this.chewieController})
-      : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      //&& _controller.value.isInitialized
-      child: chewieController != null
-          ? Chewie(controller: chewieController!)
-          : const CircularProgressIndicator(),
     );
   }
 }

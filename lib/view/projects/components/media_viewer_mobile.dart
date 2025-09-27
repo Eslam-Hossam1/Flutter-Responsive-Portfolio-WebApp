@@ -1,8 +1,5 @@
-import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/model/feature_model.dart';
-import 'package:flutter_portfolio/view/projects/components/feature_item.dart';
-import 'package:flutter_portfolio/view/projects/components/features_list_view.dart';
 import 'package:flutter_portfolio/view/projects/components/project_info_section.dart';
 import 'project_media_widgets.dart';
 
@@ -16,7 +13,6 @@ class ProjectMediaMobileLayout extends StatelessWidget {
   final double horizontalPadding;
   final double verticalPadding;
   final List<FeatureModel> featureModels;
-    final   ChewieController? chewieController;
 
   const ProjectMediaMobileLayout({
     required this.description,
@@ -28,7 +24,7 @@ class ProjectMediaMobileLayout extends StatelessWidget {
     required this.horizontalPadding,
     required this.verticalPadding,
     Key? key,
-    required this.featureModels, required this.chewieController,
+    required this.featureModels,
   }) : super(key: key);
 
   @override
@@ -46,7 +42,9 @@ class ProjectMediaMobileLayout extends StatelessWidget {
             height: 220,
             child: Align(
                 alignment: Alignment.center,
-                child: VideoGalleryWithGradientContainer(videos: videos,chewieController: chewieController,)),
+                child: VideoGalleryWithGradientContainer(
+                  videos: videos,
+                )),
           ),
           const SizedBox(height: 24),
           ImageGallery(

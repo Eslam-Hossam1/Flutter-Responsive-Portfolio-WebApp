@@ -1,12 +1,213 @@
+import 'package:flutter_portfolio/model/chefio_urls_helper.dart';
 import 'package:flutter_portfolio/model/feature_model.dart';
 import 'package:flutter_portfolio/model/project_model.dart';
 
-List<Project> projectList = const [
+List<Project> projectList = [
   Project(
+    name: 'Chefio – Recipe Sharing App',
+    description:
+        '''Chefio is a modern recipe sharing app built with Flutter, designed to deliver a real-world, production-ready experience. 
+   It allows users to discover, upload, and share recipes with a beautifully crafted UI and smooth user experience. 
+   Core features include browsing and searching recipes, detailed recipe pages with step-by-step instructions, 
+   profile management with social interactions (follow/unfollow), and a secure authentication system with reusable OTP. 
+   The app also supports push notifications, deep linking for shareable recipes and profiles, multi-language localization, 
+   light/dark theming with persistence, and an intuitive onboarding flow. 
+   Architected with MVVM, Bloc (Cubit) state management, and clean modular structure, Chefio is built for scalability, 
+   maintainability, and a polished user experience that feels production-ready.''',
+    images: ChefioUrlHelper.toBeUsedImages,
+    videos: ChefioUrlHelper.toBeUsedVideos,
+    featureModelsList: [
+      const FeatureModel(
+        feature: '🏠 Home & Recipe Discovery',
+        featurePoints: [
+          'Browse all recipes or filter by category with infinite scrolling (pagination)',
+          'Polished recipe grid showcasing image, name, duration, category, chef avatar, and like button',
+          'Search integration from AppBar for quick access',
+          'Optimized smooth scroll experience across large datasets',
+        ],
+      ),
+      const FeatureModel(
+        feature: '🔍 Smart Search',
+        featurePoints: [
+          'Implemented instant search for recipes by name',
+          'Delivered real-time suggestions for seamless discovery',
+          'Optimized queries for performance and responsiveness',
+        ],
+      ),
+      const FeatureModel(
+        feature: '📖 Recipe Details',
+        featurePoints: [
+          'Large recipe image header with context-specific actions (Edit/Delete for owner, Share for others)',
+          'Rich recipe metadata: name, description, duration, chef details, likes count',
+          'Interactive Like system with ability to view all likers',
+          'Full ingredients list with clear formatting',
+          'Step-by-step cooking instructions with optional images for better UX',
+        ],
+      ),
+      const FeatureModel(
+        feature: '⬆️ Upload & ✏️ Edit Recipes',
+        featurePoints: [
+          'Multi-step recipe creation flow: add images, name, description, duration, and category',
+          'Dedicated step/ingredients editor with reorder, delete, and update functionality',
+          'Edit recipes with pre-filled data for fast updates',
+          'Success dialog and clear feedback after submission',
+        ],
+      ),
+      const FeatureModel(
+        feature: '👤 Profiles & Social Features',
+        featurePoints: [
+          'Personal profile and other chefs’ profiles with separate state handling',
+          'Stats dashboard: total recipes, followers, and following',
+          'Follow/Unfollow system with instant UI updates',
+          'Tabs for uploaded recipes and liked recipes',
+          'Followers and following lists displayed in smooth bottom sheets',
+        ],
+      ),
+      const FeatureModel(
+        feature: '🔐 Authentication & Security',
+        featurePoints: [
+          'Implemented Sign Up, Login, and Forgot Password flows',
+          'Email-based OTP verification for sign-up and password reset',
+          'Reusable OTP system built with Open/Closed Principle for easy extension',
+          'Secure token handling and caching with flutter_secure_storage',
+          'API interceptor for refresh token and session management',
+        ],
+      ),
+      const FeatureModel(
+        feature: '🔢 Reusable OTP Module',
+        featurePoints: [
+          'Reusable and extensible OTP system with clean interface design',
+          'Applied Open/Closed Principle for adding new OTP use-cases without modifying core logic',
+          'Ensured secure and user-friendly OTP verification process',
+        ],
+      ),
+      const FeatureModel(
+        feature: '🔔 Push Notifications',
+        featurePoints: [
+          'Integrated Firebase Cloud Messaging for personalized notifications',
+          'Handled three core types: 💖 Liked your recipe, ➕ New follower, 🆕 New recipe upload',
+          'Developed dedicated Notifications screen for better UX',
+          'Handled edge cases with resilient notification parsing and error handling',
+        ],
+      ),
+      const FeatureModel(
+        feature: '🧭 Deep Linking & Sharing',
+        featurePoints: [
+          'Generated shareable links for recipes and profiles',
+          'Supported deep linking to open links directly inside the app',
+          'Integrated smoothly with GoRouter for seamless navigation',
+        ],
+      ),
+      const FeatureModel(
+        feature: '🎨 Theming & 🌐 Localization',
+        featurePoints: [
+          'Light and dark themes with persistence powered by HydratedCubit',
+          'Multi-language support implemented using easy_localization',
+          'Settings screen for theme and language switching',
+          'Consistent theming and typography across modules',
+        ],
+      ),
+      const FeatureModel(
+        feature: '🚀 Onboarding',
+        featurePoints: [
+          'Stylish one-screen onboarding with custom plate design illustration',
+          'Introduced app features clearly for new users',
+          'Optimized flow for quick entry into the app',
+        ],
+      ),
+      const FeatureModel(
+        feature: '⚙️ Settings',
+        featurePoints: [
+          'Theme switcher (light/dark mode) available at runtime',
+          'Language switcher with instant localization update',
+          'Easy access from profile screen',
+        ],
+      ),
+      const FeatureModel(
+        feature: '🛠️ Robust Infrastructure',
+        featurePoints: [
+          'MVVM architecture with Bloc (Cubit) for predictable state management',
+          'Dependency Injection with get_it for decoupled and testable modules',
+          'Networking via Dio with error handling, interceptors, and retry logic',
+          'Caching with shared_preferences for faster reloads',
+          'Scalable modular folder structure with clean feature separation',
+        ],
+      ),
+      const FeatureModel(
+        feature: '⚡ Performance & UX Optimizations',
+        featurePoints: [
+          'Added pagination to all scrollable views for efficient data handling',
+          'Reduced jank with async image loading and caching',
+          'Implemented skeleton loaders and smooth animations for better user experience',
+          'Responsive UI layouts for different screen sizes and orientations',
+        ],
+      ),
+      const FeatureModel(
+        feature: '🤝 Collaboration & API Integration',
+        featurePoints: [
+          'Worked closely with backend engineer to design and consume RESTful APIs',
+          'Integrated Firebase messaging for real-time events',
+          'Ensured consistent API error handling and resilient client-side logic',
+        ],
+      ),
+    ],
+    link: 'https://github.com/Eslam-Hossam1/Chefio-Recipe-Sharing-App',
+  ),
+  const Project(
     name: 'Vibes – Music Player App',
     description:
         'A music player app developed using Flutter, allowing users to play audio files stored on their device. The app includes features like creating playlists, marking favorite songs, and playing music in the background. The app provides a smooth user experience with an intuitive and interactive design.',
     images: [
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539193/1745538677557_xpru47.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539197/1745538677539_vjue2z.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539186/1745538677408_omgude.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539191/1745538677443_argsdj.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539198/1745538677518_y2mynz.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539197/1745539060215_gawptx.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539180/1745538677340_tqbnso.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539179/1745538677324_vgjaa8.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539184/1745538677307_b86kbe.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539186/1745538677375_tgqdjj.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539193/1745538677557_xpru47.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539197/1745538677539_vjue2z.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539186/1745538677408_omgude.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539191/1745538677443_argsdj.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539198/1745538677518_y2mynz.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539197/1745539060215_gawptx.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539180/1745538677340_tqbnso.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539179/1745538677324_vgjaa8.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539184/1745538677307_b86kbe.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539186/1745538677375_tgqdjj.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539193/1745538677557_xpru47.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539197/1745538677539_vjue2z.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539186/1745538677408_omgude.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539191/1745538677443_argsdj.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539198/1745538677518_y2mynz.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539197/1745539060215_gawptx.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539180/1745538677340_tqbnso.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539179/1745538677324_vgjaa8.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539184/1745538677307_b86kbe.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539186/1745538677375_tgqdjj.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539193/1745538677557_xpru47.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539197/1745538677539_vjue2z.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539186/1745538677408_omgude.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539191/1745538677443_argsdj.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539198/1745538677518_y2mynz.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539197/1745539060215_gawptx.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539180/1745538677340_tqbnso.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539179/1745538677324_vgjaa8.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539184/1745538677307_b86kbe.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539186/1745538677375_tgqdjj.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539193/1745538677557_xpru47.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539197/1745538677539_vjue2z.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539186/1745538677408_omgude.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539191/1745538677443_argsdj.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539198/1745538677518_y2mynz.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539197/1745539060215_gawptx.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539180/1745538677340_tqbnso.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539179/1745538677324_vgjaa8.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539184/1745538677307_b86kbe.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1745539186/1745538677375_tgqdjj.jpg',
       'https://res.cloudinary.com/deshi2o56/image/upload/v1745539193/1745538677557_xpru47.jpg',
       'https://res.cloudinary.com/deshi2o56/image/upload/v1745539197/1745538677539_vjue2z.jpg',
       'https://res.cloudinary.com/deshi2o56/image/upload/v1745539186/1745538677408_omgude.jpg',
@@ -60,7 +261,7 @@ List<Project> projectList = const [
     ],
     link: 'https://github.com/Eslam-Hossam1/music_player_application',
   ),
-  Project(
+  const Project(
     name: 'Notes App',
     description:
         'A simple yet effective notes application developed with Flutter. The app allows users to create, edit, and delete notes, with the added functionality of choosing a color for each note. Notes are stored in a local database using Hive, ensuring fast and efficient data retrieval. The app provides a clean and intuitive interface for managing notes on the go.',
@@ -125,7 +326,7 @@ List<Project> projectList = const [
     ],
     link: 'https://github.com/Eslam-Hossam1/notes_app',
   ),
-  Project(
+  const Project(
     name: 'Bookly – Book Browsing App',
     description:
         'A book browsing application developed with Flutter that integrates with the Google Books API. The app allows users to search for books, view detailed previews. It provides a smooth and intuitive user experience with seamless integration of external data, offering real-time book information directly from Google Books.',
@@ -199,7 +400,7 @@ List<Project> projectList = const [
     ],
     link: 'https://github.com/Eslam-Hossam1/bookly_app',
   ),
-  Project(
+  const Project(
     name: 'Calculator App',
     description:
         'A simple yet powerful calculator application built with Flutter. It supports basic arithmetic operations including addition, subtraction, multiplication, and division. The app offers both light and dark themes for better user comfort and leverages Cubit state management for clean logic separation.',

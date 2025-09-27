@@ -1,4 +1,3 @@
-import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/model/feature_model.dart';
 import 'package:flutter_portfolio/view/projects/components/project_info_section.dart';
@@ -13,7 +12,6 @@ class ProjectMediaDesktopLayout extends StatelessWidget {
   final double horizontalPadding;
   final double verticalPadding;
   final List<FeatureModel> featureModels;
-  final   ChewieController? chewieController;
 
   const ProjectMediaDesktopLayout({
     required this.name,
@@ -24,7 +22,6 @@ class ProjectMediaDesktopLayout extends StatelessWidget {
     required this.isTablet,
     required this.horizontalPadding,
     required this.verticalPadding,
-    required this.chewieController,
     Key? key,
   }) : super(key: key);
 
@@ -43,7 +40,7 @@ class ProjectMediaDesktopLayout extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                VideoGalleryWithGradientContainer(videos: videos, chewieController: chewieController),
+                VideoGalleryWithGradientContainer(videos: videos),
                 const SizedBox(height: 32),
                 ProjectInfoSection(
                   name: name,
