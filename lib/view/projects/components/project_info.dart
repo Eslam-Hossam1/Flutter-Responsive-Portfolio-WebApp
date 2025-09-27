@@ -3,9 +3,9 @@ import 'package:flutter_portfolio/model/projects_models_list.dart';
 import 'package:flutter_portfolio/view/projects/components/project_deatail.dart';
 import 'package:flutter_portfolio/view/projects/components/project_media_viewer.dart';
 import 'package:get/get.dart';
+
 import '../../../res/constants.dart';
 import '../../../view model/getx_controllers/projects_controller.dart';
-import 'project_media_widgets.dart';
 
 class ProjectStack extends StatefulWidget {
   final int index;

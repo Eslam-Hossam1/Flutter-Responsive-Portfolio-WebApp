@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_portfolio/res/constants.dart';
 import 'package:flutter_portfolio/view/splash/splash_view.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() {
   runApp(const MyApp());

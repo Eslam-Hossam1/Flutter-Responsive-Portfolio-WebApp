@@ -12,34 +12,33 @@ class Certifications extends StatelessWidget {
   Certifications({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (Responsive.isLargeMobile(context))
-            const SizedBox(
+    return CustomScrollView(
+      slivers: [
+        if (Responsive.isLargeMobile(context))
+          const SliverToBoxAdapter(
+            child: SizedBox(
               height: defaultPadding,
             ),
-          const TitleText(prefix: 'Certifications & ', title: 'License'),
-          const SizedBox(
+          ),
+        const SliverToBoxAdapter(child: TitleText(title: 'Certifications')),
+        const SliverToBoxAdapter(
+          child: SizedBox(
             height: defaultPadding,
           ),
-          Expanded(
-              child: Responsive(
-                  desktop: CertificateGrid(
-                    crossAxisCount: 3,
-                    ratio: 1.4,
-                  ),
-                  extraLargeScreen:
-                      CertificateGrid(crossAxisCount: 4, ratio: 1.4),
-                  largeMobile: CertificateGrid(crossAxisCount: 1, ratio: 1.8),
-                  mobile: CertificateGrid(crossAxisCount: 1, ratio: 1.2),
-                  tablet: CertificateGrid(
-                    ratio: 1.3,
-                    crossAxisCount: 2,
-                  )))
-        ],
-      ),
+        ),
+        Responsive(
+            desktop: CertificateGrid(
+              crossAxisCount: 3,
+              ratio: 1.4,
+            ),
+            extraLargeScreen: CertificateGrid(crossAxisCount: 4, ratio: 1.4),
+            largeMobile: CertificateGrid(crossAxisCount: 1, ratio: 1.8),
+            mobile: CertificateGrid(crossAxisCount: 1, ratio: 1.2),
+            tablet: CertificateGrid(
+              ratio: 1.3,
+              crossAxisCount: 2,
+            ))
+      ],
     );
   }
 }
