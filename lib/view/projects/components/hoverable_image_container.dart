@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/widgets/app_cached_network_image.dart';
 
 class HoverableImageContainer extends StatefulWidget {
   final String imageUrl;
@@ -59,17 +60,11 @@ class _HoverableImageContainerState extends State<HoverableImageContainer> {
               // clipBehavior: Clip.hardEdge,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.network(
-                  widget.imageUrl,
+                child: AppCachedNetworkImage(
+                  imageUrl: widget.imageUrl,
                   fit: BoxFit.cover,
                   height: widget.height,
                   width: widget.width,
-                  loadingBuilder: (context, child, progress) {
-                    if (progress == null) return child;
-                    return const Center(child: CircularProgressIndicator());
-                  },
-                  errorBuilder: (context, error, stackTrace) => const Center(
-                      child: Icon(Icons.broken_image, color: Colors.white38)),
                 ),
               ),
             ),

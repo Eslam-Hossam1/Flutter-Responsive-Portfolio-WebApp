@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/model/feature_model.dart';
+import 'package:flutter_portfolio/res/constants.dart';
 
 import 'media_viewer_desktop.dart';
 import 'media_viewer_mobile.dart';
@@ -52,27 +53,33 @@ class _ProjectMediaViewerState extends State<ProjectMediaViewer> {
                 : 4);
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        leading: isMobile
-            ? IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.white),
-                onPressed: () => Navigator.pop(context),
-              )
-            : null,
-        elevation: 0,
-        title: Text(widget.name,
-            style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontSize: 24)),
-        centerTitle: true,
-      ),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
             return CustomScrollView(
               slivers: [
+                SliverAppBar(
+                  surfaceTintColor: Colors.transparent,
+                  backgroundColor: bgColor,
+                  floating: true,
+                  automaticallyImplyLeading: false,
+                  leading: isMobile
+                      ? IconButton(
+                          icon:
+                              const Icon(Icons.arrow_back, color: Colors.white),
+                          onPressed: () => Navigator.pop(context),
+                        )
+                      : null,
+                  title: Text(
+                    widget.name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
+                  ),
+                  centerTitle: true,
+                ),
                 SliverToBoxAdapter(
                   child: (isBigDesktop || isDesktop || isTablet)
                       ? ProjectMediaDesktopLayout(

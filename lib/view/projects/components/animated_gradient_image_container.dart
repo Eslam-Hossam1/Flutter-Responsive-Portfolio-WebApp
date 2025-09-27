@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/widgets/app_cached_network_image.dart';
 
 class AnimatedGradientImageContainer extends StatefulWidget {
   final String imageUrl;
@@ -93,17 +94,11 @@ class _AnimatedGradientImageContainerState extends State<AnimatedGradientImageCo
                   borderRadius: BorderRadius.circular(20),
                 ),
                 clipBehavior: Clip.hardEdge,
-                child: Image.network(
-                  widget.imageUrl,
+                child: AppCachedNetworkImage(
+                  imageUrl: widget.imageUrl,
                   fit: BoxFit.cover,
                   height: widget.height,
                   width: widget.width,
-                  loadingBuilder: (context, child, progress) {
-                    if (progress == null) return child;
-                    return Center(child: CircularProgressIndicator());
-                  },
-                  errorBuilder: (context, error, stackTrace) =>
-                      const Center(child: Icon(Icons.broken_image, color: Colors.white38)),
                 ),
               ),
             );
