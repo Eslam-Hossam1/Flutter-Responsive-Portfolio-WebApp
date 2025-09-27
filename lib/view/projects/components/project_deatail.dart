@@ -34,7 +34,7 @@ class ProjectDetail extends StatelessWidget {
                 height: defaultPadding,
               ),
         Text(
-          projectList[index].description,
+          removeBreakLines(projectList[index].description),
           textAlign: TextAlign.center,
           style: const TextStyle(color: Colors.grey, height: 1.5),
           maxLines: size.width > 700 && size.width < 750
@@ -57,5 +57,9 @@ class ProjectDetail extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  removeBreakLines(String description) {
+    return description.replaceAll('\n', ' ');
   }
 }
