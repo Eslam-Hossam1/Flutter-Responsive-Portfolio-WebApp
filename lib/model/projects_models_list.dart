@@ -6,55 +6,40 @@ List<Project> projectList = [
   Project(
     name: 'Chefio – Recipe Sharing App',
     description:
-        '''Chefio is a modern recipe sharing app built with Flutter, designed to deliver a real-world, production-ready experience. 
-   It allows users to discover, upload, and share recipes with a beautifully crafted UI and smooth user experience. 
-   Core features include browsing and searching recipes, detailed recipe pages with step-by-step instructions, 
-   profile management with social interactions (follow/unfollow), and a secure authentication system with reusable OTP. 
-   The app also supports push notifications, deep linking for shareable recipes and profiles, multi-language localization, 
-   light/dark theming with persistence, and an intuitive onboarding flow. 
-   Architected with MVVM, Bloc (Cubit) state management, and clean modular structure, Chefio is built for scalability, 
-   maintainability, and a polished user experience that feels production-ready.''',
+        'Chefio is a Full-Featured  Recipe Sharing App.\nIt allows users to discover, upload, and share recipes with a beautifully crafted UI and smooth user experience.\nCore features include browsing and searching recipes, detailed recipe pages with step-by-step instructions, profile management with social interactions (follow/unfollow), and a secure authentication system with reusable OTP. \nThe app also supports push notifications, deep linking for shareable recipes and profiles, multi-language localization\nlight/dark theming with persistence\nArchitected with MVVM, Bloc (Cubit) state management, and clean modular structure, Chefio is built for scalability, maintainability, and a polished user experience that feels production-ready.',
     images: ChefioUrlHelper.toBeUsedImages,
     videos: ChefioUrlHelper.toBeUsedVideos,
     featureModelsList: [
       const FeatureModel(
-        feature: '🏠 Home & Recipe Discovery',
+        feature: 'Home & Recipe Discovery',
         featurePoints: [
           'Browse all recipes or filter by category with infinite scrolling (pagination)',
-          'Polished recipe grid showcasing image, name, duration, category, chef avatar, and like button',
+          'Recipe Item showcasing image, name, duration, category, chef avatar, and like button',
           'Search integration from AppBar for quick access',
           'Optimized smooth scroll experience across large datasets',
         ],
       ),
       const FeatureModel(
-        feature: '🔍 Smart Search',
+        feature: 'Recipe Details',
         featurePoints: [
-          'Implemented instant search for recipes by name',
-          'Delivered real-time suggestions for seamless discovery',
-          'Optimized queries for performance and responsiveness',
-        ],
-      ),
-      const FeatureModel(
-        feature: '📖 Recipe Details',
-        featurePoints: [
-          'Large recipe image header with context-specific actions (Edit/Delete for owner, Share for others)',
-          'Rich recipe metadata: name, description, duration, chef details, likes count',
+          'Large recipe image header with context-specific actions: Share, and (Edit/Delete for owner)',
+          'Rich Infos: name, description, duration, chef details, likes count',
           'Interactive Like system with ability to view all likers',
           'Full ingredients list with clear formatting',
           'Step-by-step cooking instructions with optional images for better UX',
         ],
       ),
       const FeatureModel(
-        feature: '⬆️ Upload & ✏️ Edit Recipes',
+        feature: 'Upload & Edit Recipes',
         featurePoints: [
           'Multi-step recipe creation flow: add images, name, description, duration, and category',
-          'Dedicated step/ingredients editor with reorder, delete, and update functionality',
-          'Edit recipes with pre-filled data for fast updates',
+          'Dedicated step/ingredients editor with delete, and update functionality',
+          'Edit recipes with pre-filled data and image management (add/remove)',
           'Success dialog and clear feedback after submission',
         ],
       ),
       const FeatureModel(
-        feature: '👤 Profiles & Social Features',
+        feature: 'Profiles & Social Features',
         featurePoints: [
           'Personal profile and other chefs’ profiles with separate state handling',
           'Stats dashboard: total recipes, followers, and following',
@@ -64,34 +49,25 @@ List<Project> projectList = [
         ],
       ),
       const FeatureModel(
-        feature: '🔐 Authentication & Security',
+        feature: 'Authentication & Session Management',
         featurePoints: [
           'Implemented Sign Up, Login, and Forgot Password flows',
           'Email-based OTP verification for sign-up and password reset',
-          'Reusable OTP system built with Open/Closed Principle for easy extension',
+          'Reusable OTP Feature built with Open/Closed Principle for easy extension',
           'Secure token handling and caching with flutter_secure_storage',
-          'API interceptor for refresh token and session management',
+          'Robust refresh token & session management with API interceptor',
         ],
       ),
       const FeatureModel(
-        feature: '🔢 Reusable OTP Module',
+        feature: 'Push Notifications',
         featurePoints: [
-          'Reusable and extensible OTP system with clean interface design',
-          'Applied Open/Closed Principle for adding new OTP use-cases without modifying core logic',
-          'Ensured secure and user-friendly OTP verification process',
-        ],
-      ),
-      const FeatureModel(
-        feature: '🔔 Push Notifications',
-        featurePoints: [
-          'Integrated Firebase Cloud Messaging for personalized notifications',
+          'Integrated Firebase Cloud Messaging for real-time notifications',
           'Handled three core types: 💖 Liked your recipe, ➕ New follower, 🆕 New recipe upload',
-          'Developed dedicated Notifications screen for better UX',
-          'Handled edge cases with resilient notification parsing and error handling',
+          'Notification screen to view all received notifications',
         ],
       ),
       const FeatureModel(
-        feature: '🧭 Deep Linking & Sharing',
+        feature: 'Deep Linking & Sharing',
         featurePoints: [
           'Generated shareable links for recipes and profiles',
           'Supported deep linking to open links directly inside the app',
@@ -99,7 +75,7 @@ List<Project> projectList = [
         ],
       ),
       const FeatureModel(
-        feature: '🎨 Theming & 🌐 Localization',
+        feature: 'Theming & Localization',
         featurePoints: [
           'Light and dark themes with persistence powered by HydratedCubit',
           'Multi-language support implemented using easy_localization',
@@ -108,46 +84,25 @@ List<Project> projectList = [
         ],
       ),
       const FeatureModel(
-        feature: '🚀 Onboarding',
+        feature: 'Onboarding',
         featurePoints: [
           'Stylish one-screen onboarding with custom plate design illustration',
-          'Introduced app features clearly for new users',
-          'Optimized flow for quick entry into the app',
         ],
       ),
       const FeatureModel(
-        feature: '⚙️ Settings',
-        featurePoints: [
-          'Theme switcher (light/dark mode) available at runtime',
-          'Language switcher with instant localization update',
-          'Easy access from profile screen',
-        ],
-      ),
-      const FeatureModel(
-        feature: '🛠️ Robust Infrastructure',
+        feature: 'MVVM Architecture & Bloc (Cubit) State Management',
         featurePoints: [
           'MVVM architecture with Bloc (Cubit) for predictable state management',
           'Dependency Injection with get_it for decoupled and testable modules',
-          'Networking via Dio with error handling, interceptors, and retry logic',
-          'Caching with shared_preferences for faster reloads',
           'Scalable modular folder structure with clean feature separation',
         ],
       ),
       const FeatureModel(
-        feature: '⚡ Performance & UX Optimizations',
+        feature: 'Performance & UX Optimizations',
         featurePoints: [
           'Added pagination to all scrollable views for efficient data handling',
-          'Reduced jank with async image loading and caching',
+          'Reduced jank with image loading and caching using Cached Network Image',
           'Implemented skeleton loaders and smooth animations for better user experience',
-          'Responsive UI layouts for different screen sizes and orientations',
-        ],
-      ),
-      const FeatureModel(
-        feature: '🤝 Collaboration & API Integration',
-        featurePoints: [
-          'Worked closely with backend engineer to design and consume RESTful APIs',
-          'Integrated Firebase messaging for real-time events',
-          'Ensured consistent API error handling and resilient client-side logic',
         ],
       ),
     ],
