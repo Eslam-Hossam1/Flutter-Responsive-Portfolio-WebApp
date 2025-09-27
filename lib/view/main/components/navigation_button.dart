@@ -76,11 +76,11 @@ class _NavigationTextButtonState extends State<NavigationTextButton> {
           margin: const EdgeInsets.symmetric(horizontal: 6),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: active
-                ? Colors.pink.withOpacity(0.1)
-                : hovered
-                    ? Colors.pink.withOpacity(0.04)
-                    : Colors.transparent,
+            // color: active
+            //     ? Colors.pink.withOpacity(0.1)
+            //     : hovered
+            //         ? Colors.pink.withOpacity(0.04)
+            //         : Colors.transparent,
             boxShadow: hovered || active
                 ? [
                     BoxShadow(
