@@ -9,6 +9,7 @@ import 'package:flutter_portfolio/view/intro/components/social_media_list.dart';
 import 'package:flutter_portfolio/view/projects/components/title_text.dart';
 import 'package:flutter_portfolio/view/projects/components/projects_grid.dart';
 import 'package:flutter_portfolio/view/certifications/components/certification_grid.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'components/drawer/drawer.dart';
 
@@ -66,6 +67,7 @@ class _MainViewState extends State<MainView> {
                       ),
                     ),
                   ),
+                  SliverToBoxAdapter(child: SizedBox(height: 40.h)),
 
                   // Projects Section Anchor + Content
                   if (Responsive.isLargeMobile(context))
@@ -87,6 +89,8 @@ class _MainViewState extends State<MainView> {
                     mobile: ProjectGrid(crossAxisCount: 1, ratio: 1.5),
                     tablet: ProjectGrid(ratio: 1.4, crossAxisCount: 2),
                   ),
+
+                  SliverToBoxAdapter(child: SizedBox(height: 120.h)),
 
                   // Certifications Section Anchor + Content
                   if (Responsive.isLargeMobile(context))
@@ -110,7 +114,7 @@ class _MainViewState extends State<MainView> {
                   ),
 
                   // Bottom padding
-                  const SliverToBoxAdapter(child: SizedBox(height: 120)),
+                  SliverToBoxAdapter(child: SizedBox(height: 120.h)),
                 ],
               ),
             ),
