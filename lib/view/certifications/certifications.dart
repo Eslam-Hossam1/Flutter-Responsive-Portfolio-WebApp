@@ -8,7 +8,7 @@ import '../../view model/responsive.dart';
 import 'components/certification_grid.dart';
 
 class Certifications extends StatefulWidget {
-  Certifications({super.key});
+  const Certifications({super.key});
 
   @override
   State<Certifications> createState() => _CertificationsState();

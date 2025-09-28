@@ -12,19 +12,19 @@ class Knowledges extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Divider(),
+        const Divider(),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: const EdgeInsets.symmetric(vertical: 10),
           child: Text(
             'Knowledge',
             style:
                 TextStyle(color: Colors.white, fontSize: 14.sp.fontClamper(14)),
           ),
         ),
-        KnowledgeText(knowledge: 'SOLID Principles'),
-        KnowledgeText(knowledge: 'Architecture & Design Patterns'),
-        KnowledgeText(knowledge: 'System Design & Analysis'),
-        KnowledgeText(knowledge: 'Clean Code'),
+        const KnowledgeText(knowledge: 'SOLID Principles'),
+        const KnowledgeText(knowledge: 'Architecture & Design Patterns'),
+        const KnowledgeText(knowledge: 'System Design & Analysis'),
+        const KnowledgeText(knowledge: 'Clean Code'),
       ],
     );
   }

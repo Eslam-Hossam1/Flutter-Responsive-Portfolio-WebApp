@@ -51,7 +51,7 @@ class MySKills extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
+        const SizedBox(
           height: defaultPadding / 2,
         ),
         Text(
@@ -59,31 +59,31 @@ class MySKills extends StatelessWidget {
           style:
               TextStyle(color: Colors.white, fontSize: 14.sp.fontClamper(14)),
         ),
-        SizedBox(
+        const SizedBox(
           height: defaultPadding / 2,
         ),
-        AnimatedLinearProgressIndicator(
+        const AnimatedLinearProgressIndicator(
           percentage: 0.7,
           title: 'Flutter',
           image: 'assets/icons/flutter.png',
         ),
-        AnimatedLinearProgressIndicator(
+        const AnimatedLinearProgressIndicator(
             percentage: 0.9, title: 'Dart', image: 'assets/icons/dart.png'),
-        AnimatedLinearProgressIndicator(
+        const AnimatedLinearProgressIndicator(
             percentage: 0.6,
             title: 'Firebase',
             image: 'assets/icons/firebase.png'),
-        AnimatedLinearProgressIndicator(
+        const AnimatedLinearProgressIndicator(
             percentage: 0.85, title: 'Hive', image: 'assets/icons/dart.png'),
-        AnimatedLinearProgressIndicator(
+        const AnimatedLinearProgressIndicator(
             percentage: 0.8,
             title: 'Responsive Design',
             image: 'assets/icons/flutter.png'),
-        AnimatedLinearProgressIndicator(
+        const AnimatedLinearProgressIndicator(
             percentage: 0.9,
             title: 'MVVM Architecture',
             image: 'assets/icons/flutter.png'),
-        AnimatedLinearProgressIndicator(
+        const AnimatedLinearProgressIndicator(
             percentage: 0.5, title: 'Bloc', image: 'assets/icons/bloc.png'),
       ],
     );

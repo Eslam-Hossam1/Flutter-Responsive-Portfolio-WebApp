@@ -27,7 +27,7 @@ class _ConnectButtonState extends State<ConnectButton> {
           onEnter: (_) => setState(() => _isHovered = true),
           onExit: (_) => setState(() => _isHovered = false),
           child: AnimatedContainer(
-              duration: Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 300),
               height: 40,
               width: 150,
               decoration: BoxDecoration(
@@ -39,16 +39,16 @@ class _ConnectButtonState extends State<ConnectButton> {
                   boxShadow: [
                     BoxShadow(
                         color: Colors.blue,
-                        offset: Offset(0, -1),
+                        offset: const Offset(0, -1),
                         blurRadius: _isHovered
-                            ? defaultPadding / 2
-                            : defaultPadding / 4),
+                            ? defaultPadding / 1.75
+                            : defaultPadding / 3.5),
                     BoxShadow(
                         color: Colors.red,
-                        offset: Offset(0, 1),
+                        offset: const Offset(0, 1),
                         blurRadius: _isHovered
-                            ? defaultPadding / 2
-                            : defaultPadding / 4),
+                            ? defaultPadding / 1.75
+                            : defaultPadding / 3.5),
                   ]),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

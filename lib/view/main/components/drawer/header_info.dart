@@ -22,7 +22,8 @@ class AreaInfoText extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-                fontSize: 12.sp.fontClamper(14), color: Color(0xff8B8B8D)),
+                fontSize: 12.sp.fontClamper(14),
+                color: const Color(0xff8B8B8D)),
           ),
         ],
       ),

@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/res/constants.dart';
 import 'package:flutter_portfolio/view%20model/controller.dart';
 import 'package:flutter_portfolio/view%20model/responsive.dart';
-import 'package:flutter_portfolio/view/main/components/navigation_button_list.dart';
-import 'package:flutter_portfolio/view/intro/components/intro_body.dart';
-import 'package:flutter_portfolio/view/intro/components/side_menu_button.dart';
-import 'package:flutter_portfolio/view/intro/components/social_media_list.dart';
-import 'package:flutter_portfolio/view/projects/components/title_text.dart';
-import 'package:flutter_portfolio/view/projects/components/projects_grid.dart';
 import 'package:flutter_portfolio/view/certifications/components/certification_grid.dart';
+import 'package:flutter_portfolio/view/intro/components/intro_body.dart';
+import 'package:flutter_portfolio/view/intro/components/social_media_list.dart';
+import 'package:flutter_portfolio/view/main/components/navigation_button_list.dart';
+import 'package:flutter_portfolio/view/projects/components/projects_grid.dart';
+import 'package:flutter_portfolio/view/projects/components/title_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'components/drawer/drawer.dart';

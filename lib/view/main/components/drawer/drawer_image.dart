@@ -21,7 +21,8 @@ class _DrawerImageState extends State<DrawerImage> {
         cursor: SystemMouseCursors.click,
         onEnter: (_) => setState(() => _isHovered = true),
         onExit: (_) => setState(() => _isHovered = false),
-        child: Container(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
           height: (120.w).clamp(100, 170),
           width: (120.w).clamp(100, 170),
           padding: const EdgeInsets.all(defaultPadding / 6),
@@ -37,11 +38,11 @@ class _DrawerImageState extends State<DrawerImage> {
               BoxShadow(
                   color: Colors.pink,
                   blurRadius: _isHovered ? 20 : 10,
-                  offset: Offset(0, 2)),
+                  offset: const Offset(0, 2)),
               BoxShadow(
                   color: Colors.blue,
                   blurRadius: _isHovered ? 20 : 10,
-                  offset: Offset(0, -2)),
+                  offset: const Offset(0, -2)),
             ],
           ),
           child: ClipRRect(
@@ -82,7 +83,7 @@ void _showProfileDialog(BuildContext context) {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(24.r),
                   child: Container(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(40.r),
