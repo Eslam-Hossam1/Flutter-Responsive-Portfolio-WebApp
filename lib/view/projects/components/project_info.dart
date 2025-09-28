@@ -17,7 +17,7 @@ class _ProjectStackState extends State<ProjectStack> {
   bool isHovered = false;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
@@ -32,55 +32,57 @@ class _ProjectStackState extends State<ProjectStack> {
           ),
         );
       },
-      borderRadius: BorderRadius.circular(30),
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        onEnter: (_) => setState(() => isHovered = true),
-        onExit: (_) => setState(() => isHovered = false),
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          margin: const EdgeInsets.symmetric(
-              vertical: defaultPadding, horizontal: defaultPadding),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              gradient: const LinearGradient(colors: [
-                Colors.pinkAccent,
-                Colors.blue,
-              ]),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.pink,
-                  offset: const Offset(-2, 0),
-                  blurRadius: isHovered ? 20 : 10,
-                ),
-                BoxShadow(
-                  color: Colors.blue,
-                  offset: const Offset(2, 0),
-                  blurRadius: isHovered ? 20 : 10,
-                ),
-              ]),
-          child: Container(
-            padding: const EdgeInsets.only(
-                left: defaultPadding,
-                right: defaultPadding,
-                top: defaultPadding),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(30),
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          onEnter: (_) => setState(() => isHovered = true),
+          onExit: (_) => setState(() => isHovered = false),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            margin: const EdgeInsets.symmetric(
+                vertical: defaultPadding, horizontal: defaultPadding),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              color: bgColor,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.pink.withOpacity(0.1),
-                  offset: const Offset(-2, 0),
-                  blurRadius: 10,
-                ),
-                BoxShadow(
-                  color: Colors.blue.withOpacity(0.1),
-                  offset: const Offset(2, 0),
-                  blurRadius: 10,
-                ),
-              ],
+                borderRadius: BorderRadius.circular(30),
+                gradient: const LinearGradient(colors: [
+                  Colors.pinkAccent,
+                  Colors.blue,
+                ]),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.pink,
+                    offset: const Offset(-2, 0),
+                    blurRadius: isHovered ? 20 : 10,
+                  ),
+                  BoxShadow(
+                    color: Colors.blue,
+                    offset: const Offset(2, 0),
+                    blurRadius: isHovered ? 20 : 10,
+                  ),
+                ]),
+            child: Container(
+              padding: const EdgeInsets.only(
+                  left: defaultPadding,
+                  right: defaultPadding,
+                  top: defaultPadding),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: bgColor,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.pink.withOpacity(0.1),
+                    offset: const Offset(-2, 0),
+                    blurRadius: 10,
+                  ),
+                  BoxShadow(
+                    color: Colors.blue.withOpacity(0.1),
+                    offset: const Offset(2, 0),
+                    blurRadius: 10,
+                  ),
+                ],
+              ),
+              child: ProjectDetail(index: widget.index),
             ),
-            child: ProjectDetail(index: widget.index),
           ),
         ),
       ),
