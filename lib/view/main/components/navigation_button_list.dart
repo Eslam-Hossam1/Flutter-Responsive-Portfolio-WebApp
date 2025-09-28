@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/res/constants.dart';
 import 'package:flutter_portfolio/view%20model/controller.dart';
-import 'package:flutter_portfolio/view%20model/responsive.dart';
 import 'package:flutter_portfolio/view/main/components/connect_button.dart';
 import 'package:flutter_portfolio/widgets/menu_button.dart';
 
@@ -29,15 +27,9 @@ class NavigationButtonList extends StatelessWidget {
                       : bigPadding),
       child: Row(
         children: [
-          !Responsive.isLargeMobile(context)
-              ? Image.asset(
-                  'assets/images/triange_icon.png',
-                  width:
-                      (MediaQuery.sizeOf(context).width * 0.06).clamp(12, 60),
-                )
-              : MenuButton(
-                  onTap: () => Scaffold.of(context).openDrawer(),
-                ),
+          MenuButton(
+            onTap: () => Scaffold.of(context).openDrawer(),
+          ),
           Expanded(
             child: ValueListenableBuilder<int>(
               valueListenable: currentPageIndex,
@@ -75,7 +67,7 @@ class NavigationButtonList extends StatelessWidget {
               },
             ),
           ),
-          width > 800 ? ConnectButton() : SizedBox.shrink(),
+          width > 800 ? const ConnectButton() : const SizedBox.shrink(),
         ],
       ),
     );

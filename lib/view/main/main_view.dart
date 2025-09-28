@@ -13,7 +13,9 @@ import 'package:flutter_portfolio/view/certifications/components/certification_g
 import 'components/drawer/drawer.dart';
 
 class MainView extends StatefulWidget {
-  const MainView({super.key, });
+  const MainView({
+    super.key,
+  });
   // pages is ignored in one-page mode but kept for API compatibility
 
   @override
@@ -29,7 +31,8 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    final minSectionHeight = MediaQuery.of(context).size.height - (defaultPadding); // approx header spacing
+    final minSectionHeight = MediaQuery.of(context).size.height -
+        (defaultPadding); // approx header spacing
     return Scaffold(
       drawer: const CustomDrawer(),
       body: Center(
@@ -51,12 +54,12 @@ class _MainViewState extends State<MainView> {
                         height: minSectionHeight,
                         child: Row(
                           children: [
-                            SizedBox(width: MediaQuery.sizeOf(context).width * 0.01),
+                            SizedBox(
+                                width: MediaQuery.sizeOf(context).width * 0.05),
                             if (!Responsive.isLargeMobile(context))
-                              SideMenuButton(onTap: () => Scaffold.of(context).openDrawer()),
-                            SizedBox(width: MediaQuery.sizeOf(context).width * 0.02),
-                            if (!Responsive.isLargeMobile(context)) const SocialMediaIconList(),
-                            SizedBox(width: MediaQuery.sizeOf(context).width * 0.07),
+                              const SocialMediaIconList(),
+                            SizedBox(
+                                width: MediaQuery.sizeOf(context).width * 0.05),
                             const Expanded(child: IntroBody()),
                           ],
                         ),
@@ -66,14 +69,17 @@ class _MainViewState extends State<MainView> {
 
                   // Projects Section Anchor + Content
                   if (Responsive.isLargeMobile(context))
-                    const SliverToBoxAdapter(child: SizedBox(height: defaultPadding)),
+                    const SliverToBoxAdapter(
+                        child: SizedBox(height: defaultPadding)),
                   SliverToBoxAdapter(
                     child: KeyedSubtree(
                       key: projectsSectionKey,
-                      child: const TitleText(prefix: 'Latest ', title: 'Projects'),
+                      child:
+                          const TitleText(prefix: 'Latest ', title: 'Projects'),
                     ),
                   ),
-                  const SliverToBoxAdapter(child: SizedBox(height: defaultPadding)),
+                  const SliverToBoxAdapter(
+                      child: SizedBox(height: defaultPadding)),
                   Responsive(
                     desktop: ProjectGrid(crossAxisCount: 3),
                     extraLargeScreen: ProjectGrid(crossAxisCount: 4),
@@ -84,17 +90,20 @@ class _MainViewState extends State<MainView> {
 
                   // Certifications Section Anchor + Content
                   if (Responsive.isLargeMobile(context))
-                    const SliverToBoxAdapter(child: SizedBox(height: defaultPadding)),
+                    const SliverToBoxAdapter(
+                        child: SizedBox(height: defaultPadding)),
                   SliverToBoxAdapter(
                     child: KeyedSubtree(
                       key: certificationsSectionKey,
                       child: const TitleText(title: 'Certifications'),
                     ),
                   ),
-                  const SliverToBoxAdapter(child: SizedBox(height: defaultPadding)),
+                  const SliverToBoxAdapter(
+                      child: SizedBox(height: defaultPadding)),
                   Responsive(
                     desktop: CertificateGrid(crossAxisCount: 3, ratio: 1.4),
-                    extraLargeScreen: CertificateGrid(crossAxisCount: 4, ratio: 1.4),
+                    extraLargeScreen:
+                        CertificateGrid(crossAxisCount: 4, ratio: 1.4),
                     largeMobile: CertificateGrid(crossAxisCount: 1, ratio: 1.8),
                     mobile: CertificateGrid(crossAxisCount: 1, ratio: 1.2),
                     tablet: CertificateGrid(ratio: 1.3, crossAxisCount: 2),
