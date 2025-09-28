@@ -9,8 +9,8 @@ class DrawerImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: (120.w).clamp(80, 170),
-      width: (120.w).clamp(80, 170),
+      height: (120.w).clamp(100, 170),
+      width: (120.w).clamp(100, 170),
       padding: const EdgeInsets.all(defaultPadding / 6),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40.r),
