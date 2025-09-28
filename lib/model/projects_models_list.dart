@@ -214,7 +214,7 @@ List<Project> projectList = [
         ],
       ),
     ],
-    link: 'https://github.com/Eslam-Hossam1/music_player_application',
+    link: 'https://github.com/Eslam-Hossam1/Vibes-Music-Player-App',
   ),
   const Project(
     name: 'Notes App',
