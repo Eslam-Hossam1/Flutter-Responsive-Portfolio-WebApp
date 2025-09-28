@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/extensions.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'knowledge.dart';
 
@@ -7,7 +9,7 @@ class Knowledges extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Divider(),
@@ -15,7 +17,8 @@ class Knowledges extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 10),
           child: Text(
             'Knowledge',
-            style: TextStyle(color: Colors.white),
+            style:
+                TextStyle(color: Colors.white, fontSize: 14.sp.fontClamper(14)),
           ),
         ),
         KnowledgeText(knowledge: 'SOLID Principles'),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../res/constants.dart';
 
@@ -8,11 +9,11 @@ class DrawerImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
-      width: 100,
+      height: (120.w).clamp(80, 170),
+      width: (120.w).clamp(80, 170),
       padding: const EdgeInsets.all(defaultPadding / 6),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
+          borderRadius: BorderRadius.circular(40.r),
           gradient: LinearGradient(
             colors: [
               Colors.pink,
@@ -25,13 +26,11 @@ class DrawerImage extends StatelessWidget {
                 color: Colors.blue, blurRadius: 10, offset: Offset(0, -2)),
           ]),
       child: ClipRRect(
-          borderRadius: BorderRadius.circular(50),
-          child: Transform.rotate(
-              angle: 0.1,
-              child: Image.asset(
-                'assets/images/profile.jpeg',
-                fit: BoxFit.cover,
-              ))),
+          borderRadius: BorderRadius.circular(40.r),
+          child: Image.asset(
+            'assets/images/profile.jpeg',
+            fit: BoxFit.cover,
+          )),
     );
   }
 }

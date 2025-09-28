@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/extensions.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../res/constants.dart';
 
@@ -27,7 +29,8 @@ class AnimatedLinearProgressIndicator extends StatelessWidget {
               ),
               Text(
                 title,
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(
+                    color: Colors.white, fontSize: 12.sp.fontClamper(12)),
               ),
             ],
           ),
@@ -45,9 +48,20 @@ class MySKills extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        SizedBox(
+          height: defaultPadding / 2,
+        ),
+        Text(
+          'Skills',
+          style:
+              TextStyle(color: Colors.white, fontSize: 14.sp.fontClamper(14)),
+        ),
+        SizedBox(
+          height: defaultPadding / 2,
+        ),
         AnimatedLinearProgressIndicator(
           percentage: 0.7,
           title: 'Flutter',
@@ -71,7 +85,6 @@ class MySKills extends StatelessWidget {
             image: 'assets/icons/flutter.png'),
         AnimatedLinearProgressIndicator(
             percentage: 0.5, title: 'Bloc', image: 'assets/icons/bloc.png'),
-
       ],
     );
   }

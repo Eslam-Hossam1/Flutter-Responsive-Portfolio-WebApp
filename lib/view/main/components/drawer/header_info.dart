@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/extensions.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../res/constants.dart';
 
 class AreaInfoText extends StatelessWidget {
@@ -8,12 +10,20 @@ class AreaInfoText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  const EdgeInsets.only(bottom: defaultPadding/2),
+      padding: const EdgeInsets.only(bottom: defaultPadding / 2),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title,style: const TextStyle(color: Colors.white),),
-          Text(text),
+          Text(
+            title,
+            style: const TextStyle(color: Colors.white)
+                .copyWith(fontSize: 14.sp.fontClamper(14)),
+          ),
+          Text(
+            text,
+            style: TextStyle(
+                fontSize: 12.sp.fontClamper(14), color: Color(0xff8B8B8D)),
+          ),
         ],
       ),
     );

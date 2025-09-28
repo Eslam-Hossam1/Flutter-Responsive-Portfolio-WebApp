@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/extensions.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../res/constants.dart';
 
@@ -15,7 +17,10 @@ class KnowledgeText extends StatelessWidget {
           const SizedBox(
             width: defaultPadding / 2,
           ),
-          Text(knowledge),
+          Text(
+            knowledge,
+            style: TextStyle(fontSize: 12.sp.fontClamper(12)),
+          ),
         ],
       ),
     );

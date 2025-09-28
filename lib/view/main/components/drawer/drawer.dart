@@ -10,7 +10,9 @@ class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
     return Drawer(
+      width: width > 700 ? width * .4 : null,
       backgroundColor: bgColor,
       child: SingleChildScrollView(
         child: Container(
@@ -22,6 +24,7 @@ class CustomDrawer extends StatelessWidget {
               children: [
                 About(),
                 PersonalInfo(),
+                Divider(),
                 MySKills(),
                 Knowledges(),
                 Divider(),
