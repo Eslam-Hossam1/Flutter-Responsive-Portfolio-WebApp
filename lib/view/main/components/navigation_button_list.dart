@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/res/constants.dart';
 import 'package:flutter_portfolio/view%20model/controller.dart';
 import 'package:flutter_portfolio/view%20model/responsive.dart';
+import 'package:flutter_portfolio/view/main/components/connect_button.dart';
 import 'package:flutter_portfolio/widgets/menu_button.dart';
 
 import 'navigation_button.dart';
@@ -94,6 +95,7 @@ class NavigationButtonList extends StatelessWidget {
               },
             ),
           ),
+          width > 800 ? ConnectButton() : SizedBox.shrink(),
         ],
       ),
     );

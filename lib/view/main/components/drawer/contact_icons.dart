@@ -35,6 +35,19 @@ class ContactIcon extends StatelessWidget {
                 'assets/icons/github.svg',
                 width: 30,
               )),
+          const Spacer(),
+          IconButton(
+              onPressed: () {
+                launchUrl(Uri.parse('https://github.com/Eslam-Hossam1/'));
+              },
+              icon: SvgPicture.asset(
+                'assets/icons/whatsapp-svgrepo-com.svg',
+                width: 30,
+                colorFilter: const ColorFilter.mode(
+                  Color(0xff8C8C8E),
+                  BlendMode.srcIn,
+                ),
+              )),
           const Spacer(
             flex: 2,
           ),
