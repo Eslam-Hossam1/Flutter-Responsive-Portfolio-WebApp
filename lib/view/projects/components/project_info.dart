@@ -21,8 +21,10 @@ class _ProjectStackState extends State<ProjectStack> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
-            builder: (context) => ProjectMediaViewer(
+          PageRouteBuilder(
+            transitionDuration: Duration.zero,
+            reverseTransitionDuration: Duration.zero,
+            pageBuilder: (context, animation, secondaryAnimation) => ProjectMediaViewer(
               name: projectList[widget.index].name,
               description: projectList[widget.index].description,
               featureModels: projectList[widget.index].featureModelsList,

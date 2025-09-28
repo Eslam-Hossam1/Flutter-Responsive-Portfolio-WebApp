@@ -167,10 +167,15 @@ class _MultiVideoPlayerState extends State<MultiVideoPlayer> {
   @override
   Widget build(BuildContext context) {
     if (!_isInitialized) {
-      return const Center(
-        child: CircularProgressIndicator(
-          color: Colors.white,
+      return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.black,
+        //  border: Border.all(color: Colors.pinkAccent, width: 2),
         ),
+        clipBehavior: Clip.hardEdge,
+        alignment: Alignment.center,
+        child: const CircularProgressIndicator(color: Colors.white),
       );
     }
 
