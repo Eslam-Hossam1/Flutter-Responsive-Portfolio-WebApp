@@ -171,7 +171,6 @@ class _MultiVideoPlayerState extends State<MultiVideoPlayer> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.black,
-        //  border: Border.all(color: Colors.pinkAccent, width: 2),
         ),
         clipBehavior: Clip.hardEdge,
         alignment: Alignment.center,
@@ -241,16 +240,25 @@ class _MultiVideoPlayerState extends State<MultiVideoPlayer> {
                 child: Center(
                   child: GestureDetector(
                     onTap: () => _goToVideo(_currentVideoIndex - 1),
-                    child: Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: const Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.white,
-                        size: 24,
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          color: Colors.black54,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Transform.translate(
+                          offset: const Offset(6, 0),
+                          child: const Center(
+                            child: Icon(
+                              Icons.arrow_back_ios,
+                              color: Colors.white,
+                              size: 28,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -266,16 +274,25 @@ class _MultiVideoPlayerState extends State<MultiVideoPlayer> {
                 child: Center(
                   child: GestureDetector(
                     onTap: () => _goToVideo(_currentVideoIndex + 1),
-                    child: Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: const Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.white,
-                        size: 24,
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          color: Colors.black54,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Transform.translate(
+                          offset: const Offset(-6, 0),
+                          child: const Center(
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.white,
+                              size: 28,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
