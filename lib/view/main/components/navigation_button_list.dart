@@ -52,19 +52,19 @@ class NavigationButtonList extends StatelessWidget {
                         children: [
                           NavigationTextButton(
                             isActive: activeIndex == 0,
-                            onTap: () => goToPage(0),
+                            onTap: () => goToSection(0),
                             text: 'Home',
                           ),
                           SizedBox(width: innerButtonsGap),
                           NavigationTextButton(
                             isActive: activeIndex == 1,
-                            onTap: () => goToPage(1),
+                            onTap: () => goToSection(1),
                             text: 'Projects',
                           ),
                           SizedBox(width: innerButtonsGap),
                           NavigationTextButton(
                             isActive: activeIndex == 2,
-                            onTap: () => goToPage(2),
+                            onTap: () => goToSection(2),
                             text: 'Certifications',
                           ),
                         ],
