@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/res/constants.dart';
 import 'package:flutter_portfolio/view/home/home.dart';
 import 'package:flutter_portfolio/view/intro/components/animated_texts_componenets.dart';
+import 'package:flutter_portfolio/view/main/main_view.dart';
 import 'package:flutter_portfolio/view/splash/componenets/animated_loading_text.dart';
 
 class SplashView extends StatefulWidget {
@@ -19,7 +20,7 @@ class _SplashViewState extends State<SplashView> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const HomePage(),
+            builder: (context) => const MainView(),
           ));
     });
   }

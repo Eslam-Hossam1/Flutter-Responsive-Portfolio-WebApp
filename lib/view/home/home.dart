@@ -24,8 +24,10 @@ class _HomePageState extends State<HomePage> {
     // Precache commonly used images after first frame so context is available
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       // Assets used in nav and drawer
-      await precacheImage(const AssetImage('assets/images/triange_icon.png'), context);
-      await precacheImage(const AssetImage('assets/images/profile.jpeg'), context);
+      await precacheImage(
+          const AssetImage('assets/images/triange_icon.png'), context);
+      await precacheImage(
+          const AssetImage('assets/images/profile.jpeg'), context);
 
       // Precache a few heavy network images from projects to avoid jank on first visit
       final urls = <String>[];
@@ -64,12 +66,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        MainView(pages: [
-          Introduction(),
-          // Projects and Certifications are stateful (kept alive) in their own files
-          ProjectsView(),
-          Certifications(),
-        ]),
+        MainView(),
         if (_warmUp)
           Offstage(
             offstage: true,

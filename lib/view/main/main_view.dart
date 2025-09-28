@@ -13,9 +13,8 @@ import 'package:flutter_portfolio/view/certifications/components/certification_g
 import 'components/drawer/drawer.dart';
 
 class MainView extends StatefulWidget {
-  const MainView({super.key, required this.pages});
+  const MainView({super.key, });
   // pages is ignored in one-page mode but kept for API compatibility
-  final List<Widget> pages;
 
   @override
   State<MainView> createState() => _MainViewState();
