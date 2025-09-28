@@ -42,49 +42,29 @@ class NavigationButtonList extends StatelessWidget {
             child: ValueListenableBuilder<int>(
               valueListenable: currentPageIndex,
               builder: (context, activeIndex, _) {
-                return TweenAnimationBuilder(
-                  tween: Tween(begin: 0.0, end: 1.0),
-                  duration: const Duration(milliseconds: 200),
-                  builder: (context, value, child) {
-                    return Transform.scale(
-                      scale: value,
+                return ValueListenableBuilder<bool>(
+                  valueListenable: isNavigating,
+                  builder: (context, navigating, __) {
+                    return IgnorePointer(
+                      ignoring: navigating,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           NavigationTextButton(
                             isActive: activeIndex == 0,
-                            onTap: () {
-                              currentPageIndex.value = 0;
-                              controller.animateToPage(0,
-                                  duration: const Duration(milliseconds: 500),
-                                  curve: Curves.easeInOut);
-                            },
+                            onTap: () => goToPage(0),
                             text: 'Home',
                           ),
-                          SizedBox(
-                            width: innerButtonsGap,
-                          ),
+                          SizedBox(width: innerButtonsGap),
                           NavigationTextButton(
                             isActive: activeIndex == 1,
-                            onTap: () {
-                              currentPageIndex.value = 1;
-                              controller.animateToPage(1,
-                                  duration: const Duration(milliseconds: 500),
-                                  curve: Curves.easeInOut);
-                            },
+                            onTap: () => goToPage(1),
                             text: 'Projects',
                           ),
-                          SizedBox(
-                            width: innerButtonsGap,
-                          ),
+                          SizedBox(width: innerButtonsGap),
                           NavigationTextButton(
                             isActive: activeIndex == 2,
-                            onTap: () {
-                              currentPageIndex.value = 2;
-                              controller.animateToPage(2,
-                                  duration: const Duration(milliseconds: 500),
-                                  curve: Curves.easeInOut);
-                            },
+                            onTap: () => goToPage(2),
                             text: 'Certifications',
                           ),
                         ],

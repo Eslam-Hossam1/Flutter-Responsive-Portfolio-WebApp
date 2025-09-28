@@ -6,11 +6,23 @@ import 'package:flutter_portfolio/view/projects/components/title_text.dart';
 import 'package:get/get.dart';
 import 'components/projects_grid.dart';
 
-class ProjectsView extends StatelessWidget {
+class ProjectsView extends StatefulWidget {
   ProjectsView({super.key});
+
+  @override
+  State<ProjectsView> createState() => _ProjectsViewState();
+}
+
+class _ProjectsViewState extends State<ProjectsView>
+    with AutomaticKeepAliveClientMixin {
   final controller = Get.put(ProjectController());
+
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return CustomScrollView(
       slivers: [
         if (Responsive.isLargeMobile(context))

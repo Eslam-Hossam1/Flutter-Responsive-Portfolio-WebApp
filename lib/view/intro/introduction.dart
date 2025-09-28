@@ -4,10 +4,21 @@ import 'package:flutter_portfolio/view/intro/components/intro_body.dart';
 import 'package:flutter_portfolio/view/intro/components/side_menu_button.dart';
 import 'package:flutter_portfolio/view/intro/components/social_media_list.dart';
 
-class Introduction extends StatelessWidget {
+class Introduction extends StatefulWidget {
   const Introduction({super.key});
+
+  @override
+  State<Introduction> createState() => _IntroductionState();
+}
+
+class _IntroductionState extends State<Introduction>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       body: Row(
         children: [

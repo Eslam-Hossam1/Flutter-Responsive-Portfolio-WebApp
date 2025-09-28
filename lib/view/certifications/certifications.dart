@@ -7,11 +7,23 @@ import '../../res/constants.dart';
 import '../../view model/responsive.dart';
 import 'components/certification_grid.dart';
 
-class Certifications extends StatelessWidget {
-  final controller = Get.put(CertificationController());
+class Certifications extends StatefulWidget {
   Certifications({super.key});
+
+  @override
+  State<Certifications> createState() => _CertificationsState();
+}
+
+class _CertificationsState extends State<Certifications>
+    with AutomaticKeepAliveClientMixin {
+  final controller = Get.put(CertificationController());
+
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return CustomScrollView(
       slivers: [
         if (Responsive.isLargeMobile(context))
