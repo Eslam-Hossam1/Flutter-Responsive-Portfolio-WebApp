@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'hoverable_image_container.dart';
 import 'package:photo_view/photo_view.dart';
 import 'multi_video_player.dart';
@@ -136,12 +137,14 @@ class ImageGalleryDialog extends StatefulWidget {
 class _ImageGalleryDialogState extends State<ImageGalleryDialog> {
   late PageController _controller;
   late int _currentIndex;
+  late FocusNode _focusNode;
 
   @override
   void initState() {
     super.initState();
     _currentIndex = widget.initialIndex;
     _controller = PageController(initialPage: _currentIndex);
+    _focusNode = FocusNode();
   }
 
   @override
@@ -161,16 +164,42 @@ class _ImageGalleryDialogState extends State<ImageGalleryDialog> {
     }
   }
 
+  void _handleKeyPress(KeyEvent event) {
+    if (event is KeyDownEvent) {
+      switch (event.logicalKey) {
+        case LogicalKeyboardKey.arrowLeft:
+          if (_currentIndex > 0) _goTo(_currentIndex - 1);
+          break;
+        case LogicalKeyboardKey.arrowRight:
+          if (_currentIndex < widget.images.length - 1)
+            _goTo(_currentIndex + 1);
+          break;
+        case LogicalKeyboardKey.space:
+          // Space can be used for navigation on web
+          if (_currentIndex < widget.images.length - 1) {
+            _goTo(_currentIndex + 1);
+          }
+          break;
+        case LogicalKeyboardKey.home:
+          _goTo(0);
+          break;
+        case LogicalKeyboardKey.end:
+          _goTo(widget.images.length - 1);
+          break;
+      }
+    }
+  }
+
   // Get responsive spacing based on screen width
   double _getHorizontalSpacing(double width) {
-    if (width < 360) return 8.0;      // Very small phones
-    if (width < 420) return 12.0;     // Small phones
-    if (width < 768) return 16.0;     // Regular phones
-    return 24.0;                      // Tablets and larger
+    if (width < 360) return 8.0; // Very small phones
+    if (width < 420) return 12.0; // Small phones
+    if (width < 768) return 16.0; // Regular phones
+    return 24.0; // Tablets and larger
   }
 
   double _getTopSpacing(double width) {
-    if (width < 360) return 24.0;     // Account for status bar
+    if (width < 360) return 24.0; // Account for status bar
     if (width < 420) return 28.0;
     if (width < 768) return 32.0;
     return 40.0;
@@ -182,145 +211,150 @@ class _ImageGalleryDialogState extends State<ImageGalleryDialog> {
     final width = size.width;
     final horizontalSpacing = _getHorizontalSpacing(width);
     final topSpacing = _getTopSpacing(width);
-    
-    return Dialog(
-      backgroundColor: Colors.black,
-      insetPadding: EdgeInsets.zero,
-      child: SizedBox.expand(
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            // Main image viewer with safe padding
-            Positioned.fill(
-              child: Padding(
-                padding: EdgeInsets.only(
-                  top: topSpacing + 40, // Space for close button
-                  bottom: 60, // Space for counter if needed
-                  left: horizontalSpacing + 40, // Space for nav buttons
-                  right: horizontalSpacing + 40,
-                ),
-                child: PageView.builder(
-                  controller: _controller,
-                  itemCount: widget.images.length,
-                  onPageChanged: (i) => setState(() => _currentIndex = i),
-                  itemBuilder: (context, index) {
-                    return PhotoView(
-                      imageProvider: NetworkImage(widget.images[index]),
-                      backgroundDecoration:
-                          const BoxDecoration(color: Colors.black),
-                      minScale: PhotoViewComputedScale.contained,
-                      maxScale: PhotoViewComputedScale.covered * 2.0,
-                      initialScale: PhotoViewComputedScale.contained,
-                    );
-                  },
-                ),
-              ),
-            ),
-            
-            // Navigation buttons - positioned outside image area
-            if (_currentIndex > 0)
-              Positioned(
-                left: horizontalSpacing,
-                top: 0,
-                bottom: 0,
-                child: Center(
-                  child: Container(
-                    width: 44,
-                    height: 44,
-                    decoration: BoxDecoration(
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(22),
-                      border: Border.all(color: Colors.white24, width: 1),
-                    ),
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back_ios_new,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      onPressed: () => _goTo(_currentIndex - 1),
-                      padding: EdgeInsets.zero,
-                    ),
+
+    return KeyboardListener(
+      focusNode: _focusNode,
+      autofocus: true,
+      onKeyEvent: _handleKeyPress,
+      child: Dialog(
+        backgroundColor: Colors.black,
+        insetPadding: EdgeInsets.zero,
+        child: SizedBox.expand(
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              // Main image viewer with safe padding
+              Positioned.fill(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: topSpacing + 40, // Space for close button
+                    bottom: 60, // Space for counter if needed
+                    left: horizontalSpacing + 40, // Space for nav buttons
+                    right: horizontalSpacing + 40,
+                  ),
+                  child: PageView.builder(
+                    controller: _controller,
+                    itemCount: widget.images.length,
+                    onPageChanged: (i) => setState(() => _currentIndex = i),
+                    itemBuilder: (context, index) {
+                      return PhotoView(
+                        imageProvider: NetworkImage(widget.images[index]),
+                        backgroundDecoration:
+                            const BoxDecoration(color: Colors.black),
+                        minScale: PhotoViewComputedScale.contained,
+                        maxScale: PhotoViewComputedScale.covered * 2.0,
+                        initialScale: PhotoViewComputedScale.contained,
+                      );
+                    },
                   ),
                 ),
               ),
-            
-            if (_currentIndex < widget.images.length - 1)
+
+              // Navigation buttons - positioned outside image area
+              if (_currentIndex > 0)
+                Positioned(
+                  left: horizontalSpacing,
+                  top: 0,
+                  bottom: 0,
+                  child: Center(
+                    child: Container(
+                      width: 44,
+                      height: 44,
+                      decoration: BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(22),
+                        border: Border.all(color: Colors.white24, width: 1),
+                      ),
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                        onPressed: () => _goTo(_currentIndex - 1),
+                        padding: EdgeInsets.zero,
+                      ),
+                    ),
+                  ),
+                ),
+
+              if (_currentIndex < widget.images.length - 1)
+                Positioned(
+                  right: horizontalSpacing,
+                  top: 0,
+                  bottom: 0,
+                  child: Center(
+                    child: Container(
+                      width: 44,
+                      height: 44,
+                      decoration: BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(22),
+                        border: Border.all(color: Colors.white24, width: 1),
+                      ),
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                        onPressed: () => _goTo(_currentIndex + 1),
+                        padding: EdgeInsets.zero,
+                      ),
+                    ),
+                  ),
+                ),
+
+              // Close button
               Positioned(
+                top: topSpacing,
                 right: horizontalSpacing,
-                top: 0,
-                bottom: 0,
-                child: Center(
-                  child: Container(
-                    width: 44,
-                    height: 44,
-                    decoration: BoxDecoration(
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(22),
-                      border: Border.all(color: Colors.white24, width: 1),
-                    ),
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      onPressed: () => _goTo(_currentIndex + 1),
-                      padding: EdgeInsets.zero,
-                    ),
-                  ),
-                ),
-              ),
-            
-            // Close button
-            Positioned(
-              top: topSpacing,
-              right: horizontalSpacing,
-              child: Container(
-                width: 44,
-                height: 44,
-                decoration: BoxDecoration(
-                  color: Colors.black54,
-                  borderRadius: BorderRadius.circular(22),
-                  border: Border.all(color: Colors.white24, width: 1),
-                ),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.close,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                  onPressed: () => Navigator.of(context).pop(),
-                  padding: EdgeInsets.zero,
-                ),
-              ),
-            ),
-            
-            // Image counter
-            if (widget.images.length > 1)
-              Positioned(
-                bottom: 30,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 6,
-                  ),
+                  width: 44,
+                  height: 44,
                   decoration: BoxDecoration(
                     color: Colors.black54,
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(22),
                     border: Border.all(color: Colors.white24, width: 1),
                   ),
-                  child: Text(
-                    '${_currentIndex + 1} / ${widget.images.length}',
-                    style: const TextStyle(
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.close,
                       color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
+                      size: 20,
                     ),
+                    onPressed: () => Navigator.of(context).pop(),
+                    padding: EdgeInsets.zero,
                   ),
                 ),
               ),
-          ],
+
+              // Image counter
+              if (widget.images.length > 1)
+                Positioned(
+                  bottom: 30,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 6,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(color: Colors.white24, width: 1),
+                    ),
+                    child: Text(
+                      '${_currentIndex + 1} / ${widget.images.length}',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );
