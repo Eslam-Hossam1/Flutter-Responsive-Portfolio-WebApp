@@ -332,7 +332,7 @@ class _ImageGalleryDialogState extends State<ImageGalleryDialog> {
               // Image counter
               if (widget.images.length > 1)
                 Positioned(
-                  bottom: 30,
+                  bottom: 15,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 12,
