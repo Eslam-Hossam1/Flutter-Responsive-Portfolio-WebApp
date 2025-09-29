@@ -6,7 +6,7 @@ List<Project> projectList = [
   Project(
     name: 'Chefio – Recipe Sharing App',
     description:
-        'Chefio is a Full-Featured  Recipe Sharing App.\nIt allows users to discover, upload, and share recipes with a beautifully crafted UI and smooth user experience.\nCore features include browsing and searching recipes, detailed recipe pages with step-by-step instructions, profile management with social interactions (follow/unfollow), and a secure authentication system with reusable OTP. \nThe app also supports push notifications, deep linking for shareable recipes and profiles, multi-language localization\nlight/dark theming with persistence\nArchitected with MVVM, Bloc (Cubit) state management, and clean modular structure, Chefio is built for scalability, maintainability, and a polished user experience that feels production-ready.',
+        'Chefio is a Full-Featured  Recipe Sharing App.\nIt allows users to discover, upload, and share recipes with a beautifully crafted UI and smooth user experience.\n\nCore features include browsing and searching recipes, detailed recipe pages with step-by-step instructions, profile management with social interactions (follow/unfollow), and a secure authentication system with reusable OTP. \n\nThe app also supports push notifications, deep linking for shareable recipes and profiles, multi-language localization, light/dark theming with persistence\n\nArchitected with MVVM, Bloc (Cubit) state management, and clean modular structure.',
     images: ChefioUrlHelper.toBeUsedImages,
     videos: ChefioUrlHelper.toBeUsedVideos,
     featureModelsList: [
@@ -62,7 +62,7 @@ List<Project> projectList = [
         feature: 'Push Notifications',
         featurePoints: [
           'Integrated Firebase Cloud Messaging for real-time notifications',
-          'Handled three core types: 💖 Liked your recipe, ➕ New follower, 🆕 New recipe upload',
+          'Notifications for: 💖 Someone Liked your recipe, ➕ Someone followed you, 🆕 A chef you follow uploaded a new recipe.',
           'Notification screen to view all received notifications',
         ],
       ),

@@ -12,6 +12,7 @@ class FeatureItem extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -30,7 +31,9 @@ class FeatureItem extends StatelessWidget {
             );
           },
           separatorBuilder: (context, index) {
-            return const SizedBox(height: 8);
+            return SizedBox(
+              height: width > 900 ? 8 : 12,
+            );
           },
           itemCount: featureModel.featurePoints.length,
         ),
