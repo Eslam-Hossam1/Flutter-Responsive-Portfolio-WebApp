@@ -171,8 +171,9 @@ class _ImageGalleryDialogState extends State<ImageGalleryDialog> {
           if (_currentIndex > 0) _goTo(_currentIndex - 1);
           break;
         case LogicalKeyboardKey.arrowRight:
-          if (_currentIndex < widget.images.length - 1)
+          if (_currentIndex < widget.images.length - 1) {
             _goTo(_currentIndex + 1);
+          }
           break;
         case LogicalKeyboardKey.space:
           // Space can be used for navigation on web

@@ -103,7 +103,7 @@ class _MainViewState extends State<MainView> {
                   ),
                   const SliverToBoxAdapter(
                       child: SizedBox(height: defaultPadding)),
-                  Responsive(
+                  const Responsive(
                     desktop: CertificateGrid(crossAxisCount: 3, ratio: 1.4),
                     extraLargeScreen:
                         CertificateGrid(crossAxisCount: 4, ratio: 1.4),
