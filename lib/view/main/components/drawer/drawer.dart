@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/view/main/components/drawer/contact_icons.dart';
 import 'package:flutter_portfolio/view/main/components/drawer/personal_info.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../res/constants.dart';
 import 'knowledges.dart';
 import 'about.dart';
@@ -11,15 +12,28 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
+    bool isDesktop = width >= 1000;
+    bool isTablet = width >= 600 && width < 1000;
+    bool isBigMobile = width >= 420 && width < 600;
+    bool isMobile = width >= 350 && width < 420;
     return Drawer(
-      width: width > 700 ? width * .4 : null,
+      width: isDesktop
+          ? width * .4
+          : isTablet
+              ? width * .6
+              : isMobile
+                  ? width * .9
+                  : isBigMobile
+                      ? width * .8
+                      : null,
       backgroundColor: bgColor,
       child: SingleChildScrollView(
         child: Container(
           color: bgColor,
-          child: const Padding(
-            padding: EdgeInsets.all(defaultPadding / 2),
-            child: Column(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+                vertical: defaultPadding / 2, horizontal: 10.w.clamp(10, 20)),
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 About(),

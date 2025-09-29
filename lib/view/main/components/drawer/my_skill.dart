@@ -25,7 +25,7 @@ class AnimatedLinearProgressIndicator extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               const SizedBox(
-                width: 5,
+                width: 8,
               ),
               Text(
                 title,
@@ -74,17 +74,30 @@ class MySKills extends StatelessWidget {
             title: 'Firebase',
             image: 'assets/icons/firebase.png'),
         const AnimatedLinearProgressIndicator(
-            percentage: 0.85, title: 'Hive', image: 'assets/icons/dart.png'),
+            percentage: 0.85,
+            title: 'Payment Integration',
+            image: 'assets/icons/flutter.png'),
         const AnimatedLinearProgressIndicator(
             percentage: 0.8,
-            title: 'Responsive Design',
+            title: 'Responsive & Adaptive Design',
             image: 'assets/icons/flutter.png'),
         const AnimatedLinearProgressIndicator(
             percentage: 0.9,
-            title: 'MVVM Architecture',
+            title: 'Clean Architecture',
             image: 'assets/icons/flutter.png'),
         const AnimatedLinearProgressIndicator(
-            percentage: 0.5, title: 'Bloc', image: 'assets/icons/bloc.png'),
+          percentage: 0.5,
+          title: 'State Management',
+          image: 'assets/icons/bloc.png',
+        ),
+        const AnimatedLinearProgressIndicator(
+            percentage: 0.9,
+            title: 'Github',
+            image: 'assets/icons/icons8-github.png'),
+        const AnimatedLinearProgressIndicator(
+            percentage: 0.9,
+            title: 'CI/CD',
+            image: 'assets/icons/icons8-github.png'),
       ],
     );
   }

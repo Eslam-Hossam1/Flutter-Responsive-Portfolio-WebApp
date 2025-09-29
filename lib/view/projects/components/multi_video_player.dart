@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:chewie/chewie.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:video_player/video_player.dart';
 
 // Global video state manager to preserve states across widget rebuilds
@@ -243,20 +245,18 @@ class _MultiVideoPlayerState extends State<MultiVideoPlayer> {
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,
                       child: Container(
-                        width: 48,
-                        height: 48,
+                        width: 36.w.clamp(28, 48),
+                        height: 36.w.clamp(28, 48),
                         decoration: BoxDecoration(
                           color: Colors.black54,
                           borderRadius: BorderRadius.circular(25),
                         ),
-                        child: Transform.translate(
-                          offset: const Offset(6, 0),
-                          child: const Center(
-                            child: Icon(
-                              Icons.arrow_back_ios,
-                              color: Colors.white,
-                              size: 28,
-                            ),
+                        child: Center(
+                          child: SvgPicture.asset(
+                            'assets/icons/arrow-ios-back-svgrepo-com.svg',
+                            colorFilter: const ColorFilter.mode(
+                                Colors.white, BlendMode.srcIn),
+                            width: 24.w.clamp(20, 28),
                           ),
                         ),
                       ),
@@ -277,19 +277,20 @@ class _MultiVideoPlayerState extends State<MultiVideoPlayer> {
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,
                       child: Container(
-                        width: 48,
-                        height: 48,
+                        width: 36.w.clamp(28, 48),
+                        height: 36.w.clamp(28, 48),
                         decoration: BoxDecoration(
                           color: Colors.black54,
                           borderRadius: BorderRadius.circular(25),
                         ),
-                        child: Transform.translate(
-                          offset: const Offset(-6, 0),
-                          child: const Center(
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.white,
-                              size: 28,
+                        child: Transform.rotate(
+                          angle: 3.14159265,
+                          child: Center(
+                            child: SvgPicture.asset(
+                              'assets/icons/arrow-ios-back-svgrepo-com.svg',
+                              colorFilter: const ColorFilter.mode(
+                                  Colors.white, BlendMode.srcIn),
+                              width: 24.w.clamp(20, 28),
                             ),
                           ),
                         ),
