@@ -59,7 +59,7 @@ class _HoverableImageContainerState extends State<HoverableImageContainer> {
               ),
               // clipBehavior: Clip.hardEdge,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(9),
                 child: AppCachedNetworkImage(
                   imageUrl: widget.imageUrl,
                   fit: BoxFit.cover,
