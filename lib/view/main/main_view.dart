@@ -46,10 +46,6 @@ class _MainViewState extends State<MainView> {
               child: CustomScrollView(
                 controller: scrollController,
                 slivers: [
-                  SliverToBoxAdapter(child: SizedBox(height: 40.h)),
-
-                  if (Responsive.isDesktop(context))
-                    SliverToBoxAdapter(child: SizedBox(height: 160.h)),
 
                   // Intro Section Anchor
                   SliverToBoxAdapter(

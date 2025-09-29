@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/view/intro/components/social_media_list.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../res/constants.dart';
 import '../../../view model/responsive.dart';
@@ -31,6 +32,8 @@ class IntroBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: 40.h),
+            if (Responsive.isDesktop(context)) SizedBox(height: 160.h),
             if (!Responsive.isDesktop(context))
               SizedBox(
                 height: size.height * 0.06,
@@ -56,7 +59,6 @@ class IntroBody extends StatelessWidget {
                 largeMobile: MyPortfolioText(start: 40, end: 35),
                 mobile: MyPortfolioText(start: 35, end: 30),
                 tablet: MyPortfolioText(start: 50, end: 40)),
-          
             const CombineSubtitleText(),
             const SizedBox(height: defaultPadding / 2),
             const Responsive(
