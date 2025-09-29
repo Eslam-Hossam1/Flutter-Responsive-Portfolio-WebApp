@@ -11,7 +11,6 @@ class SocialMediaIconList extends StatelessWidget {
       return Transform.scale(scale: value,
       child:  Column(
         children: [
-          const Spacer(),
           RotatedBox(
             quarterTurns: -3,
             child: Text('Follow Me',style: Theme.of(context).textTheme.titleSmall!.copyWith(
@@ -29,7 +28,6 @@ class SocialMediaIconList extends StatelessWidget {
             ),
           ),
           const SocialMediaIconColumn(),
-          const Spacer(),
         ],
       ),
       );

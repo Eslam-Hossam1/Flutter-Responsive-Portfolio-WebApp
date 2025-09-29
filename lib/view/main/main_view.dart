@@ -46,32 +46,23 @@ class _MainViewState extends State<MainView> {
               child: CustomScrollView(
                 controller: scrollController,
                 slivers: [
+                  SliverToBoxAdapter(child: SizedBox(height: 40.h)),
+
+                  if (Responsive.isDesktop(context))
+                    SliverToBoxAdapter(child: SizedBox(height: 160.h)),
+
                   // Intro Section Anchor
                   SliverToBoxAdapter(
                     child: KeyedSubtree(
                       key: introSectionKey,
-                      child: SizedBox(
-                        height: minSectionHeight,
-                        child: Row(
-                          children: [
-                            SizedBox(
-                                width: MediaQuery.sizeOf(context).width * 0.05),
-                            if (!Responsive.isLargeMobile(context))
-                              const SocialMediaIconList(),
-                            SizedBox(
-                                width: MediaQuery.sizeOf(context).width * 0.05),
-                            const Expanded(child: IntroBody()),
-                          ],
-                        ),
-                      ),
+                      child: const IntroBody(),
                     ),
                   ),
-                  SliverToBoxAdapter(child: SizedBox(height: 40.h)),
+                  if (Responsive.isDesktop(context))
+                    SliverToBoxAdapter(child: SizedBox(height: 180.h)),
 
-                  // Projects Section Anchor + Content
-                  if (Responsive.isLargeMobile(context))
-                    const SliverToBoxAdapter(
-                        child: SizedBox(height: defaultPadding)),
+                  SliverToBoxAdapter(child: SizedBox(height: 120.h)),
+
                   SliverToBoxAdapter(
                     child: KeyedSubtree(
                       key: projectsSectionKey,
