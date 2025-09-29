@@ -193,15 +193,15 @@ class _ImageGalleryDialogState extends State<ImageGalleryDialog> {
 
   // Get responsive spacing based on screen width
   double _getHorizontalSpacing(double width) {
-    if (width < 360) return 8.0; // Very small phones
-    if (width < 420) return 12.0; // Small phones
+    if (width < 360) return 4.0; // Very small phones
+    if (width < 420) return 8.0; // Small phones
     if (width < 768) return 16.0; // Regular phones
     return 24.0; // Tablets and larger
   }
 
   double _getTopSpacing(double width) {
-    if (width < 360) return 24.0; // Account for status bar
-    if (width < 420) return 28.0;
+    if (width < 360) return 16.0; // Account for status bar
+    if (width < 420) return 24.0;
     if (width < 768) return 32.0;
     return 40.0;
   }
@@ -230,8 +230,8 @@ class _ImageGalleryDialogState extends State<ImageGalleryDialog> {
                   padding: EdgeInsets.only(
                     top: topSpacing + 40, // Space for close button
                     bottom: 60, // Space for counter if needed
-                    left: horizontalSpacing + 40, // Space for nav buttons
-                    right: horizontalSpacing + 40,
+                    left: (horizontalSpacing * 2) + 44, // Space for nav buttons
+                    right: (horizontalSpacing * 2) + 44,
                   ),
                   child: PageView.builder(
                     controller: _controller,

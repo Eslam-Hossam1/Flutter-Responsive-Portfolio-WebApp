@@ -13,6 +13,7 @@ class ProjectMediaMobileLayout extends StatelessWidget {
   final double horizontalPadding;
   final double verticalPadding;
   final List<FeatureModel> featureModels;
+  final String link;
 
   const ProjectMediaMobileLayout({
     required this.description,
@@ -23,6 +24,7 @@ class ProjectMediaMobileLayout extends StatelessWidget {
     required this.isMobile,
     required this.horizontalPadding,
     required this.verticalPadding,
+    required this.link,
     Key? key,
     required this.featureModels,
   }) : super(key: key);
@@ -56,6 +58,7 @@ class ProjectMediaMobileLayout extends StatelessWidget {
             name: name,
             description: description,
             featureModels: featureModels,
+            link: link,
           ),
         ],
       ),

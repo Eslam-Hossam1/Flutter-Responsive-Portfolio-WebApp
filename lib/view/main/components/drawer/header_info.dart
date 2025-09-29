@@ -70,8 +70,8 @@ class CopyInfoText extends StatelessWidget {
                 },
                 child: SvgPicture.asset(
                   'assets/icons/copy-svgrepo-com (1).svg',
-                  height: imageHeight ?? 12.w.clamp(12, 16),
-                  width: imageWidth ?? 12.w.clamp(12, 16),
+                  height: imageHeight ?? 15.w.clamp(15, 20),
+                  width: imageWidth ?? 15.w.clamp(15, 20),
                   fit: BoxFit.cover,
                 ),
               ),

@@ -25,6 +25,7 @@ class _ProjectStackState extends State<ProjectStack> {
             transitionDuration: Duration.zero,
             reverseTransitionDuration: Duration.zero,
             pageBuilder: (context, animation, secondaryAnimation) => ProjectMediaViewer(
+              githubLink: projectList[widget.index].link,
               name: projectList[widget.index].name,
               description: projectList[widget.index].description,
               featureModels: projectList[widget.index].featureModelsList,

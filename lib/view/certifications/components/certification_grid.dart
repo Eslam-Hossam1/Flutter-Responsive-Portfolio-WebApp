@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/model/certifications_models_list.dart';
-import 'package:get/get.dart';
 
-import '../../../res/constants.dart';
-import '../../../view model/getx_controllers/certification_controller.dart';
 import 'certificates_details.dart';
 
 class CertificateGrid extends StatelessWidget {

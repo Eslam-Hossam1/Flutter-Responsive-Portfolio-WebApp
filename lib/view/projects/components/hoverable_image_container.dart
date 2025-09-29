@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/widgets/app_cached_network_image.dart';
+import 'package:flutter_portfolio/widgets/custom_project_grid_image.dart';
 
 class HoverableImageContainer extends StatefulWidget {
   final String imageUrl;
@@ -60,7 +60,7 @@ class _HoverableImageContainerState extends State<HoverableImageContainer> {
               // clipBehavior: Clip.hardEdge,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(9),
-                child: AppCachedNetworkImage(
+                child: CustomProjectGridImage(
                   imageUrl: widget.imageUrl,
                   fit: BoxFit.cover,
                   height: widget.height,

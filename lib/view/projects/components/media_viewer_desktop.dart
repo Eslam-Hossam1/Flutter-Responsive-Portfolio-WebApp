@@ -12,6 +12,7 @@ class ProjectMediaDesktopLayout extends StatelessWidget {
   final double horizontalPadding;
   final double verticalPadding;
   final List<FeatureModel> featureModels;
+  final String link;
 
   const ProjectMediaDesktopLayout({
     required this.name,
@@ -22,6 +23,7 @@ class ProjectMediaDesktopLayout extends StatelessWidget {
     required this.isTablet,
     required this.horizontalPadding,
     required this.verticalPadding,
+    required this.link,
     Key? key,
   }) : super(key: key);
 
@@ -46,6 +48,7 @@ class ProjectMediaDesktopLayout extends StatelessWidget {
                   name: name,
                   description: description,
                   featureModels: featureModels,
+                  link: link,
                 ),
               ],
             ),

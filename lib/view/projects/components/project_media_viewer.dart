@@ -11,6 +11,7 @@ class ProjectMediaViewer extends StatefulWidget {
   final List<String> images;
   final List<String> videos;
   final List<FeatureModel> featureModels;
+  final String githubLink;
 
   const ProjectMediaViewer({
     Key? key,
@@ -19,7 +20,8 @@ class ProjectMediaViewer extends StatefulWidget {
     required this.images,
     required this.videos,
     required this.featureModels,
-  }) : super(key: key);
+    required this.githubLink,
+    }) : super(key: key);
 
   @override
   State<ProjectMediaViewer> createState() => _ProjectMediaViewerState();
@@ -83,6 +85,7 @@ class _ProjectMediaViewerState extends State<ProjectMediaViewer> {
                 SliverToBoxAdapter(
                   child: (isBigDesktop || isDesktop || isTablet)
                       ? ProjectMediaDesktopLayout(
+                          link: widget.githubLink,
                           name: widget.name,
                           description: widget.description,
                           featureModels: widget.featureModels,
@@ -93,6 +96,7 @@ class _ProjectMediaViewerState extends State<ProjectMediaViewer> {
                           verticalPadding: isBigDesktop ? 36 : 16,
                         )
                       : ProjectMediaMobileLayout(
+                          link: widget.githubLink,
                           name: widget.name,
                           description: widget.description,
                           featureModels: widget.featureModels,
