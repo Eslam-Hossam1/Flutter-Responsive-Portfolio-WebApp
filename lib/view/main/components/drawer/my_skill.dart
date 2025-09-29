@@ -74,10 +74,6 @@ class MySKills extends StatelessWidget {
             title: 'Firebase',
             image: 'assets/icons/firebase.png'),
         const AnimatedLinearProgressIndicator(
-            percentage: 0.85,
-            title: 'Payment Integration',
-            image: 'assets/icons/flutter.png'),
-        const AnimatedLinearProgressIndicator(
             percentage: 0.8,
             title: 'Responsive & Adaptive Design',
             image: 'assets/icons/flutter.png'),
