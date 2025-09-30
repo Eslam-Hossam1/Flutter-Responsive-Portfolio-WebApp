@@ -37,12 +37,10 @@ abstract class ChefioUrlHelper {
     _lightMode.settings,
     _lightMode.themeSelection,
     _lightMode.languageSelection,
-    _lightMode.logIn,
     _lightMode.signUp,
     _lightMode.otp,
     _lightMode.forgot,
     _lightMode.resetPassword,
-    _lightMode.search,
   ];
   static final List<String> _darkImagesToBeUsed = [
     _darkMode.onboarding,
@@ -67,12 +65,10 @@ abstract class ChefioUrlHelper {
     _darkMode.settings,
     _darkMode.themeSelection,
     _darkMode.languageSelection,
-    _darkMode.logIn,
     _darkMode.signUp,
     _darkMode.otp,
     _darkMode.forgot,
     _darkMode.resetPassword,
-    _darkMode.search,
   ];
 
   static final List<String> _pushNotificationImages = [
@@ -126,7 +122,7 @@ class ChefioUrlsPushNotifications {
   final String fullNotification =
       'https://res.cloudinary.com/deshi2o56/image/upload/v1758849903/Screenshot_1758835096_fa0s6l.png';
   final String popupNotification =
-      'https://res.cloudinary.com/deshi2o56/image/upload/v1758849903/Screenshot_1758835096_fa0s6l.png';
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1758849906/Screenshot_1758835057_pxko4f.png';
 }
 
 class ChefioVideoUrls {
@@ -234,7 +230,7 @@ class ChefioUrlsLightMode implements ChefioBasicImages {
       'https://res.cloudinary.com/deshi2o56/image/upload/v1758848601/Screenshot_2025-09-21-04-35-05-695_com.example.chefio_app_kzvp7u.jpg';
   @override
   final String stepDialog =
-      'https://res.cloudinary.com/deshi2o56/image/upload/v1758852943/Screenshot_2025-09-26-05-04-21-536_com.example.chefio_app_vgvoqo.jpg';
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1758848524/Screenshot_2025-09-21-04-37-47-441_com.example.chefio_app_bdpqsk.jpg';
 
   List<String> get orderedImages => [
         onboarding,
