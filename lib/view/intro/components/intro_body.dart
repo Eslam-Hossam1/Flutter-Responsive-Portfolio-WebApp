@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/view/intro/components/my_animated_image.dart';
 import 'package:flutter_portfolio/view/intro/components/social_media_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../res/constants.dart';
 import '../../../view model/responsive.dart';
-import 'animated_texts_componenets.dart';
+import 'animated_image_container.dart';
 import 'combine_subtitle.dart';
 import 'description_text.dart';
 import 'download_button.dart';
@@ -44,7 +45,7 @@ class IntroBody extends StatelessWidget {
                   SizedBox(
                     width: size.width * 0.23,
                   ),
-                  const AnimatedImageContainer(
+                  const MyAnimatedImage(
                     width: 150,
                     height: 200,
                   ),
@@ -77,7 +78,7 @@ class IntroBody extends StatelessWidget {
           ],
         ),
         const Spacer(),
-        if (Responsive.isDesktop(context)) const AnimatedImageContainer(),
+        if (Responsive.isDesktop(context)) const MyAnimatedImage(),
         const Spacer()
       ],
     );

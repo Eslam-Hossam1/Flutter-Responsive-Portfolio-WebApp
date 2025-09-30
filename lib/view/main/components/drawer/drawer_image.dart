@@ -27,7 +27,7 @@ class _DrawerImageState extends State<DrawerImage> {
           width: (120.w).clamp(100, 170),
           padding: const EdgeInsets.all(defaultPadding / 5),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(40.r),
+            borderRadius: BorderRadius.circular(30.r),
             gradient: LinearGradient(
               colors: [
                 Colors.pink,
@@ -46,7 +46,7 @@ class _DrawerImageState extends State<DrawerImage> {
             ],
           ),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(40.r - (defaultPadding / 5)),
+            borderRadius: BorderRadius.circular(30.r - (defaultPadding / 5)),
             child: Hero(
               tag: 'profile-image-hero',
               child: Image.asset(
