@@ -60,11 +60,16 @@ class MyAnimatedImageState extends State<MyAnimatedImage>
                 ),
               ],
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(25),
-              child: Image.asset(
-                'assets/images/profile.jpeg',
-                fit: BoxFit.cover,
+            child: Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  color: Colors.black, borderRadius: BorderRadius.circular(25)),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(25),
+                child: Image.asset(
+                  'assets/images/profile.jpeg',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
