@@ -55,7 +55,7 @@ class _MainViewState extends State<MainView> {
                   if (Responsive.isDesktop(context))
                     SliverToBoxAdapter(child: SizedBox(height: 180.h)),
 
-                  SliverToBoxAdapter(child: SizedBox(height: 170.h)),
+                  SliverToBoxAdapter(child: SizedBox(height: 220.h)),
 
                   SliverToBoxAdapter(
                     child: KeyedSubtree(
@@ -74,7 +74,7 @@ class _MainViewState extends State<MainView> {
                     tablet: ProjectGrid(ratio: 1.4, crossAxisCount: 2),
                   ),
 
-                  SliverToBoxAdapter(child: SizedBox(height: 200.h)),
+                  SliverToBoxAdapter(child: SizedBox(height: 220.h)),
 
                   // Certifications Section Anchor + Content
                   if (Responsive.isLargeMobile(context))
