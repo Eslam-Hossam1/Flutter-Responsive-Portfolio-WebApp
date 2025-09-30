@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_portfolio/res/constants.dart';
 
 class CustomProjectGridImage extends StatelessWidget {
@@ -20,39 +21,19 @@ class CustomProjectGridImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final radius = borderRadius;
-    final image = Image.network(
-      imageUrl,
+    final image = CachedNetworkImage(
+      imageUrl: imageUrl,
       height: height,
       width: width,
       fit: fit,
-      frameBuilder: (context, child, frame, sync) {
-        if (frame == null) {
-          return SizedBox(
-            height: height,
-            width: width,
-            child: Container(
-              color: bgColor,
-            ),
-          );
-        }
-
-        return child;
-      },
-      loadingBuilder: (context, child, loadingProgress) {
-        // If loadingProgress is null, the image has finished loading
-        if (loadingProgress == null) {
-          return child; // Return the loaded image
-        }
-
-        return SizedBox(
-          height: height,
-          width: width,
-          child: Container(
-            color: bgColor,
-          ),
-        );
-      },
-      errorBuilder: (context, error, stackTrace) => SizedBox(
+      placeholder: (context, url) => SizedBox(
+        height: height,
+        width: width,
+        child: Container(
+          color: bgColor,
+        ),
+      ),
+      errorWidget: (context, url, error) => SizedBox(
         height: height,
         width: width,
         child: Container(
