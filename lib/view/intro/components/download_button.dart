@@ -15,7 +15,7 @@ class _DownloadButtonState extends State<DownloadButton> {
   bool _isHovered = false;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
         launchUrl(Uri.parse(
             'https://drive.google.com/file/d/1uKkGWhZxPWlzuk3jp4wxqre-NBMqZ5Pl/view'));

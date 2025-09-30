@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_portfolio/routing/browser_routing_helper.dart';
 import 'hoverable_image_container.dart';
 import 'package:photo_view/photo_view.dart';
 import 'multi_video_player.dart';
@@ -81,8 +82,10 @@ class _ImageGalleryState extends State<ImageGallery> {
             return HoverableImageContainer(
               imageUrl: displayImages[index],
               onTap: () {
-                final initialIndex = widget.images.indexOf(displayImages[index]);
-                context.push('/project-details/${widget.projectId}/viewer/$initialIndex');
+                final initialIndex =
+                    widget.images.indexOf(displayImages[index]);
+                context.push(
+                    '/project-details/${widget.projectId}/viewer/$initialIndex');
               },
               height: 120,
               width: 120,
@@ -325,7 +328,7 @@ class _ImageGalleryDialogState extends State<ImageGalleryDialog> {
                       color: Colors.white,
                       size: 20,
                     ),
-                    onPressed: () => context.pop(),
+                    onPressed: () => BrowserRoutingHelper.back(),
                     padding: EdgeInsets.zero,
                   ),
                 ),
