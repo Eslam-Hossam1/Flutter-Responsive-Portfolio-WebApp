@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../res/constants.dart';
 
-class ConnectButton extends StatefulWidget {
-  const ConnectButton({super.key});
+class WhatsappColoredButton extends StatefulWidget {
+  const WhatsappColoredButton({super.key});
 
   @override
-  State<ConnectButton> createState() => _ConnectButtonState();
+  State<WhatsappColoredButton> createState() => _WhatsappColoredButtonState();
 }
 
-class _ConnectButtonState extends State<ConnectButton> {
+class _WhatsappColoredButtonState extends State<WhatsappColoredButton> {
   bool _isHovered = false;
 
   @override

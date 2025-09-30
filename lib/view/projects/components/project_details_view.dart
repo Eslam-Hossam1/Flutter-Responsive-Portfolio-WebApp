@@ -5,7 +5,7 @@ import 'package:flutter_portfolio/res/constants.dart';
 import 'media_viewer_desktop.dart';
 import 'media_viewer_mobile.dart';
 
-class ProjectMediaViewer extends StatefulWidget {
+class ProjectDetailsView extends StatefulWidget {
   final String name;
   final String description;
   final List<String> images;
@@ -13,7 +13,7 @@ class ProjectMediaViewer extends StatefulWidget {
   final List<FeatureModel> featureModels;
   final String githubLink;
 
-  const ProjectMediaViewer({
+  const ProjectDetailsView({
     Key? key,
     required this.name,
     required this.description,
@@ -21,13 +21,13 @@ class ProjectMediaViewer extends StatefulWidget {
     required this.videos,
     required this.featureModels,
     required this.githubLink,
-    }) : super(key: key);
+  }) : super(key: key);
 
   @override
-  State<ProjectMediaViewer> createState() => _ProjectMediaViewerState();
+  State<ProjectDetailsView> createState() => _ProjectDetailsViewState();
 }
 
-class _ProjectMediaViewerState extends State<ProjectMediaViewer> {
+class _ProjectDetailsViewState extends State<ProjectDetailsView> {
   @override
   void initState() {
     super.initState();

@@ -4,8 +4,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../res/constants.dart';
 
-class ContactIcon extends StatelessWidget {
-  const ContactIcon({super.key});
+class DrawerBottomSocialButton extends StatelessWidget {
+  const DrawerBottomSocialButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class ContactIcon extends StatelessWidget {
           const Spacer(),
           IconButton(
               onPressed: () {
-                launchUrl(Uri.parse('https://github.com/Eslam-Hossam1/'));
+                launchUrl(Uri.parse('https://wa.me/201028735105'));
               },
               icon: SvgPicture.asset(
                 'assets/icons/whatsapp-svgrepo-com.svg',

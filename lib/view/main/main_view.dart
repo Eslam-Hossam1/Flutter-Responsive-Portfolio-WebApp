@@ -4,7 +4,6 @@ import 'package:flutter_portfolio/view%20model/controller.dart';
 import 'package:flutter_portfolio/view%20model/responsive.dart';
 import 'package:flutter_portfolio/view/certifications/components/certification_grid.dart';
 import 'package:flutter_portfolio/view/intro/components/intro_body.dart';
-import 'package:flutter_portfolio/view/intro/components/social_media_list.dart';
 import 'package:flutter_portfolio/view/main/components/navigation_button_list.dart';
 import 'package:flutter_portfolio/view/projects/components/projects_grid.dart';
 import 'package:flutter_portfolio/view/projects/components/title_text.dart';
@@ -46,7 +45,6 @@ class _MainViewState extends State<MainView> {
               child: CustomScrollView(
                 controller: scrollController,
                 slivers: [
-
                   // Intro Section Anchor
                   SliverToBoxAdapter(
                     child: KeyedSubtree(
@@ -57,7 +55,7 @@ class _MainViewState extends State<MainView> {
                   if (Responsive.isDesktop(context))
                     SliverToBoxAdapter(child: SizedBox(height: 180.h)),
 
-                  SliverToBoxAdapter(child: SizedBox(height: 120.h)),
+                  SliverToBoxAdapter(child: SizedBox(height: 170.h)),
 
                   SliverToBoxAdapter(
                     child: KeyedSubtree(
@@ -76,7 +74,7 @@ class _MainViewState extends State<MainView> {
                     tablet: ProjectGrid(ratio: 1.4, crossAxisCount: 2),
                   ),
 
-                  SliverToBoxAdapter(child: SizedBox(height: 120.h)),
+                  SliverToBoxAdapter(child: SizedBox(height: 200.h)),
 
                   // Certifications Section Anchor + Content
                   if (Responsive.isLargeMobile(context))
@@ -100,7 +98,7 @@ class _MainViewState extends State<MainView> {
                   ),
 
                   // Bottom padding
-                  SliverToBoxAdapter(child: SizedBox(height: 120.h)),
+                  SliverToBoxAdapter(child: SizedBox(height: 200.h)),
                 ],
               ),
             ),

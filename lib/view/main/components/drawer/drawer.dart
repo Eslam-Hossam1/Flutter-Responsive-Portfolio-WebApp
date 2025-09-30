@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/view/main/components/drawer/contact_icons.dart';
+import 'package:flutter_portfolio/view/main/components/drawer/drawer_bottom_social_buttons.dart';
 import 'package:flutter_portfolio/view/main/components/drawer/personal_info.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../res/constants.dart';
@@ -42,7 +42,7 @@ class CustomDrawer extends StatelessWidget {
                 MySKills(),
                 Knowledges(),
                 Divider(),
-                ContactIcon(),
+                DrawerBottomSocialButton(),
               ],
             ),
           ),
