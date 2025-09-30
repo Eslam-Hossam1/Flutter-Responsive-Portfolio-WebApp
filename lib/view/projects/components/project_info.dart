@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/model/projects_models_list.dart';
 import 'package:flutter_portfolio/view/projects/components/project_deatail.dart';
-import 'package:flutter_portfolio/view/projects/components/project_details_view.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../res/constants.dart';
 
@@ -19,22 +18,7 @@ class _ProjectStackState extends State<ProjectStack> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          PageRouteBuilder(
-            transitionDuration: Duration.zero,
-            reverseTransitionDuration: Duration.zero,
-            pageBuilder: (context, animation, secondaryAnimation) =>
-                ProjectDetailsView(
-              githubLink: projectList[widget.index].link,
-              name: projectList[widget.index].name,
-              description: projectList[widget.index].description,
-              featureModels: projectList[widget.index].featureModelsList,
-              images: projectList[widget.index].images,
-              videos: projectList[widget.index].videos,
-            ),
-          ),
-        );
+        context.push('/project-details/${widget.index}');
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),

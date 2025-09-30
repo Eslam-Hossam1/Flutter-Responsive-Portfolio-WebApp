@@ -2,8 +2,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/res/constants.dart';
 import 'package:flutter_portfolio/view/intro/components/animated_image_container.dart';
-import 'package:flutter_portfolio/view/main/main_view.dart';
 import 'package:flutter_portfolio/view/splash/componenets/animated_loading_text.dart';
+import 'package:flutter_portfolio/routing/routs.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -16,11 +17,9 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const MainView(),
-          ));
+      if (mounted) {
+        context.go(RoutePaths.main);
+      }
     });
   }
 

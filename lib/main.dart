@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_portfolio/res/constants.dart';
-import 'package:flutter_portfolio/view/splash/splash_view.dart';
+import 'package:flutter_portfolio/routing/app_router.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(600, 960),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
+      child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                       bodyMedium: const TextStyle(color: bodyTextColor),
                     ),
           ),
-          home: const SplashView()),
+          routerConfig: AppRouter.router),
     );
   }
 }

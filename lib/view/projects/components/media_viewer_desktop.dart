@@ -4,6 +4,7 @@ import 'package:flutter_portfolio/view/projects/components/project_info_section.
 import 'project_media_widgets.dart';
 
 class ProjectMediaDesktopLayout extends StatelessWidget {
+  final int projectId;
   final String name;
   final String description;
   final List<String> images;
@@ -15,6 +16,7 @@ class ProjectMediaDesktopLayout extends StatelessWidget {
   final String link;
 
   const ProjectMediaDesktopLayout({
+    required this.projectId,
     required this.name,
     required this.description,
     required this.featureModels,
@@ -58,6 +60,7 @@ class ProjectMediaDesktopLayout extends StatelessWidget {
             flex: 1,
             child: ImageGallery(
               images: images,
+              projectId: projectId,
               crossAxisCount: isTablet ? 2 : 3,
             ),
           ),

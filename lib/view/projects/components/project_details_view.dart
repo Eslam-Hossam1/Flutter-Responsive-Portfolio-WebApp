@@ -6,6 +6,7 @@ import 'media_viewer_desktop.dart';
 import 'media_viewer_mobile.dart';
 
 class ProjectDetailsView extends StatefulWidget {
+  final int projectId;
   final String name;
   final String description;
   final List<String> images;
@@ -15,6 +16,7 @@ class ProjectDetailsView extends StatefulWidget {
 
   const ProjectDetailsView({
     Key? key,
+    required this.projectId,
     required this.name,
     required this.description,
     required this.images,
@@ -91,6 +93,7 @@ class _ProjectDetailsViewState extends State<ProjectDetailsView> {
                           featureModels: widget.featureModels,
                           images: widget.images,
                           videos: widget.videos,
+                          projectId: widget.projectId,
                           isTablet: isTablet,
                           horizontalPadding: isBigDesktop ? width * .07 : 24,
                           verticalPadding: isBigDesktop ? 36 : 16,
@@ -102,6 +105,7 @@ class _ProjectDetailsViewState extends State<ProjectDetailsView> {
                           featureModels: widget.featureModels,
                           images: widget.images,
                           videos: widget.videos,
+                          projectId: widget.projectId,
                           gridCrossAxisCount: gridCrossAxisCount,
                           isMobile: isMobile,
                           horizontalPadding: isBigMobile ? width * .05 : 24,

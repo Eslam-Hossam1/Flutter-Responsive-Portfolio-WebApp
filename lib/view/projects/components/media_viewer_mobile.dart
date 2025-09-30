@@ -4,6 +4,7 @@ import 'package:flutter_portfolio/view/projects/components/project_info_section.
 import 'project_media_widgets.dart';
 
 class ProjectMediaMobileLayout extends StatelessWidget {
+  final int projectId;
   final String description;
   final String name;
   final List<String> images;
@@ -16,6 +17,7 @@ class ProjectMediaMobileLayout extends StatelessWidget {
   final String link;
 
   const ProjectMediaMobileLayout({
+    required this.projectId,
     required this.description,
     required this.name,
     required this.images,
@@ -51,6 +53,7 @@ class ProjectMediaMobileLayout extends StatelessWidget {
           const SizedBox(height: 24),
           ImageGallery(
             images: images,
+            projectId: projectId,
             crossAxisCount: gridCrossAxisCount,
           ),
           const SizedBox(height: 32),

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'hoverable_image_container.dart';
 import 'package:photo_view/photo_view.dart';
 import 'multi_video_player.dart';
+import 'package:go_router/go_router.dart';
 
 class VideoGalleryWithGradientContainer extends StatelessWidget {
   final List<String> videos;
@@ -41,10 +42,15 @@ class VideoGalleryWithGradientContainer extends StatelessWidget {
 }
 
 class ImageGallery extends StatefulWidget {
+  final int projectId;
   final List<String> images;
   final int crossAxisCount;
-  const ImageGallery({required this.images, this.crossAxisCount = 3, Key? key})
-      : super(key: key);
+  const ImageGallery({
+    required this.images,
+    required this.projectId,
+    this.crossAxisCount = 3,
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<ImageGallery> createState() => _ImageGalleryState();
@@ -75,13 +81,8 @@ class _ImageGalleryState extends State<ImageGallery> {
             return HoverableImageContainer(
               imageUrl: displayImages[index],
               onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (_) => ImageGalleryDialog(
-                    images: widget.images,
-                    initialIndex: widget.images.indexOf(displayImages[index]),
-                  ),
-                );
+                final initialIndex = widget.images.indexOf(displayImages[index]);
+                context.push('/project-details/${widget.projectId}/viewer/$initialIndex');
               },
               height: 120,
               width: 120,
@@ -324,7 +325,7 @@ class _ImageGalleryDialogState extends State<ImageGalleryDialog> {
                       color: Colors.white,
                       size: 20,
                     ),
-                    onPressed: () => Navigator.of(context).pop(),
+                    onPressed: () => context.pop(),
                     padding: EdgeInsets.zero,
                   ),
                 ),
