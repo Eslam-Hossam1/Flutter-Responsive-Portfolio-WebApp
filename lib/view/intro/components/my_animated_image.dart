@@ -82,7 +82,7 @@ class MyAnimatedImageState extends State<MyAnimatedImage>
               color: Colors.black,
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/images/profile.jpg'),
+                image: AssetImage('assets/images/profile.png'),
               ),
             ),
           ),

@@ -50,7 +50,7 @@ class _DrawerImageState extends State<DrawerImage> {
             child: Hero(
               tag: 'profile-image-hero',
               child: Image.asset(
-                'assets/images/profile.jpg',
+                'assets/images/profile.png',
                 fit: BoxFit.cover,
               ),
             ),
@@ -108,7 +108,7 @@ void _showProfileDialog(BuildContext context) {
                               minScale: 0.8,
                               maxScale: 4.0,
                               child: Image.asset(
-                                'assets/images/profile.jpg',
+                                'assets/images/profile.png',
                                 fit: BoxFit.contain,
                               ),
                             ),
