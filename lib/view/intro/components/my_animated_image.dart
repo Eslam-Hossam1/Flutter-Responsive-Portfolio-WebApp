@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/widgets/image_with_placeholder.dart';
 import '../../../res/constants.dart';
 
 class MyAnimatedImage extends StatefulWidget {
@@ -77,14 +78,9 @@ class MyAnimatedImageState extends State<MyAnimatedImage>
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(25),
-          child: Container(
-            decoration: const BoxDecoration(
-              color: Colors.black,
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage('assets/images/profile.png'),
-              ),
-            ),
+          child: ImageWithBackgroundPlaceholder(
+            imagePath: 'assets/images/profile.png',
+            fit: BoxFit.cover,
           ),
         ),
       ),
