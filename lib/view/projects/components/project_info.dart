@@ -63,8 +63,8 @@ class _ProjectStackState extends State<ProjectStack> {
                   Expanded(
                     flex: 7,
                     child: ClipRRect(
-                      borderRadius: const BorderRadius.vertical(
-                          top: Radius.circular(17)),
+                      borderRadius:
+                          const BorderRadius.vertical(top: Radius.circular(17)),
                       child: Stack(
                         fit: StackFit.expand,
                         children: [
@@ -98,28 +98,6 @@ class _ProjectStackState extends State<ProjectStack> {
                     ),
                   ),
 
-                  // ── Neon divider line ──────────────────────────────────
-                  Container(
-                    height: 2,
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.pinkAccent, Colors.blueAccent],
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.pinkAccent,
-                          blurRadius: 6,
-                          spreadRadius: 1,
-                        ),
-                        BoxShadow(
-                          color: Colors.blueAccent,
-                          blurRadius: 6,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                    ),
-                  ),
-
                   // ── Title panel (bottom ~30 %) ─────────────────────────
                   Expanded(
                     flex: 3,
@@ -131,6 +109,13 @@ class _ProjectStackState extends State<ProjectStack> {
                             : const Color(0xFF12121E),
                         borderRadius: const BorderRadius.vertical(
                             bottom: Radius.circular(17)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.55),
+                            offset: const Offset(0, -6),
+                            blurRadius: 14,
+                          ),
+                        ],
                       ),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 14, vertical: 10),
@@ -156,7 +141,7 @@ class _ProjectStackState extends State<ProjectStack> {
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,
-                                fontSize: 15,
+                                fontSize: 16,
                                 letterSpacing: 0.3,
                               ),
                               maxLines: 2,

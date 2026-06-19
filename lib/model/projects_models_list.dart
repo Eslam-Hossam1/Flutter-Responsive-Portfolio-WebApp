@@ -3,6 +3,99 @@ import 'package:flutter_portfolio/model/feature_model.dart';
 import 'package:flutter_portfolio/model/project_model.dart';
 
 List<Project> projectList = [
+  const Project(
+    name: 'Iron Pulse – Fitness App',
+    description:
+        'Iron Pulse is a fitness app built with Flutter during the CS Academy training program as part of a five-person team.\n\nThe app helps users discover training plans, explore trainer profiles, and manage their favorite workouts — all through a clean, modern UI.\n\nPersonally contributed the Home feature (training plans) and Favourites feature end-to-end, plus profile bug fixes.\n\nArchitected with MVVM, Bloc (Cubit) state management, GoRouter navigation, and Supabase as the backend.',
+    images: [
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1781883780/splash_qtrwt3.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1781883780/onboarding_wab61n.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1781883780/login_czppbe.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1781883779/home_bgac65.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1781883779/home_liked_bbgdma.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1781883779/plans_neulel.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1781883779/plan_details_pmclmb.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1781883785/trainners_vaylcc.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1781883779/favourites_empty_nuy6nk.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1781883786/favourties_not_empty_esgv7f.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1781883785/profile_fzmlr1.jpg',
+      'https://res.cloudinary.com/deshi2o56/image/upload/v1781883785/edit_profile_ndlp59.jpg',
+    ],
+    videos: [
+      'https://res.cloudinary.com/deshi2o56/video/upload/v1781797555/Screenrecorder-2026-05-01-17-37-30-580_ztu0et.mp4',
+    ],
+    featureModelsList: [
+      FeatureModel(
+        feature: 'Home & Training Plans',
+        featurePoints: [
+          'Browsed and displayed training plans with cover images, titles, and key details',
+          'Implemented like functionality directly from the plans list with instant UI updates',
+          'Built smooth navigation to plan details with full step-by-step breakdown',
+        ],
+      ),
+      FeatureModel(
+        feature: 'Plan Details',
+        featurePoints: [
+          'Displayed full plan info: name, description, duration, and trainer details',
+          'Showed structured exercise steps for clear workout guidance',
+          'Supported liking plans from the details screen with reactive state updates',
+        ],
+      ),
+      FeatureModel(
+        feature: 'Favourites',
+        featurePoints: [
+          'Implemented a dedicated Favourites feature to save and manage liked training plans',
+          'Handled empty and populated states with distinct UI feedback',
+          'Synced favourite state across Home and Favourites features seamlessly',
+        ],
+      ),
+      FeatureModel(
+        feature: 'Trainers',
+        featurePoints: [
+          'Displayed a list of available trainers with profile images and key info',
+          'Provided smooth navigation to individual trainer profiles',
+        ],
+      ),
+      FeatureModel(
+        feature: 'Profile & Edit Profile',
+        featurePoints: [
+          'Showed user profile with stats and personal details',
+          'Implemented edit profile functionality with form validation and Supabase sync',
+          'Fixed profile-related bugs reported by teammates during development',
+        ],
+      ),
+      FeatureModel(
+        feature: 'Authentication',
+        featurePoints: [
+          'Implemented Login flow with secure Supabase authentication',
+          'Handled session persistence and redirect logic using GoRouter',
+        ],
+      ),
+      FeatureModel(
+        feature: 'Onboarding',
+        featurePoints: [
+          'Designed a clean onboarding screen to introduce the app on first launch',
+        ],
+      ),
+      FeatureModel(
+        feature: 'Backend & Database (Supabase)',
+        featurePoints: [
+          'Created Supabase SQL tables: plans, plan_steps, trainers, and favourites',
+          'Configured Row Level Security (RLS) policies for data access control',
+          'Built Dart model classes and repository layer for clean data handling',
+        ],
+      ),
+      FeatureModel(
+        feature: 'MVVM Architecture & Bloc (Cubit) State Management',
+        featurePoints: [
+          'Applied MVVM architecture with Cubit for predictable and maintainable state management',
+          'Used get_it for dependency injection across features',
+          'Structured the project with clean feature separation and modular folders',
+        ],
+      ),
+    ],
+    link: 'https://github.com/Eslam-Hossam1/Iron-Pulse-Fitness-App',
+  ),
   Project(
     name: 'Chefio – Recipe Sharing App',
     description:

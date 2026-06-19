@@ -23,15 +23,15 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             scaffoldBackgroundColor: bgColor,
             useMaterial3: true,
-            textTheme:
-                Theme.of(context).textTheme
-                    .apply(
-                      bodyColor: Colors.white,
-                    )
-                    .copyWith(
-                      bodyLarge: const TextStyle(color: bodyTextColor),
-                      bodyMedium: const TextStyle(color: bodyTextColor),
-                    ),
+            textTheme: Theme.of(context)
+                .textTheme
+                .apply(
+                  bodyColor: Colors.white,
+                )
+                .copyWith(
+                  bodyLarge: const TextStyle(color: bodyTextColor),
+                  bodyMedium: const TextStyle(color: bodyTextColor),
+                ),
           ),
           routerConfig: AppRouter.router),
     );
