@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: bgColor,
             useMaterial3: true,
             textTheme:
-                GoogleFonts.openSansTextTheme(Theme.of(context).textTheme)
+                Theme.of(context).textTheme
                     .apply(
                       bodyColor: Colors.white,
                     )
