@@ -338,7 +338,7 @@ List<Project> projectList = [
     thumbnail: 'assets/images/bookly thumbnail.png',
   ),
   const Project(
-    name: 'Calculator App',
+    name: 'Calcy – Calculator App',
     description:
         'A simple yet powerful calculator application built with Flutter. It supports basic arithmetic operations including addition, subtraction, multiplication, and division. The app offers both light and dark themes for better user comfort and leverages Cubit state management for clean logic separation.',
     images: [

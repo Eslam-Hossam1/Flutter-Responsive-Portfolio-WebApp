@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/model/projects_models_list.dart';
+import 'package:flutter_portfolio/view%20model/responsive.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../res/constants.dart';
@@ -60,7 +61,7 @@ class _ProjectStackState extends State<ProjectStack> {
                 children: [
                   // ── Thumbnail (top ~70 %) ──────────────────────────────
                   Expanded(
-                    flex: 7,
+                    flex: Responsive.isDesktop(context) ? 10 : 8,
                     child: ClipRRect(
                       borderRadius:
                           const BorderRadius.vertical(top: Radius.circular(17)),
@@ -76,8 +77,9 @@ class _ProjectStackState extends State<ProjectStack> {
                                 ? Image.asset(
                                     thumbnailPath,
                                     fit: BoxFit.cover,
-                                    errorBuilder: (context, error, stackTrace) =>
-                                        Container(
+                                    errorBuilder:
+                                        (context, error, stackTrace) =>
+                                            Container(
                                       color: bgColor,
                                       child: const Icon(Icons.broken_image,
                                           color: Colors.white38),
@@ -144,41 +146,6 @@ class _ProjectStackState extends State<ProjectStack> {
                               ),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-
-                          const SizedBox(height: 6),
-
-                          // "View Project →" – slides in on hover
-                          AnimatedSlide(
-                            offset: isHovered
-                                ? Offset.zero
-                                : const Offset(-0.15, 0),
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeOut,
-                            child: AnimatedOpacity(
-                              opacity: isHovered ? 1.0 : 0.0,
-                              duration: const Duration(milliseconds: 250),
-                              child: const Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    'View Project',
-                                    style: TextStyle(
-                                      color: Colors.blueAccent,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 12,
-                                      letterSpacing: 0.4,
-                                    ),
-                                  ),
-                                  SizedBox(width: 4),
-                                  Icon(
-                                    Icons.arrow_forward_rounded,
-                                    color: Colors.blueAccent,
-                                    size: 13,
-                                  ),
-                                ],
-                              ),
                             ),
                           ),
                         ],
