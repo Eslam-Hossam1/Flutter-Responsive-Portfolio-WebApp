@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/model/projects_models_list.dart';
 import 'package:go_router/go_router.dart';
@@ -19,7 +18,7 @@ class _ProjectStackState extends State<ProjectStack> {
   @override
   Widget build(BuildContext context) {
     final project = projectList[widget.index];
-    final thumbnailUrl = project.images.isNotEmpty ? project.images.first : '';
+    final thumbnailPath = project.thumbnail;
 
     return GestureDetector(
       onTap: () => context.push('/project-details/${widget.index}'),
@@ -73,13 +72,12 @@ class _ProjectStackState extends State<ProjectStack> {
                             scale: isHovered ? 1.07 : 1.0,
                             duration: const Duration(milliseconds: 400),
                             curve: Curves.easeOut,
-                            child: thumbnailUrl.isNotEmpty
-                                ? CachedNetworkImage(
-                                    imageUrl: thumbnailUrl,
+                            child: thumbnailPath.isNotEmpty
+                                ? Image.asset(
+                                    thumbnailPath,
                                     fit: BoxFit.cover,
-                                    placeholder: (_, __) =>
-                                        Container(color: bgColor),
-                                    errorWidget: (_, __, ___) => Container(
+                                    errorBuilder: (context, error, stackTrace) =>
+                                        Container(
                                       color: bgColor,
                                       child: const Icon(Icons.broken_image,
                                           color: Colors.white38),

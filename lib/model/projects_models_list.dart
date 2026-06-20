@@ -95,6 +95,7 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/Iron-Pulse-Fitness-App',
+    thumbnail: 'assets/images/iron pulse thumbnail.png',
   ),
   Project(
     name: 'Chefio – Recipe Sharing App',
@@ -200,6 +201,7 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/Chefio-Recipe-Sharing-App',
+    thumbnail: 'assets/images/chefio thumbnail.png',
   ),
   const Project(
     name: 'Vibes – Music Player App',
@@ -258,71 +260,7 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/Vibes-Music-Player-App',
-  ),
-  const Project(
-    name: 'Notes App',
-    description:
-        'A simple yet effective notes application developed with Flutter. The app allows users to create, edit, and delete notes, with the added functionality of choosing a color for each note. Notes are stored in a local database using Hive, ensuring fast and efficient data retrieval. The app provides a clean and intuitive interface for managing notes on the go.',
-    images: [
-      'https://res.cloudinary.com/deshi2o56/image/upload/v1745548819/1745547745230_nlzrhd.jpg',
-      'https://res.cloudinary.com/deshi2o56/image/upload/v1745548819/1745547745179_xcgg9q.jpg',
-      'https://res.cloudinary.com/deshi2o56/image/upload/v1745548815/1745547745113_ktiyhi.jpg',
-      'https://res.cloudinary.com/deshi2o56/image/upload/v1745548816/1745547745085_ro6oih.jpg',
-      'https://res.cloudinary.com/deshi2o56/image/upload/v1745548816/1745547745026_zlendi.jpg',
-      'https://res.cloudinary.com/deshi2o56/image/upload/v1745548820/1745547744849_wgqhwq.jpg',
-      'https://res.cloudinary.com/deshi2o56/image/upload/v1745548812/1745547744981_bfb6rl.jpg',
-      'https://res.cloudinary.com/deshi2o56/image/upload/v1745548817/1745547744958_bco8yk.jpg',
-      'https://res.cloudinary.com/deshi2o56/image/upload/v1745548826/1745547744896_jvbaqa.jpg',
-      'https://res.cloudinary.com/deshi2o56/image/upload/v1745548820/1745547744816_x4zej6.jpg',
-    ],
-    videos: [
-      "https://res.cloudinary.com/deshi2o56/video/upload/v1745548787/Screenrecorder-2025-04-25-05-10-16-287_hm1ill.mp4",
-    ],
-    featureModelsList: [
-      FeatureModel(
-        feature: 'Note Management (CRUD)',
-        featurePoints: [
-          'Implemented full Create, Read, Update, and Delete functionality for notes',
-          'Allowed users to easily edit and remove notes with confirmation prompts',
-        ],
-      ),
-      FeatureModel(
-        feature: 'Search Functionality',
-        featurePoints: [
-          'Enabled real-time search across all saved notes',
-          'Filtered notes based on keywords with optimized performance',
-        ],
-      ),
-      FeatureModel(
-        feature: 'State Management',
-        featurePoints: [
-          'Used Cubit for efficient and lightweight state management',
-          'Ensured responsive UI updates upon note modifications',
-        ],
-      ),
-      FeatureModel(
-        feature: 'Local Data Storage',
-        featurePoints: [
-          'Stored notes locally using Hive for fast and reliable access',
-          'Ensured data persistence even after the app is closed or restarted',
-        ],
-      ),
-      FeatureModel(
-        feature: 'Note Sorting',
-        featurePoints: [
-          'Provided sorting options by date or alphabetical order',
-          'Improved user experience by keeping recent notes easily accessible',
-        ],
-      ),
-      FeatureModel(
-        feature: 'UI/UX Design',
-        featurePoints: [
-          'Built a clean and minimalistic user interface for easy note management',
-          'Ensured smooth user interactions and organized layout for better readability',
-        ],
-      ),
-    ],
-    link: 'https://github.com/Eslam-Hossam1/notes_app',
+    thumbnail: 'assets/images/vibes player thumbnail.png',
   ),
   const Project(
     name: 'Bookly – Book Browsing App',
@@ -397,6 +335,7 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/bookly_app',
+    thumbnail: 'assets/images/bookly thumbnail.png',
   ),
   const Project(
     name: 'Calculator App',
@@ -444,5 +383,6 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/calculator_app',
+    thumbnail: 'assets/images/calcy thumbnail.png',
   ),
 ];

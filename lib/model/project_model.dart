@@ -7,6 +7,7 @@ class Project {
   final List<String> videos;
   final List<FeatureModel> featureModelsList;
   final String link;
+  final String thumbnail;
   const Project({
     required this.name,
     required this.description,
@@ -14,5 +15,6 @@ class Project {
     required this.videos,
     required this.link,
     required this.featureModelsList,
+    required this.thumbnail,
   });
 }
