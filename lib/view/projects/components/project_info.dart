@@ -138,10 +138,16 @@ class _ProjectStackState extends State<ProjectStack> {
                                   ).createShader(bounds),
                             child: Text(
                               project.name,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,
-                                fontSize: 16,
+                                fontSize: Responsive.isDesktop(context)
+                                    ? 16
+                                    : Responsive.isMobile(context)
+                                        ? 13
+                                        : Responsive.isLargeMobile(context)
+                                            ? 14
+                                            : 15,
                                 letterSpacing: 0.3,
                               ),
                               maxLines: 2,
