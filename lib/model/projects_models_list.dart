@@ -95,7 +95,7 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/Iron-Pulse-Fitness-App',
-    thumbnail: 'assets/images/iron pulse thumbnail.png',
+    thumbnail: 'https://res.cloudinary.com/deshi2o56/image/upload/v1782007169/iron_pulse_thumbnail_bvm2hc.png',
   ),
   Project(
     name: 'Chefio – Recipe Sharing App',
@@ -201,7 +201,7 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/Chefio-Recipe-Sharing-App',
-    thumbnail: 'assets/images/chefio thumbnail.png',
+    thumbnail: 'https://res.cloudinary.com/deshi2o56/image/upload/v1782007174/chefio_thumbnail_nz39o2.png',
   ),
   const Project(
     name: 'Vibes – Music Player App',
@@ -260,7 +260,7 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/Vibes-Music-Player-App',
-    thumbnail: 'assets/images/vibes player thumbnail.png',
+    thumbnail: 'https://res.cloudinary.com/deshi2o56/image/upload/v1782007169/vibes_player_thumbnail_lvw8sr.png',
   ),
   const Project(
     name: 'Bookly – Book Browsing App',
@@ -335,7 +335,7 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/bookly_app',
-    thumbnail: 'assets/images/bookly thumbnail.png',
+    thumbnail: 'https://res.cloudinary.com/deshi2o56/image/upload/v1782007168/bookly_thumbnail_sz2atm.png',
   ),
   const Project(
     name: 'Calcy – Calculator App',
@@ -383,6 +383,6 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/calculator_app',
-    thumbnail: 'assets/images/calcy thumbnail.png',
+    thumbnail: 'https://res.cloudinary.com/deshi2o56/image/upload/v1782007171/calcy_thumbnail_soqkty.png',
   ),
 ];

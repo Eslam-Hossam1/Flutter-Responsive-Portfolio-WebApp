@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_portfolio/model/projects_models_list.dart';
 import 'package:flutter_portfolio/view%20model/responsive.dart';
 import 'package:go_router/go_router.dart';
@@ -74,15 +75,17 @@ class _ProjectStackState extends State<ProjectStack> {
                             duration: const Duration(milliseconds: 400),
                             curve: Curves.easeOut,
                             child: thumbnailPath.isNotEmpty
-                                ? Image.asset(
-                                    thumbnailPath,
+                                ? CachedNetworkImage(
+                                    imageUrl: thumbnailPath,
                                     fit: BoxFit.cover,
-                                    errorBuilder:
-                                        (context, error, stackTrace) =>
-                                            Container(
+                                    errorWidget: (context, url, error) =>
+                                        Container(
                                       color: bgColor,
                                       child: const Icon(Icons.broken_image,
                                           color: Colors.white38),
+                                    ),
+                                    placeholder: (context, url) => Container(
+                                      color: bgColor,
                                     ),
                                   )
                                 : Container(color: bgColor),
@@ -143,13 +146,13 @@ class _ProjectStackState extends State<ProjectStack> {
                                 fontWeight: FontWeight.w800,
                                 fontSize: Responsive.isDesktop(context)
                                     ? 16
-                                    :Responsive.isSmallMobile(context)
-                                    ? 13
-                                    : Responsive.isMobile(context)
-                                        ? 15
-                                        : Responsive.isLargeMobile(context)
+                                    : Responsive.isSmallMobile(context)
+                                        ? 13
+                                        : Responsive.isMobile(context)
                                             ? 15
-                                            : 15,
+                                            : Responsive.isLargeMobile(context)
+                                                ? 15
+                                                : 15,
                                 letterSpacing: 0.3,
                               ),
                               maxLines: 2,
