@@ -143,10 +143,12 @@ class _ProjectStackState extends State<ProjectStack> {
                                 fontWeight: FontWeight.w800,
                                 fontSize: Responsive.isDesktop(context)
                                     ? 16
+                                    :Responsive.isSmallMobile(context)
+                                    ? 13
                                     : Responsive.isMobile(context)
-                                        ? 13
+                                        ? 15
                                         : Responsive.isLargeMobile(context)
-                                            ? 14
+                                            ? 15
                                             : 15,
                                 letterSpacing: 0.3,
                               ),

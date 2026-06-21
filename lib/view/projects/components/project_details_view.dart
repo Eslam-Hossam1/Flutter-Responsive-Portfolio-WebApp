@@ -67,13 +67,10 @@ class _ProjectDetailsViewState extends State<ProjectDetailsView> {
                   backgroundColor: bgColor,
                   floating: true,
                   automaticallyImplyLeading: false,
-                  leading: isMobile
-                      ? IconButton(
-                          icon:
-                              const Icon(Icons.arrow_back, color: Colors.white),
-                          onPressed: () => Navigator.pop(context),
-                        )
-                      : null,
+                  leading: IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    onPressed: () => Navigator.pop(context),
+                  ),
                   title: Text(
                     widget.name,
                     style: const TextStyle(
