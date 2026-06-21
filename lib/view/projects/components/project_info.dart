@@ -78,6 +78,7 @@ class _ProjectStackState extends State<ProjectStack> {
                                 ? CachedNetworkImage(
                                     imageUrl: thumbnailPath,
                                     fit: BoxFit.cover,
+                                    filterQuality: FilterQuality.high,
                                     errorWidget: (context, url, error) =>
                                         Container(
                                       color: bgColor,
