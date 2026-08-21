@@ -5,111 +5,183 @@ import 'package:flutter_portfolio/model/project_model.dart';
 
 List<Project> projectList = [
   Project(
-    name: 'NextCart – E-Commerce App',
+    name: 'NextCart – Production E-Commerce Platform',
     description:
-        'NextCart is a production-oriented, full-featured E-Commerce Flutter app backed by Supabase and real Stripe payment processing.\n\nThe app supports browsing products by category and brand, exploring flash sales, viewing detailed product pages, managing a cart and favorites, and a complete checkout flow powered by Stripe — including card payments and multiple payment methods.\n\nStripe Webhooks are used server-side to listen for payment events and reliably update order status in Supabase, ensuring consistency even when the app is closed.\n\nUsers can track their orders and manage their profile — all within a seamlessly designed light and dark theme.\n\nArchitected with Clean Architecture, Bloc (Cubit) state management, and a modular, scalable feature structure.',
+        'NextCart is a production-oriented E-Commerce mobile application built with Flutter, designed around a scalable architecture and a real-world commerce workflow.\n\n'
+        'The application delivers a complete shopping experience — from onboarding and authentication to product discovery, personalized browsing, cart management, checkout, real payment processing, and order tracking.\n\n'
+        'The application is powered by Supabase and PostgreSQL, providing authentication, database services, Row Level Security, and server-side business logic through Edge Functions.\n\n'
+        'Payments are integrated with Stripe using PaymentIntents and Stripe Customer management. Payment confirmation is handled through server-side Stripe Webhooks rather than relying on the mobile client, ensuring order state remains reliable even if the application is closed or interrupted during payment.\n\n'
+        'The project follows Clean Architecture with feature-based modularization, Bloc/Cubit state management, dependency injection, explicit failure handling, and a clear separation between presentation, domain, and data layers.\n\n'
+        'Beyond its feature set, NextCart was engineered with production concerns in mind — including secure server-side price calculation, RLS-protected user data, webhook-driven order state synchronization, payment idempotency considerations, persistent user sessions, and a responsive light/dark themed experience.',
     images: NextCartUrlHelper.toBeUsedImages,
     videos: NextCartUrlHelper.toBeUsedVideos,
     featureModelsList: [
       const FeatureModel(
-        feature: 'Onboarding',
+        feature: '🚀 Onboarding & First Experience',
         featurePoints: [
-          'Three-screen animated onboarding introducing the app\'s core value propositions',
+          'Three-screen animated onboarding experience introducing the platform and its core capabilities',
           'Smooth page transitions with skip and get-started actions',
+          'Designed to provide a polished first-touch experience before authentication',
         ],
       ),
       const FeatureModel(
-        feature: 'Authentication',
+        feature: '🔐 Authentication & Session Management',
         featurePoints: [
-          'Implemented Sign Up and Login flows with form validation',
-          'Secure session management backed by Supabase Auth',
-          'Token handling and refresh interceptor for seamless background re-authentication',
+          'Complete Sign Up and Login flows with client-side form validation',
+          'Supabase Auth integration for secure user authentication and session management',
+          'Persistent authentication state across application launches',
+          'Automatic token refresh handling for seamless background re-authentication',
         ],
       ),
       const FeatureModel(
-        feature: 'Home & Discovery',
+        feature: '🏠 Home & Product Discovery',
         featurePoints: [
-          'Dynamic home screen with curated banners, fire-sale promotions, and featured sections',
-          'Horizontal scrollable sections for quick product discovery',
-          'Real-time data fetched from Supabase with caching for smooth performance',
+          'Dynamic home experience with promotional banners, flash-sale campaigns, and curated product sections',
+          'Horizontal product discovery sections optimized for fast browsing',
+          'Popular and featured products surfaced directly from the backend',
+          'Supabase-powered data fetching with caching for a smoother browsing experience',
         ],
       ),
       const FeatureModel(
-        feature: 'Browse by Category & Brand',
+        feature: '🔎 Search, Categories & Brands',
         featurePoints: [
-          'Dedicated categories and brands screens for structured product discovery',
-          'Popular products section with high-quality imagery and key product info',
+          'Structured product discovery through categories and brands',
+          'Search functionality for quickly finding products',
+          'Dedicated browsing experiences for categories and brands',
+          'Filter and discovery flows designed around real e-commerce navigation patterns',
         ],
       ),
       const FeatureModel(
-        feature: 'Product Details',
+        feature: '🛍️ Product Details',
         featurePoints: [
-          'Rich product details page with images, description, price, and variant selection',
-          'Add to cart and add to favorites directly from the product page',
+          'Rich product details experience with image galleries, descriptions, pricing, ratings, and stock information',
+          'Product-specific actions including Add to Cart and Add to Favorites',
+          'Responsive product presentation across different content states',
         ],
       ),
       const FeatureModel(
-        feature: 'Favorites',
+        feature: '❤️ Favorites & Personalization',
         featurePoints: [
-          'Dedicated favorites screen for saved products with reactive state updates',
-          'Favorites synced with Supabase so they persist across sessions and devices',
+          'Persistent favorites system synchronized with Supabase',
+          'Reactive UI updates when products are added or removed from favorites',
+          'Favorites remain available across sessions and devices for authenticated users',
         ],
       ),
       const FeatureModel(
-        feature: 'Cart & Checkout',
+        feature: '🛒 Cart Management',
         featurePoints: [
-          'Cart management with quantity controls and item removal, persisted in Supabase',
-          'Multi-step checkout flow: review cart → payment method → confirmation',
-          'Real Stripe integration: card payments and multiple payment methods via Stripe SDK',
-          'Payment Intent created server-side for secure, production-safe transactions',
-          'Payment success screen with clear order confirmation feedback',
+          'Persistent server-backed shopping cart',
+          'Quantity management, item removal, subtotal calculation, and cart synchronization',
+          'Cart state remains associated with the authenticated user',
+          'Checkout operates on server-validated cart data rather than trusting client-calculated prices',
         ],
       ),
       const FeatureModel(
-        feature: 'Stripe Webhooks & Order Reliability',
+        feature: '💳 Production-Oriented Stripe Checkout',
         featurePoints: [
-          'Stripe Webhooks configured server-side to listen for payment_intent.succeeded and payment_intent.payment_failed events',
-          'Order status in Supabase is updated reliably by the webhook — not by the client — ensuring correctness even if the app closes during payment',
-          'Production-oriented design: the system handles payment outcomes independently of the Flutter app lifecycle',
+          'Real Stripe payment integration using the Stripe Flutter SDK',
+          'Native Stripe Payment Sheet experience for secure payment collection',
+          'PaymentIntent creation performed server-side through Supabase Edge Functions',
+          'Server-side cart and price calculation to prevent client-side price manipulation',
+          'Stripe Customer management allowing returning customers to reuse their saved payment methods where supported',
+          'Support for multiple Stripe-supported payment methods through the Payment Sheet',
         ],
       ),
       const FeatureModel(
-        feature: 'Orders & Order Details',
+        feature: '🔄 Stripe Webhooks & Payment Reliability',
         featurePoints: [
-          'Orders screen listing all past and active orders with real-time status from Supabase',
-          'Order status driven by Stripe Webhook events for guaranteed accuracy',
-          'Detailed order view with itemized breakdown and delivery info',
+          'Dedicated Supabase Edge Function receiving Stripe webhook events',
+          'Cryptographic Stripe webhook signature verification before processing events',
+          'Payment state is determined server-side rather than trusting the Flutter client',
+          'Handles successful, failed, cancelled, and refunded payment events',
+          'Webhook-driven order updates remain reliable even when the mobile application is closed',
+          'Webhook idempotency prevents the same Stripe event from being processed multiple times',
         ],
       ),
       const FeatureModel(
-        feature: 'Backend & Database (Supabase)',
+        feature: '📦 Orders & Order Lifecycle',
         featurePoints: [
-          'Supabase as the backend: PostgreSQL database, Auth, and REST API',
-          'Row Level Security (RLS) policies to protect user data at the database level',
-          'Efficient queries with proper indexing for products, orders, cart, and favorites',
+          'Complete order creation and persistence workflow tied to authenticated users',
+          'Order history containing both active and previously completed purchases',
+          'Detailed order view with itemized products, quantities, pricing, shipping, and totals',
+          'Order lifecycle represented through meaningful states such as pending payment, paid, processing, shipped, delivered, cancelled, and refunded',
+          'Order status synchronized from authoritative payment events received through Stripe Webhooks',
         ],
       ),
       const FeatureModel(
-        feature: 'Profile & Edit Profile',
+        feature: '⚡ Server-Side Business Logic',
         featurePoints: [
-          'User profile screen with personal details and account settings',
-          'Edit profile functionality with form validation synced to Supabase',
+          'Supabase Edge Functions handle sensitive checkout and payment operations',
+          'Client never determines the authoritative order total',
+          'Backend validates the authenticated user before initiating checkout',
+          'Payment and order operations are separated from the Flutter application lifecycle',
+          'Sensitive Stripe operations remain isolated from the mobile client',
         ],
       ),
       const FeatureModel(
-        feature: 'Theming',
+        feature: '🗄️ Supabase & PostgreSQL',
         featurePoints: [
-          'Full light and dark theme support with consistent design tokens',
-          'Seamless theme switching with persisted user preference via HydratedCubit',
+          'Supabase PostgreSQL used as the primary application database',
+          'Supabase Auth for identity and session management',
+          'Row Level Security policies protecting user-owned resources',
+          'Dedicated relational models for products, cart, favorites, orders, order items, payments, and Stripe customers',
+          'Database indexing and structured queries designed for efficient data access',
         ],
       ),
       const FeatureModel(
-        feature: 'Clean Architecture & Bloc (Cubit)',
+        feature: '🛡️ Security & Data Integrity',
         featurePoints: [
-          'Clean Architecture with domain, data, and presentation layers per feature',
-          'Bloc (Cubit) for predictable and testable state management',
-          'Dependency injection with get_it for decoupled and modular code',
-          'Either<Failure, T> for explicit, safe error handling across all layers',
+          'Row Level Security prevents users from accessing other users\' data',
+          'Stripe webhook signature verification protects the payment event pipeline',
+          'Sensitive server-side operations are executed through Supabase Edge Functions',
+          'Payment confirmation is based on Stripe server events rather than client-side success callbacks',
+          'Order items are snapshot-based to preserve the purchased product information at checkout time',
+        ],
+      ),
+      const FeatureModel(
+        feature: '👤 Profile & Account Management',
+        featurePoints: [
+          'Personalized user profile experience',
+          'Edit profile functionality with validation and Supabase synchronization',
+          'Centralized access to order history and account preferences',
+          'Persistent account state across application sessions',
+        ],
+      ),
+      const FeatureModel(
+        feature: '🌗 Light & Dark Theming',
+        featurePoints: [
+          'Complete light and dark theme system',
+          'Consistent design tokens across the application',
+          'System theme support alongside user-controlled theme preferences',
+          'Theme preference persisted across application sessions',
+        ],
+      ),
+      const FeatureModel(
+        feature: '🏗️ Clean Architecture',
+        featurePoints: [
+          'Feature-first modular project structure',
+          'Clear separation between Presentation, Domain, and Data layers',
+          'Domain-driven entities, repositories, use cases, and parameters',
+          'Repository abstraction isolates business logic from external data sources',
+          'Designed to remain maintainable and extensible as the application grows',
+        ],
+      ),
+      const FeatureModel(
+        feature: '⚙️ Bloc / Cubit State Management',
+        featurePoints: [
+          'Bloc/Cubit used for predictable and reactive state management',
+          'Dedicated Cubits for authentication, cart, checkout, orders, favorites, and other feature flows',
+          'Explicit loading, success, and failure states',
+          'Business logic kept outside UI components',
+        ],
+      ),
+      const FeatureModel(
+        feature: '🧩 Dependency Injection & Error Handling',
+        featurePoints: [
+          'GetIt used for dependency injection and service registration',
+          'Decoupled dependencies across repositories, data sources, services, and Cubits',
+          'Either<Failure, T> pattern for explicit and predictable error propagation',
+          'Centralized failure handling for consistent application behavior',
         ],
       ),
     ],
@@ -209,7 +281,8 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/Iron-Pulse-Fitness-App',
-    thumbnail: 'https://res.cloudinary.com/deshi2o56/image/upload/q_100/v1782007169/iron_pulse_thumbnail_bvm2hc.png',
+    thumbnail:
+        'https://res.cloudinary.com/deshi2o56/image/upload/q_100/v1782007169/iron_pulse_thumbnail_bvm2hc.png',
   ),
   Project(
     name: 'Chefio – Recipe Sharing App',
@@ -315,7 +388,8 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/Chefio-Recipe-Sharing-App',
-    thumbnail: 'https://res.cloudinary.com/deshi2o56/image/upload/q_100/v1782007174/chefio_thumbnail_nz39o2.png',
+    thumbnail:
+        'https://res.cloudinary.com/deshi2o56/image/upload/q_100/v1782007174/chefio_thumbnail_nz39o2.png',
   ),
   const Project(
     name: 'Vibes – Music Player App',
@@ -374,7 +448,8 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/Vibes-Music-Player-App',
-    thumbnail: 'https://res.cloudinary.com/deshi2o56/image/upload/q_100/v1782007169/vibes_player_thumbnail_lvw8sr.png',
+    thumbnail:
+        'https://res.cloudinary.com/deshi2o56/image/upload/q_100/v1782007169/vibes_player_thumbnail_lvw8sr.png',
   ),
   const Project(
     name: 'Bookly – Book Browsing App',
@@ -449,7 +524,8 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/bookly_app',
-    thumbnail: 'https://res.cloudinary.com/deshi2o56/image/upload/q_100/v1782007168/bookly_thumbnail_sz2atm.png',
+    thumbnail:
+        'https://res.cloudinary.com/deshi2o56/image/upload/q_100/v1782007168/bookly_thumbnail_sz2atm.png',
   ),
   const Project(
     name: 'Calcy – Calculator App',
@@ -497,6 +573,7 @@ List<Project> projectList = [
       ),
     ],
     link: 'https://github.com/Eslam-Hossam1/calculator_app',
-    thumbnail: 'https://res.cloudinary.com/deshi2o56/image/upload/q_100/v1782007171/calcy_thumbnail_soqkty.png',
+    thumbnail:
+        'https://res.cloudinary.com/deshi2o56/image/upload/q_100/v1782007171/calcy_thumbnail_soqkty.png',
   ),
 ];
