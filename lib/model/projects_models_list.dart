@@ -1,8 +1,102 @@
 import 'package:flutter_portfolio/model/chefio_urls_helper.dart';
 import 'package:flutter_portfolio/model/feature_model.dart';
+import 'package:flutter_portfolio/model/nextcart_urls_helper.dart';
 import 'package:flutter_portfolio/model/project_model.dart';
 
 List<Project> projectList = [
+  Project(
+    name: 'NextCart – E-Commerce App',
+    description:
+        'NextCart is a full-featured E-Commerce Flutter app with a rich shopping experience and a beautifully crafted UI.\n\nThe app supports browsing products by category and brand, exploring flash sales, viewing detailed product pages, managing a cart and favorites, and a full checkout flow with multiple payment methods.\n\nUsers can track their orders and manage their profile — all within a seamlessly designed light and dark theme.\n\nArchitected with Clean Architecture, Bloc (Cubit) state management, and a modular feature structure.',
+    images: NextCartUrlHelper.toBeUsedImages,
+    videos: NextCartUrlHelper.toBeUsedVideos,
+    featureModelsList: [
+      const FeatureModel(
+        feature: 'Onboarding',
+        featurePoints: [
+          'Three-screen animated onboarding introducing the app\'s core value propositions',
+          'Smooth page transitions with skip and get-started actions',
+        ],
+      ),
+      const FeatureModel(
+        feature: 'Authentication',
+        featurePoints: [
+          'Implemented Sign Up and Login flows with form validation',
+          'Secure credential handling with clean separation of auth logic',
+        ],
+      ),
+      const FeatureModel(
+        feature: 'Home & Discovery',
+        featurePoints: [
+          'Dynamic home screen with curated banners, fire-sale promotions, and featured sections',
+          'Horizontal scrollable sections for quick product discovery',
+          'Real-time search and filter integration from the AppBar',
+        ],
+      ),
+      const FeatureModel(
+        feature: 'Browse by Category & Brand',
+        featurePoints: [
+          'Dedicated categories and brands screens for structured product discovery',
+          'Popular products section with high-quality imagery and key product info',
+        ],
+      ),
+      const FeatureModel(
+        feature: 'Product Details',
+        featurePoints: [
+          'Rich product details page with images, description, price, and variant selection',
+          'Add to cart and add to favorites directly from the product page',
+        ],
+      ),
+      const FeatureModel(
+        feature: 'Favorites',
+        featurePoints: [
+          'Dedicated favorites screen for saved products with reactive state updates',
+          'Toggle favorite from any product listing or detail screen',
+        ],
+      ),
+      const FeatureModel(
+        feature: 'Cart & Checkout',
+        featurePoints: [
+          'Cart management with quantity controls and item removal',
+          'Multi-step checkout flow: review cart → payment method → confirmation',
+          'Support for payment card and multiple payment methods',
+          'Payment success screen with clear order confirmation feedback',
+        ],
+      ),
+      const FeatureModel(
+        feature: 'Orders & Order Details',
+        featurePoints: [
+          'Orders screen listing all past and active orders with status indicators',
+          'Detailed order view with itemized breakdown and delivery info',
+        ],
+      ),
+      const FeatureModel(
+        feature: 'Profile & Edit Profile',
+        featurePoints: [
+          'User profile screen with personal details and account settings',
+          'Edit profile functionality with form validation and instant UI feedback',
+        ],
+      ),
+      const FeatureModel(
+        feature: 'Theming',
+        featurePoints: [
+          'Full light and dark theme support with consistent design tokens',
+          'Seamless theme switching with persisted user preference',
+        ],
+      ),
+      const FeatureModel(
+        feature: 'Clean Architecture & Bloc (Cubit)',
+        featurePoints: [
+          'Clean Architecture with domain, data, and presentation layers per feature',
+          'Bloc (Cubit) for predictable and testable state management',
+          'Dependency injection with get_it for decoupled and modular code',
+        ],
+      ),
+    ],
+    link: 'https://github.com/Eslam-Hossam1/NextCart',
+    thumbnail:
+        'https://res.cloudinary.com/deshi2o56/image/upload/v1787354435/NextCart_banner_hdaqsk.jpg',
+  ),
   const Project(
     name: 'Iron Pulse – Fitness App',
     description:
