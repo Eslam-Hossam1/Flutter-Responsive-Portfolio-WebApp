@@ -7,7 +7,7 @@ List<Project> projectList = [
   Project(
     name: 'NextCart – E-Commerce App',
     description:
-        'NextCart is a full-featured E-Commerce Flutter app with a rich shopping experience and a beautifully crafted UI.\n\nThe app supports browsing products by category and brand, exploring flash sales, viewing detailed product pages, managing a cart and favorites, and a full checkout flow with multiple payment methods.\n\nUsers can track their orders and manage their profile — all within a seamlessly designed light and dark theme.\n\nArchitected with Clean Architecture, Bloc (Cubit) state management, and a modular feature structure.',
+        'NextCart is a production-oriented, full-featured E-Commerce Flutter app backed by Supabase and real Stripe payment processing.\n\nThe app supports browsing products by category and brand, exploring flash sales, viewing detailed product pages, managing a cart and favorites, and a complete checkout flow powered by Stripe — including card payments and multiple payment methods.\n\nStripe Webhooks are used server-side to listen for payment events and reliably update order status in Supabase, ensuring consistency even when the app is closed.\n\nUsers can track their orders and manage their profile — all within a seamlessly designed light and dark theme.\n\nArchitected with Clean Architecture, Bloc (Cubit) state management, and a modular, scalable feature structure.',
     images: NextCartUrlHelper.toBeUsedImages,
     videos: NextCartUrlHelper.toBeUsedVideos,
     featureModelsList: [
@@ -22,7 +22,8 @@ List<Project> projectList = [
         feature: 'Authentication',
         featurePoints: [
           'Implemented Sign Up and Login flows with form validation',
-          'Secure credential handling with clean separation of auth logic',
+          'Secure session management backed by Supabase Auth',
+          'Token handling and refresh interceptor for seamless background re-authentication',
         ],
       ),
       const FeatureModel(
@@ -30,7 +31,7 @@ List<Project> projectList = [
         featurePoints: [
           'Dynamic home screen with curated banners, fire-sale promotions, and featured sections',
           'Horizontal scrollable sections for quick product discovery',
-          'Real-time search and filter integration from the AppBar',
+          'Real-time data fetched from Supabase with caching for smooth performance',
         ],
       ),
       const FeatureModel(
@@ -51,37 +52,55 @@ List<Project> projectList = [
         feature: 'Favorites',
         featurePoints: [
           'Dedicated favorites screen for saved products with reactive state updates',
-          'Toggle favorite from any product listing or detail screen',
+          'Favorites synced with Supabase so they persist across sessions and devices',
         ],
       ),
       const FeatureModel(
         feature: 'Cart & Checkout',
         featurePoints: [
-          'Cart management with quantity controls and item removal',
+          'Cart management with quantity controls and item removal, persisted in Supabase',
           'Multi-step checkout flow: review cart → payment method → confirmation',
-          'Support for payment card and multiple payment methods',
+          'Real Stripe integration: card payments and multiple payment methods via Stripe SDK',
+          'Payment Intent created server-side for secure, production-safe transactions',
           'Payment success screen with clear order confirmation feedback',
+        ],
+      ),
+      const FeatureModel(
+        feature: 'Stripe Webhooks & Order Reliability',
+        featurePoints: [
+          'Stripe Webhooks configured server-side to listen for payment_intent.succeeded and payment_intent.payment_failed events',
+          'Order status in Supabase is updated reliably by the webhook — not by the client — ensuring correctness even if the app closes during payment',
+          'Production-oriented design: the system handles payment outcomes independently of the Flutter app lifecycle',
         ],
       ),
       const FeatureModel(
         feature: 'Orders & Order Details',
         featurePoints: [
-          'Orders screen listing all past and active orders with status indicators',
+          'Orders screen listing all past and active orders with real-time status from Supabase',
+          'Order status driven by Stripe Webhook events for guaranteed accuracy',
           'Detailed order view with itemized breakdown and delivery info',
+        ],
+      ),
+      const FeatureModel(
+        feature: 'Backend & Database (Supabase)',
+        featurePoints: [
+          'Supabase as the backend: PostgreSQL database, Auth, and REST API',
+          'Row Level Security (RLS) policies to protect user data at the database level',
+          'Efficient queries with proper indexing for products, orders, cart, and favorites',
         ],
       ),
       const FeatureModel(
         feature: 'Profile & Edit Profile',
         featurePoints: [
           'User profile screen with personal details and account settings',
-          'Edit profile functionality with form validation and instant UI feedback',
+          'Edit profile functionality with form validation synced to Supabase',
         ],
       ),
       const FeatureModel(
         feature: 'Theming',
         featurePoints: [
           'Full light and dark theme support with consistent design tokens',
-          'Seamless theme switching with persisted user preference',
+          'Seamless theme switching with persisted user preference via HydratedCubit',
         ],
       ),
       const FeatureModel(
@@ -90,6 +109,7 @@ List<Project> projectList = [
           'Clean Architecture with domain, data, and presentation layers per feature',
           'Bloc (Cubit) for predictable and testable state management',
           'Dependency injection with get_it for decoupled and modular code',
+          'Either<Failure, T> for explicit, safe error handling across all layers',
         ],
       ),
     ],
